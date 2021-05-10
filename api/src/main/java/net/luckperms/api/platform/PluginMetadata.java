@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -28,7 +28,7 @@ package net.luckperms.api.platform;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * Provides information about the LuckPerms plugin.
+ * Provides information about the RoryPerms plugin.
  */
 public interface PluginMetadata {
 

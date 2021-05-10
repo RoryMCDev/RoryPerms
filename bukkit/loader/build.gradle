@@ -21,7 +21,7 @@ processResources {
 }
 
 shadowJar {
-    archiveName = "LuckPerms-Bukkit-${project.ext.fullVersion}.jar"
+    archiveName = "RoryPerms-Bukkit-${project.ext.fullVersion}.jar"
 
     from {
         project(':bukkit').tasks.shadowJar.archiveFile

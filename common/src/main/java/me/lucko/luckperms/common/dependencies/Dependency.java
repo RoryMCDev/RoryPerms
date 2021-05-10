@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -37,7 +37,7 @@ import java.util.Base64;
 import java.util.List;
 
 /**
- * The dependencies used by LuckPerms.
+ * The dependencies used by RoryPerms.
  */
 public enum Dependency {
 

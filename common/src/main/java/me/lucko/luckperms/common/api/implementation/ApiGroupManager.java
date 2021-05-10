@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,7 +32,7 @@ import me.lucko.luckperms.common.model.Group;
 import me.lucko.luckperms.common.model.manager.group.GroupManager;
 import me.lucko.luckperms.common.node.matcher.ConstraintNodeMatcher;
 import me.lucko.luckperms.common.node.matcher.StandardNodeMatchers;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.misc.NodeEntry;
 import me.lucko.luckperms.common.util.ImmutableCollectors;
 
@@ -54,7 +54,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class ApiGroupManager extends ApiAbstractManager<Group, net.luckperms.api.model.group.Group, GroupManager<?>> implements net.luckperms.api.model.group.GroupManager {
-    public ApiGroupManager(LuckPermsPlugin plugin, GroupManager<?> handle) {
+    public ApiGroupManager(RoryPermsPlugin plugin, GroupManager<?> handle) {
         super(plugin, handle);
     }
 

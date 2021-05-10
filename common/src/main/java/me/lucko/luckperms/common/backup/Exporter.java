@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -35,7 +35,7 @@ import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.model.manager.group.GroupManager;
 import me.lucko.luckperms.common.node.utils.NodeJsonSerializer;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.storage.Storage;
 import me.lucko.luckperms.common.util.gson.GsonProvider;
@@ -79,13 +79,13 @@ import java.util.zip.GZIPOutputStream;
 public abstract class Exporter implements Runnable {
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
 
-    protected final LuckPermsPlugin plugin;
+    protected final RoryPermsPlugin plugin;
     private final Sender executor;
     private final boolean includeUsers;
     private final boolean includeGroups;
     protected final ProgressLogger log;
 
-    protected Exporter(LuckPermsPlugin plugin, Sender executor, boolean includeUsers, boolean includeGroups) {
+    protected Exporter(RoryPermsPlugin plugin, Sender executor, boolean includeUsers, boolean includeGroups) {
         this.plugin = plugin;
         this.executor = executor;
         this.includeUsers = includeUsers;
@@ -224,7 +224,7 @@ public abstract class Exporter implements Runnable {
     public static final class SaveFile extends Exporter {
         private final Path filePath;
 
-        public SaveFile(LuckPermsPlugin plugin, Sender executor, Path filePath, boolean includeUsers, boolean includeGroups) {
+        public SaveFile(RoryPermsPlugin plugin, Sender executor, Path filePath, boolean includeUsers, boolean includeGroups) {
             super(plugin, executor, includeUsers, includeGroups);
             this.filePath = filePath;
         }
@@ -246,7 +246,7 @@ public abstract class Exporter implements Runnable {
     public static final class WebUpload extends Exporter {
         private final String label;
 
-        public WebUpload(LuckPermsPlugin plugin, Sender executor, boolean includeUsers, boolean includeGroups, String label) {
+        public WebUpload(RoryPermsPlugin plugin, Sender executor, boolean includeUsers, boolean includeGroups, String label) {
             super(plugin, executor, includeUsers, includeGroups);
             this.label = label;
         }

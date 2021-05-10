@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,7 +32,7 @@ import com.google.gson.stream.JsonReader;
 import me.lucko.luckperms.common.actionlog.ActionJsonSerializer;
 import me.lucko.luckperms.common.actionlog.Log;
 import me.lucko.luckperms.common.cache.BufferedRequest;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.gson.GsonProvider;
 
 import net.luckperms.api.actionlog.Action;
@@ -69,7 +69,7 @@ public class FileActionLogger {
 
     private final SaveBuffer saveBuffer;
 
-    public FileActionLogger(LuckPermsPlugin plugin) {
+    public FileActionLogger(RoryPermsPlugin plugin) {
         this.saveBuffer = new SaveBuffer(plugin);
     }
 
@@ -155,7 +155,7 @@ public class FileActionLogger {
     }
 
     private final class SaveBuffer extends BufferedRequest<Void> {
-        public SaveBuffer(LuckPermsPlugin plugin) {
+        public SaveBuffer(RoryPermsPlugin plugin) {
             super(2, TimeUnit.SECONDS, plugin.getBootstrap().getScheduler());
         }
 

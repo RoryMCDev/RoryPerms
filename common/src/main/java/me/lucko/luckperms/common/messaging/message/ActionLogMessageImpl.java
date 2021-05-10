@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -28,7 +28,7 @@ package me.lucko.luckperms.common.messaging.message;
 import com.google.gson.JsonElement;
 
 import me.lucko.luckperms.common.actionlog.ActionJsonSerializer;
-import me.lucko.luckperms.common.messaging.LuckPermsMessagingService;
+import me.lucko.luckperms.common.messaging.RoryPermsMessagingService;
 
 import net.luckperms.api.actionlog.Action;
 import net.luckperms.api.messenger.message.type.ActionLogMessage;
@@ -63,7 +63,7 @@ public class ActionLogMessageImpl extends AbstractMessage implements ActionLogMe
 
     @Override
     public @NonNull String asEncodedString() {
-        return LuckPermsMessagingService.encodeMessageAsString(
+        return RoryPermsMessagingService.encodeMessageAsString(
                 TYPE, getId(), ActionJsonSerializer.serialize(this.logEntry)
         );
     }

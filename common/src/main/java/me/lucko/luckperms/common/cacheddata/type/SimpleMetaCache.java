@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -33,7 +33,7 @@ import com.google.common.collect.Multimaps;
 
 import me.lucko.luckperms.common.cacheddata.UsageTracked;
 import me.lucko.luckperms.common.config.ConfigKeys;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.verbose.event.MetaCheckEvent;
 
 import net.luckperms.api.cacheddata.CachedMetaData;
@@ -54,7 +54,7 @@ import java.util.SortedMap;
  */
 public class SimpleMetaCache extends UsageTracked implements CachedMetaData {
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     /** The query options this container is holding data for */
     private final QueryOptions queryOptions;
@@ -71,7 +71,7 @@ public class SimpleMetaCache extends UsageTracked implements CachedMetaData {
     private final String prefix;
     private final String suffix;
 
-    public SimpleMetaCache(LuckPermsPlugin plugin, QueryOptions queryOptions, MetaAccumulator sourceMeta) {
+    public SimpleMetaCache(RoryPermsPlugin plugin, QueryOptions queryOptions, MetaAccumulator sourceMeta) {
         this.plugin = plugin;
         this.queryOptions = queryOptions;
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -34,7 +34,7 @@ public final class CaffeineFactory {
     private CaffeineFactory() {}
 
     /**
-     * Our own fork join pool for LuckPerms cache operations.
+     * Our own fork join pool for RoryPerms cache operations.
      *
      * By default, Caffeine uses the ForkJoinPool.commonPool instance.
      * However... ForkJoinPool is a fixed size pool limited by Runtime.availableProcessors.

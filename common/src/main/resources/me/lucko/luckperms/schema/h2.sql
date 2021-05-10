@@ -1,4 +1,4 @@
--- LuckPerms H2 Schema.
+-- RoryPerms H2 Schema.
 
 CREATE TABLE `{prefix}user_permissions` (
   `id`         INT AUTO_INCREMENT NOT NULL,

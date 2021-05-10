@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package me.lucko.luckperms.bukkit;
 
 import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -39,11 +39,11 @@ import java.util.Map;
 import java.util.Set;
 
 public class BukkitConfigAdapter implements ConfigurationAdapter {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final File file;
     private YamlConfiguration configuration;
 
-    public BukkitConfigAdapter(LuckPermsPlugin plugin, File file) {
+    public BukkitConfigAdapter(RoryPermsPlugin plugin, File file) {
         this.plugin = plugin;
         this.file = file;
         reload();
@@ -102,7 +102,7 @@ public class BukkitConfigAdapter implements ConfigurationAdapter {
     }
 
     @Override
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 }

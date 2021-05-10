@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -33,7 +33,7 @@ import me.lucko.luckperms.common.model.HolderType;
 import me.lucko.luckperms.common.model.PermissionHolder;
 import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 
 import java.util.Optional;
@@ -44,7 +44,7 @@ import java.util.Optional;
 public final class StorageAssistant {
     private StorageAssistant() {}
 
-    public static Group loadGroup(String target, Sender sender, LuckPermsPlugin plugin, boolean auditTemporary) {
+    public static Group loadGroup(String target, Sender sender, RoryPermsPlugin plugin, boolean auditTemporary) {
         Group group = plugin.getGroupManager().getByDisplayName(target);
         if (group != null) {
             target = group.getName();
@@ -63,7 +63,7 @@ public final class StorageAssistant {
         return group;
     }
 
-    public static Track loadTrack(String target, Sender sender, LuckPermsPlugin plugin) {
+    public static Track loadTrack(String target, Sender sender, RoryPermsPlugin plugin) {
         Track track = plugin.getStorage().loadTrack(target).join().orElse(null);
         if (track == null) {
             Message.TRACK_NOT_FOUND.send(sender, target);
@@ -73,7 +73,7 @@ public final class StorageAssistant {
         return track;
     }
 
-    public static void save(User user, Sender sender, LuckPermsPlugin plugin) {
+    public static void save(User user, Sender sender, RoryPermsPlugin plugin) {
         try {
             plugin.getStorage().saveUser(user).get();
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public final class StorageAssistant {
         }
     }
 
-    public static void save(Group group, Sender sender, LuckPermsPlugin plugin) {
+    public static void save(Group group, Sender sender, RoryPermsPlugin plugin) {
         try {
             plugin.getStorage().saveGroup(group).get();
         } catch (Exception e) {
@@ -106,7 +106,7 @@ public final class StorageAssistant {
         }
     }
 
-    public static void save(Track track, Sender sender, LuckPermsPlugin plugin) {
+    public static void save(Track track, Sender sender, RoryPermsPlugin plugin) {
         try {
             plugin.getStorage().saveTrack(track).get();
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public final class StorageAssistant {
         }
     }
 
-    public static void save(PermissionHolder holder, Sender sender, LuckPermsPlugin plugin) {
+    public static void save(PermissionHolder holder, Sender sender, RoryPermsPlugin plugin) {
         if (holder.getType() == HolderType.USER) {
             User user = (User) holder;
             save(user, sender, plugin);

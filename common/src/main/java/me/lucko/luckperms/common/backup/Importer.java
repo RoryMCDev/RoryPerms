@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -37,7 +37,7 @@ import me.lucko.luckperms.common.model.HolderType;
 import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.node.utils.NodeJsonSerializer;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.Uuids;
 
@@ -66,12 +66,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Importer implements Runnable {
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final Set<Sender> notify;
     private final JsonObject data;
     private final boolean merge;
 
-    public Importer(LuckPermsPlugin plugin, Sender executor, JsonObject data, boolean merge) {
+    public Importer(RoryPermsPlugin plugin, Sender executor, JsonObject data, boolean merge) {
         this.plugin = plugin;
 
         if (executor.isConsole()) {

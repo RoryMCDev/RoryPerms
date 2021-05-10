@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.locale;
 
 import com.google.common.collect.Maps;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
@@ -56,15 +56,15 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TranslationManager {
-    /** The default locale used by LuckPerms messages */
+    /** The default locale used by RoryPerms messages */
     public static final Locale DEFAULT_LOCALE = Locale.ENGLISH;
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final Path translationsDirectory;
     private final Set<Locale> installed = ConcurrentHashMap.newKeySet();
     private TranslationRegistry registry;
 
-    public TranslationManager(LuckPermsPlugin plugin) {
+    public TranslationManager(RoryPermsPlugin plugin) {
         this.plugin = plugin;
         this.translationsDirectory = this.plugin.getBootstrap().getConfigDirectory().resolve("translations");
     }

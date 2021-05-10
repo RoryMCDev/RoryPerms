@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -47,9 +47,9 @@ import java.util.concurrent.CountDownLatch;
  * Bootstrap plugin interface
  *
  * <p>Instances of this interface are responsible for loading the
- * "LuckPerms plugin" on their respective platforms.</p>
+ * "RoryPerms plugin" on their respective platforms.</p>
  */
-public interface LuckPermsBootstrap {
+public interface RoryPermsBootstrap {
 
     /**
      * Gets the plugin logger
@@ -103,7 +103,7 @@ public interface LuckPermsBootstrap {
     Instant getStartupTime();
 
     /**
-     * Gets the platform type this instance of LuckPerms is running on.
+     * Gets the platform type this instance of RoryPerms is running on.
      *
      * @return the platform type
      */
@@ -135,10 +135,10 @@ public interface LuckPermsBootstrap {
     /**
      * Gets the plugins main data storage directory
      *
-     * <p>Bukkit: /root/plugins/LuckPerms</p>
-     * <p>Bungee: /root/plugins/LuckPerms</p>
+     * <p>Bukkit: /root/plugins/RoryPerms</p>
+     * <p>Bungee: /root/plugins/RoryPerms</p>
      * <p>Sponge: /root/luckperms/</p>
-     * <p>Fabric: /root/mods/LuckPerms</p>
+     * <p>Fabric: /root/mods/RoryPerms</p>
      *
      * @return the platforms data folder
      */

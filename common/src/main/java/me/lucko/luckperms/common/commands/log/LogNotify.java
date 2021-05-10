@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -34,7 +34,7 @@ import me.lucko.luckperms.common.context.contextset.ImmutableContextSetImpl;
 import me.lucko.luckperms.common.locale.Message;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.node.types.Permission;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.Predicates;
 
@@ -51,7 +51,7 @@ public class LogNotify extends ChildCommand<Log> {
         super(CommandSpec.LOG_NOTIFY, "notify", CommandPermission.LOG_NOTIFY, Predicates.notInRange(0, 1));
     }
 
-    public static boolean isIgnoring(LuckPermsPlugin plugin, UUID uuid) {
+    public static boolean isIgnoring(RoryPermsPlugin plugin, UUID uuid) {
         User user = plugin.getUserManager().getIfLoaded(uuid);
         if (user == null) {
             return false;
@@ -66,7 +66,7 @@ public class LogNotify extends ChildCommand<Log> {
         return node.map(Node::getValue).orElse(false);
     }
 
-    private static void setIgnoring(LuckPermsPlugin plugin, UUID uuid, boolean state) {
+    private static void setIgnoring(RoryPermsPlugin plugin, UUID uuid, boolean state) {
         User user = plugin.getUserManager().getIfLoaded(uuid);
         if (user == null) {
             return;
@@ -84,7 +84,7 @@ public class LogNotify extends ChildCommand<Log> {
     }
 
     @Override
-    public void execute(LuckPermsPlugin plugin, Sender sender, Log log, ArgumentList args, String label) {
+    public void execute(RoryPermsPlugin plugin, Sender sender, Log log, ArgumentList args, String label) {
         if (sender.isConsole()) {
             Message.LOG_NOTIFY_CONSOLE.send(sender);
             return;

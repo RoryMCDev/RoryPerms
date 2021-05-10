@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.util;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -51,7 +51,7 @@ public final class UniqueIdType {
     private static final String TYPE_NPC = "npc";
     public static final UniqueIdType NPC = new UniqueIdType(TYPE_NPC);
 
-    public static UniqueIdType determineType(UUID uniqueId, LuckPermsPlugin plugin) {
+    public static UniqueIdType determineType(UUID uniqueId, RoryPermsPlugin plugin) {
         // determine initial type based on the uuid version
         String type;
         switch (uniqueId.version()) {
@@ -63,8 +63,8 @@ public final class UniqueIdType {
                 break;
             case 2:
                 // if the uuid is version 2, assume it is an NPC
-                // see: https://github.com/lucko/LuckPerms/issues/1470
-                // and https://github.com/lucko/LuckPerms/issues/1470#issuecomment-475403162
+                // see: https://github.com/lucko/RoryPerms/issues/1470
+                // and https://github.com/lucko/RoryPerms/issues/1470#issuecomment-475403162
                 type = TYPE_NPC;
                 break;
             default:

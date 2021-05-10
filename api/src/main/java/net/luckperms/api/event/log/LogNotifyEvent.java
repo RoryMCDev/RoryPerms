@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package net.luckperms.api.event.log;
 
 import net.luckperms.api.actionlog.Action;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.type.Cancellable;
 import net.luckperms.api.event.util.Param;
 import net.luckperms.api.platform.PlatformEntity;
@@ -41,7 +41,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
  * but is called for objects which are ignoring log notifications (called with
  * the cancelled flag set to true).</p>
  */
-public interface LogNotifyEvent extends LuckPermsEvent, Cancellable {
+public interface LogNotifyEvent extends RoryPermsEvent, Cancellable {
 
     /**
      * Gets the log entry to be sent

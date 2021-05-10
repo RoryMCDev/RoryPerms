@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.context;
 
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPermsProvider;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -42,7 +42,7 @@ public interface ImmutableContextSet extends ContextSet {
      * @return a new ImmutableContextSet builder
      */
     static @NonNull Builder builder() {
-        return LuckPermsProvider.get().getContextManager().getContextSetFactory().immutableBuilder();
+        return RoryPermsProvider.get().getContextManager().getContextSetFactory().immutableBuilder();
     }
 
     /**
@@ -51,7 +51,7 @@ public interface ImmutableContextSet extends ContextSet {
      * @return an empty ImmutableContextSet
      */
     static @NonNull ImmutableContextSet empty() {
-        return LuckPermsProvider.get().getContextManager().getContextSetFactory().immutableEmpty();
+        return RoryPermsProvider.get().getContextManager().getContextSetFactory().immutableEmpty();
     }
 
     /**
@@ -63,7 +63,7 @@ public interface ImmutableContextSet extends ContextSet {
      * @throws NullPointerException if key or value is null
      */
     static @NonNull ImmutableContextSet of(@NonNull String key, @NonNull String value) {
-        return LuckPermsProvider.get().getContextManager().getContextSetFactory().immutableOf(key, value);
+        return RoryPermsProvider.get().getContextManager().getContextSetFactory().immutableOf(key, value);
     }
 
     /**

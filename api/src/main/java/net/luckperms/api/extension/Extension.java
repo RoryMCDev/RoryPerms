@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,15 +25,15 @@
 
 package net.luckperms.api.extension;
 
-import net.luckperms.api.LuckPerms;
+import net.luckperms.api.RoryPerms;
 
 /**
- * Represents a simple extension "plugin" for LuckPerms.
+ * Represents a simple extension "plugin" for RoryPerms.
  *
  * <p>Yes, that's right. A plugin for a plugin.</p>
  *
  * <p>Extensions should either declare a no-arg constructor, or a constructor
- * that accepts a single {@link LuckPerms} parameter as it's only argument.</p>
+ * that accepts a single {@link RoryPerms} parameter as it's only argument.</p>
  */
 public interface Extension {
 

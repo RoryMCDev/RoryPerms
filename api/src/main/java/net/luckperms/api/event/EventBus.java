@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,9 +32,9 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 /**
- * The LuckPerms event bus.
+ * The RoryPerms event bus.
  *
- * <p>Used to subscribe (or "listen") to LuckPerms events.</p>
+ * <p>Used to subscribe (or "listen") to RoryPerms events.</p>
  */
 public interface EventBus {
 
@@ -50,7 +50,7 @@ public interface EventBus {
      * @param <T>        the event class
      * @return an event handler instance representing this subscription
      */
-    <T extends LuckPermsEvent> @NonNull EventSubscription<T> subscribe(@NonNull Class<T> eventClass, @NonNull Consumer<? super T> handler);
+    <T extends RoryPermsEvent> @NonNull EventSubscription<T> subscribe(@NonNull Class<T> eventClass, @NonNull Consumer<? super T> handler);
 
     /**
      * Registers a new subscription to the given event.
@@ -70,7 +70,7 @@ public interface EventBus {
      * @param handler    the event handler
      * @return an event handler instance representing this subscription
      */
-    <T extends LuckPermsEvent> @NonNull EventSubscription<T> subscribe(Object plugin, @NonNull Class<T> eventClass, @NonNull Consumer<? super T> handler);
+    <T extends RoryPermsEvent> @NonNull EventSubscription<T> subscribe(Object plugin, @NonNull Class<T> eventClass, @NonNull Consumer<? super T> handler);
 
     /**
      * Gets a set of all registered handlers for a given event.
@@ -79,6 +79,6 @@ public interface EventBus {
      * @param <T>        the event class
      * @return an immutable set of event handlers
      */
-    <T extends LuckPermsEvent> @NonNull @Unmodifiable Set<EventSubscription<T>> getSubscriptions(@NonNull Class<T> eventClass);
+    <T extends RoryPermsEvent> @NonNull @Unmodifiable Set<EventSubscription<T>> getSubscriptions(@NonNull Class<T> eventClass);
 
 }

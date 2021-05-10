@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -29,7 +29,7 @@ import com.google.common.collect.ForwardingMap;
 import com.google.common.collect.ImmutableMap;
 
 import me.lucko.luckperms.common.cache.LoadingMap;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.treeview.PermissionRegistry;
 
 import org.bukkit.permissions.Permission;
@@ -48,7 +48,7 @@ import java.util.function.Function;
 /**
  * A replacement map for the 'permissions' instance in Bukkit's SimplePluginManager.
  *
- * This instance allows LuckPerms to intercept calls to
+ * This instance allows RoryPerms to intercept calls to
  * {@link PluginManager#addPermission(Permission)} and record permissions in the
  * {@link PermissionRegistry}. It also lets us monitor changes to child permission
  * relationships.
@@ -57,7 +57,7 @@ import java.util.function.Function;
  *
  * Injected by {@link InjectorPermissionMap}.
  */
-public final class LuckPermsPermissionMap extends ForwardingMap<String, Permission> {
+public final class RoryPermsPermissionMap extends ForwardingMap<String, Permission> {
 
     private static final Field PERMISSION_CHILDREN_FIELD;
 
@@ -80,9 +80,9 @@ public final class LuckPermsPermissionMap extends ForwardingMap<String, Permissi
     /**
      * The plugin instance
      */
-    final LuckPermsPlugin plugin;
+    final RoryPermsPlugin plugin;
 
-    public LuckPermsPermissionMap(LuckPermsPlugin plugin, Map<String, Permission> existingData) {
+    public RoryPermsPermissionMap(RoryPermsPlugin plugin, Map<String, Permission> existingData) {
         this.plugin = plugin;
         putAll(existingData);
     }
@@ -243,7 +243,7 @@ public final class LuckPermsPermissionMap extends ForwardingMap<String, Permissi
             this.delegate = delegate;
 
             for (String key : this.delegate.keySet()) {
-                LuckPermsPermissionMap.this.plugin.getPermissionRegistry().insert(key);
+                RoryPermsPermissionMap.this.plugin.getPermissionRegistry().insert(key);
             }
         }
 
@@ -255,8 +255,8 @@ public final class LuckPermsPermissionMap extends ForwardingMap<String, Permissi
         @Override
         public Boolean put(@NonNull String key, @NonNull Boolean value) {
             Boolean ret = super.put(key, value);
-            LuckPermsPermissionMap.this.plugin.getPermissionRegistry().insert(key);
-            LuckPermsPermissionMap.this.update();
+            RoryPermsPermissionMap.this.plugin.getPermissionRegistry().insert(key);
+            RoryPermsPermissionMap.this.update();
             return ret;
         }
 
@@ -264,22 +264,22 @@ public final class LuckPermsPermissionMap extends ForwardingMap<String, Permissi
         public void putAll(@NonNull Map<? extends String, ? extends Boolean> map) {
             super.putAll(map);
             for (String key : map.keySet()) {
-                LuckPermsPermissionMap.this.plugin.getPermissionRegistry().insert(key);
+                RoryPermsPermissionMap.this.plugin.getPermissionRegistry().insert(key);
             }
-            LuckPermsPermissionMap.this.update();
+            RoryPermsPermissionMap.this.update();
         }
 
         @Override
         public Boolean remove(@NonNull Object object) {
             Boolean ret = super.remove(object);
-            LuckPermsPermissionMap.this.update();
+            RoryPermsPermissionMap.this.update();
             return ret;
         }
 
         @Override
         public void clear() {
             super.clear();
-            LuckPermsPermissionMap.this.update();
+            RoryPermsPermissionMap.this.update();
         }
     }
 

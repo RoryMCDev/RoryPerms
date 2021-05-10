@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,21 +27,21 @@ package me.lucko.luckperms.common.tasks;
 
 import me.lucko.luckperms.common.cache.BufferedRequest;
 import me.lucko.luckperms.common.model.manager.group.GroupManager;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.event.cause.CreationCause;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * System wide sync task for LuckPerms.
+ * System wide sync task for RoryPerms.
  *
  * <p>Ensures that all local data is consistent with the storage.</p>
  */
 public class SyncTask implements Runnable {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public SyncTask(LuckPermsPlugin plugin) {
+    public SyncTask(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -78,9 +78,9 @@ public class SyncTask implements Runnable {
     }
 
     public static class Buffer extends BufferedRequest<Void> {
-        private final LuckPermsPlugin plugin;
+        private final RoryPermsPlugin plugin;
 
-        public Buffer(LuckPermsPlugin plugin) {
+        public Buffer(RoryPermsPlugin plugin) {
             super(500L, TimeUnit.MILLISECONDS, plugin.getBootstrap().getScheduler());
             this.plugin = plugin;
         }

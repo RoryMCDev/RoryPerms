@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -38,8 +38,8 @@ import net.bytebuddy.dynamic.scaffold.subclass.ConstructorStrategy;
 import net.bytebuddy.implementation.FieldAccessor;
 import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.implementation.MethodCall;
-import net.luckperms.api.LuckPerms;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.RoryPerms;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 
 import java.lang.invoke.MethodHandle;
@@ -56,14 +56,14 @@ import static net.bytebuddy.matcher.ElementMatchers.returns;
 import static net.bytebuddy.matcher.ElementMatchers.takesArguments;
 
 /**
- * Holds the generated event class for a given type of {@link LuckPermsEvent}.
+ * Holds the generated event class for a given type of {@link RoryPermsEvent}.
  */
 public class GeneratedEventClass {
 
     /**
      * A loading cache of event types to {@link GeneratedEventClass}es.
      */
-    private static final Map<Class<? extends LuckPermsEvent>, GeneratedEventClass> CACHE = LoadingMap.of(clazz -> {
+    private static final Map<Class<? extends RoryPermsEvent>, GeneratedEventClass> CACHE = LoadingMap.of(clazz -> {
         try {
             return new GeneratedEventClass(clazz);
         } catch (Throwable e) {
@@ -77,7 +77,7 @@ public class GeneratedEventClass {
      * @param event the event type
      * @return the generated class
      */
-    public static GeneratedEventClass generate(Class<? extends LuckPermsEvent> event) {
+    public static GeneratedEventClass generate(Class<? extends RoryPermsEvent> event) {
         return CACHE.get(event);
     }
 
@@ -85,7 +85,7 @@ public class GeneratedEventClass {
      * Pre-generates {@link GeneratedEventClass}es for known event types.
      */
     public static void preGenerate() {
-        for (Class<? extends LuckPermsEvent> eventType : EventDispatcher.getKnownEventTypes()) {
+        for (Class<? extends RoryPermsEvent> eventType : EventDispatcher.getKnownEventTypes()) {
             generate(eventType);
         }
     }
@@ -100,12 +100,12 @@ public class GeneratedEventClass {
      */
     private final MethodHandle[] setters;
 
-    private GeneratedEventClass(Class<? extends LuckPermsEvent> eventClass) throws Throwable {
+    private GeneratedEventClass(Class<? extends RoryPermsEvent> eventClass) throws Throwable {
         // get a TypeDescription for the event class
         TypeDescription eventClassType = new TypeDescription.ForLoadedType(eventClass);
 
         // determine a generated class name of the event
-        String eventClassSuffix = eventClass.getName().substring(LuckPermsEvent.class.getPackage().getName().length());
+        String eventClassSuffix = eventClass.getName().substring(RoryPermsEvent.class.getPackage().getName().length());
         String packageWithName = GeneratedEventClass.class.getName();
         String generatedClassName = packageWithName.substring(0, packageWithName.lastIndexOf('.')) + eventClassSuffix;
 
@@ -119,7 +119,7 @@ public class GeneratedEventClass {
                 // implement all methods annotated with Param by simply returning the value from the corresponding field with the same name
                 .method(isAnnotatedWith(Param.class))
                     .intercept(FieldAccessor.of(NamedElement.WithRuntimeName::getInternalName))
-                // implement LuckPermsEvent#getEventType by returning the event class type
+                // implement RoryPermsEvent#getEventType by returning the event class type
                 .method(named("getEventType").and(returns(Class.class)).and(takesArguments(0)))
                     .intercept(FixedValue.value(eventClassType))
                 // implement AbstractEvent#mh by calling & returning the value of MethodHandles.lookup()
@@ -142,8 +142,8 @@ public class GeneratedEventClass {
         // finish building, load the class, get a constructor
         Class<? extends AbstractEvent> generatedClass = builder.make().load(GeneratedEventClass.class.getClassLoader()).getLoaded();
         this.constructor = MethodHandles.publicLookup().in(generatedClass)
-                .findConstructor(generatedClass, MethodType.methodType(void.class, LuckPerms.class))
-                .asType(MethodType.methodType(AbstractEvent.class, LuckPerms.class));
+                .findConstructor(generatedClass, MethodType.methodType(void.class, RoryPerms.class))
+                .asType(MethodType.methodType(AbstractEvent.class, RoryPerms.class));
 
         // create a dummy instance of the generated class & get the method handle lookup instance
         MethodHandles.Lookup lookup = ((AbstractEvent) this.constructor.invoke((Object) null)).mhl();
@@ -160,12 +160,12 @@ public class GeneratedEventClass {
     /**
      * Creates a new instance of the event class.
      *
-     * @param api an instance of the LuckPerms API
+     * @param api an instance of the RoryPerms API
      * @param properties the event properties
      * @return the event instance
      * @throws Throwable if something goes wrong
      */
-    public LuckPermsEvent newInstance(LuckPerms api, Object... properties) throws Throwable {
+    public RoryPermsEvent newInstance(RoryPerms api, Object... properties) throws Throwable {
         if (properties.length != this.setters.length) {
             throw new IllegalStateException("Unexpected number of properties. given: " + properties.length + ", expected: " + this.setters.length);
         }

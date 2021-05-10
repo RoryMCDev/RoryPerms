@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.actionlog;
 
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPermsProvider;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -45,7 +45,7 @@ public interface Action extends Comparable<Action> {
      * @return a new builder
      */
     static @NonNull Builder builder() {
-        return LuckPermsProvider.get().getActionLogger().actionBuilder();
+        return RoryPermsProvider.get().getActionLogger().actionBuilder();
     }
 
     /**

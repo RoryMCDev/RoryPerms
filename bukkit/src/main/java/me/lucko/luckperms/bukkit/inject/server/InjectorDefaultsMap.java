@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -38,7 +38,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Injects a {@link LuckPermsDefaultsMap} info the {@link PluginManager}.
+ * Injects a {@link RoryPermsDefaultsMap} info the {@link PluginManager}.
  */
 public class InjectorDefaultsMap {
     private static final Field DEFAULT_PERMISSIONS_FIELD;
@@ -62,27 +62,27 @@ public class InjectorDefaultsMap {
 
     public void inject() {
         try {
-            LuckPermsDefaultsMap defaultsMap = tryInject();
+            RoryPermsDefaultsMap defaultsMap = tryInject();
             if (defaultsMap != null) {
                 this.plugin.setDefaultPermissionMap(defaultsMap);
             }
         } catch (Exception e) {
-            this.plugin.getLogger().severe("Exception occurred whilst injecting LuckPerms Default Permission map.", e);
+            this.plugin.getLogger().severe("Exception occurred whilst injecting RoryPerms Default Permission map.", e);
         }
     }
 
-    private LuckPermsDefaultsMap tryInject() throws Exception {
+    private RoryPermsDefaultsMap tryInject() throws Exception {
         Objects.requireNonNull(DEFAULT_PERMISSIONS_FIELD, "DEFAULT_PERMISSIONS_FIELD");
         PluginManager pluginManager = this.plugin.getBootstrap().getServer().getPluginManager();
 
         if (!(pluginManager instanceof SimplePluginManager)) {
             this.plugin.getLogger().severe("PluginManager instance is not a 'SimplePluginManager', instead: " + pluginManager.getClass());
-            this.plugin.getLogger().severe("Unable to inject LuckPerms Default Permission map.");
+            this.plugin.getLogger().severe("Unable to inject RoryPerms Default Permission map.");
             return null;
         }
 
         Object map = DEFAULT_PERMISSIONS_FIELD.get(pluginManager);
-        if (map instanceof LuckPermsDefaultsMap && ((LuckPermsDefaultsMap) map).plugin == this.plugin) {
+        if (map instanceof RoryPermsDefaultsMap && ((RoryPermsDefaultsMap) map).plugin == this.plugin) {
             return null;
         }
 
@@ -90,7 +90,7 @@ public class InjectorDefaultsMap {
         Map<Boolean, Set<Permission>> castedMap = (Map<Boolean, Set<Permission>>) map;
 
         // make a new map & inject it
-        LuckPermsDefaultsMap newMap = new LuckPermsDefaultsMap(this.plugin, castedMap);
+        RoryPermsDefaultsMap newMap = new RoryPermsDefaultsMap(this.plugin, castedMap);
         DEFAULT_PERMISSIONS_FIELD.set(pluginManager, newMap);
         return newMap;
     }
@@ -105,12 +105,12 @@ public class InjectorDefaultsMap {
             }
 
             Object map = DEFAULT_PERMISSIONS_FIELD.get(pluginManager);
-            if (map instanceof LuckPermsDefaultsMap) {
-                LuckPermsDefaultsMap lpMap = (LuckPermsDefaultsMap) map;
+            if (map instanceof RoryPermsDefaultsMap) {
+                RoryPermsDefaultsMap lpMap = (RoryPermsDefaultsMap) map;
                 DEFAULT_PERMISSIONS_FIELD.set(pluginManager, new HashMap<>(lpMap));
             }
         } catch (Exception e) {
-            this.plugin.getLogger().severe("Exception occurred whilst uninjecting LuckPerms Default Permission map.", e);
+            this.plugin.getLogger().severe("Exception occurred whilst uninjecting RoryPerms Default Permission map.", e);
         }
     }
 }

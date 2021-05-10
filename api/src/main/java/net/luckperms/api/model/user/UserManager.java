@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -83,7 +83,7 @@ public interface UserManager {
     }
 
     /**
-     * Uses the LuckPerms cache to find a uuid for the given username.
+     * Uses the RoryPerms cache to find a uuid for the given username.
      *
      * <p>This lookup is case insensitive.</p>
      *
@@ -95,7 +95,7 @@ public interface UserManager {
     @NonNull CompletableFuture<UUID> lookupUniqueId(@NonNull String username);
 
     /**
-     * Uses the LuckPerms cache to find a username for the given uuid.
+     * Uses the RoryPerms cache to find a username for the given uuid.
      *
      * @param uniqueId the uuid
      * @return a username, could be null
@@ -112,7 +112,7 @@ public interface UserManager {
      * @param user the user to save
      * @return a future to encapsulate the operation.
      * @throws NullPointerException  if user is null
-     * @throws IllegalStateException if the user instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the user instance was not obtained from RoryPerms.
      */
     @NonNull CompletableFuture<Void> saveUser(@NonNull User user);
 

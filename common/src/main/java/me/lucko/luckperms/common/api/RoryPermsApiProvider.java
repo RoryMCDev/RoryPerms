@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -39,10 +39,10 @@ import me.lucko.luckperms.common.api.implementation.ApiTrackManager;
 import me.lucko.luckperms.common.api.implementation.ApiUserManager;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.event.AbstractEventBus;
-import me.lucko.luckperms.common.messaging.LuckPermsMessagingService;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.messaging.RoryPermsMessagingService;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
-import net.luckperms.api.LuckPerms;
+import net.luckperms.api.RoryPerms;
 import net.luckperms.api.actionlog.ActionLogger;
 import net.luckperms.api.context.ContextManager;
 import net.luckperms.api.messaging.MessagingService;
@@ -65,11 +65,11 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 /**
- * Implements the LuckPerms API using the plugin instance
+ * Implements the RoryPerms API using the plugin instance
  */
-public class LuckPermsApiProvider implements LuckPerms {
+public class RoryPermsApiProvider implements RoryPerms {
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     private final ApiPlatform platform;
     private final UserManager userManager;
@@ -80,7 +80,7 @@ public class LuckPermsApiProvider implements LuckPerms {
     private final ContextManager contextManager;
     private final MetaStackFactory metaStackFactory;
 
-    public LuckPermsApiProvider(LuckPermsPlugin plugin) {
+    public RoryPermsApiProvider(RoryPermsPlugin plugin) {
         this.plugin = plugin;
 
         this.platform = new ApiPlatform(plugin);
@@ -152,7 +152,7 @@ public class LuckPermsApiProvider implements LuckPerms {
     @Override
     public void registerMessengerProvider(@NonNull MessengerProvider messengerProvider) {
         if (this.plugin.getConfiguration().get(ConfigKeys.MESSAGING_SERVICE).equals("custom")) {
-            this.plugin.setMessagingService(new LuckPermsMessagingService(this.plugin, messengerProvider));
+            this.plugin.setMessagingService(new RoryPermsMessagingService(this.plugin, messengerProvider));
         }
     }
 

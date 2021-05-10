@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -29,7 +29,7 @@ import com.github.benmanes.caffeine.cache.LoadingCache;
 
 import me.lucko.luckperms.bukkit.LPBukkitPlugin;
 import me.lucko.luckperms.common.cache.BufferedRequest;
-import me.lucko.luckperms.common.event.LuckPermsEventListener;
+import me.lucko.luckperms.common.event.RoryPermsEventListener;
 import me.lucko.luckperms.common.util.CaffeineFactory;
 
 import net.luckperms.api.event.EventBus;
@@ -44,7 +44,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Calls {@link Player#updateCommands()} when a players permissions change.
  */
-public class BukkitCommandListUpdater implements LuckPermsEventListener {
+public class BukkitCommandListUpdater implements RoryPermsEventListener {
 
     public static boolean isSupported() {
         try {

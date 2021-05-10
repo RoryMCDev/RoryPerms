@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.player.lookup;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.type.ResultEvent;
 import net.luckperms.api.event.util.Param;
 
@@ -39,7 +39,7 @@ import java.util.UUID;
  *
  * @since 5.3
  */
-public interface UniqueIdDetermineTypeEvent extends LuckPermsEvent, ResultEvent<String> {
+public interface UniqueIdDetermineTypeEvent extends RoryPermsEvent, ResultEvent<String> {
 
     /**
      * The players UUID has been obtained by authenticating with the Mojang session servers.

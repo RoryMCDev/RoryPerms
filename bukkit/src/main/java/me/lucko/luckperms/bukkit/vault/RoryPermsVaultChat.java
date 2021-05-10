@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -53,9 +53,9 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * An implementation of the Vault {@link Chat} API using LuckPerms.
+ * An implementation of the Vault {@link Chat} API using RoryPerms.
  *
- * LuckPerms is a multithreaded permissions plugin, and some actions require considerable
+ * RoryPerms is a multithreaded permissions plugin, and some actions require considerable
  * time to execute. (database queries, re-population of caches, etc) In these cases, the
  * operations required to make the edit apply will be processed immediately, but the process
  * of saving the change to the plugin storage will happen in the background.
@@ -65,15 +65,15 @@ import java.util.UUID;
  * which they simply cannot be, as LP utilises databases for data storage. Server admins
  * willing to take the risk of lagging their server can disable these exceptions in the config file.
  */
-public class LuckPermsVaultChat extends AbstractVaultChat {
+public class RoryPermsVaultChat extends AbstractVaultChat {
 
     // the plugin instance
     private final LPBukkitPlugin plugin;
 
     // the vault permission implementation
-    private final LuckPermsVaultPermission vaultPermission;
+    private final RoryPermsVaultPermission vaultPermission;
 
-    LuckPermsVaultChat(LPBukkitPlugin plugin, LuckPermsVaultPermission vaultPermission) {
+    RoryPermsVaultChat(LPBukkitPlugin plugin, RoryPermsVaultPermission vaultPermission) {
         super(vaultPermission);
         this.plugin = plugin;
         this.vaultPermission = vaultPermission;
@@ -81,7 +81,7 @@ public class LuckPermsVaultChat extends AbstractVaultChat {
 
     @Override
     public String getName() {
-        return "LuckPerms";
+        return "RoryPerms";
     }
 
     @Override

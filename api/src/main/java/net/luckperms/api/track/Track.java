@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -67,7 +67,7 @@ public interface Track {
      * @param current the group before the group being requested
      * @return the group name, or null if the end of the track has been reached
      * @throws NullPointerException  if the group is null
-     * @throws IllegalStateException if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the group instance was not obtained from RoryPerms.
      */
     @Nullable String getNext(@NonNull Group current);
 
@@ -79,7 +79,7 @@ public interface Track {
      * @param current the group after the group being requested
      * @return the group name, or null if the start of the track has been reached
      * @throws NullPointerException  if the group is null
-     * @throws IllegalStateException if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the group instance was not obtained from RoryPerms.
      */
     @Nullable String getPrevious(@NonNull Group current);
 
@@ -107,7 +107,7 @@ public interface Track {
      * @param group the group to append
      * @return the result of the operation
      * @throws NullPointerException  if the group is null
-     * @throws IllegalStateException if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the group instance was not obtained from RoryPerms.
      */
     @NonNull DataMutateResult appendGroup(@NonNull Group group);
 
@@ -119,7 +119,7 @@ public interface Track {
      * @return the result of the operation
      * @throws IndexOutOfBoundsException if the position is less than 0 or greater than the size of the track
      * @throws NullPointerException      if the group is null
-     * @throws IllegalStateException     if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException     if the group instance was not obtained from RoryPerms.
      */
     @NonNull DataMutateResult insertGroup(@NonNull Group group, int position) throws IndexOutOfBoundsException;
 
@@ -129,7 +129,7 @@ public interface Track {
      * @param group the group to remove
      * @return the result of the operation
      * @throws NullPointerException  if the group is null
-     * @throws IllegalStateException if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the group instance was not obtained from RoryPerms.
      */
     @NonNull DataMutateResult removeGroup(@NonNull Group group);
 
@@ -148,7 +148,7 @@ public interface Track {
      * @param group the group to check
      * @return true if the group is on this track
      * @throws NullPointerException  if the group is null
-     * @throws IllegalStateException if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the group instance was not obtained from RoryPerms.
      */
     boolean containsGroup(@NonNull Group group);
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.messaging.redis;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.messenger.IncomingMessageConsumer;
 import net.luckperms.api.messenger.Messenger;
@@ -45,13 +45,13 @@ import redis.clients.jedis.Protocol;
 public class RedisMessenger implements Messenger {
     private static final String CHANNEL = "luckperms:update";
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final IncomingMessageConsumer consumer;
 
     private JedisPool jedisPool;
     private Subscription sub;
 
-    public RedisMessenger(LuckPermsPlugin plugin, IncomingMessageConsumer consumer) {
+    public RedisMessenger(RoryPermsPlugin plugin, IncomingMessageConsumer consumer) {
         this.plugin = plugin;
         this.consumer = consumer;
     }

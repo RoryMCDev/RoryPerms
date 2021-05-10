@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.context;
 
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPermsProvider;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -42,7 +42,7 @@ public interface MutableContextSet extends ContextSet {
      * @return a new MutableContextSet
      */
     static @NonNull MutableContextSet create() {
-        return LuckPermsProvider.get().getContextManager().getContextSetFactory().mutable();
+        return RoryPermsProvider.get().getContextManager().getContextSetFactory().mutable();
     }
 
     /**

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -31,7 +31,7 @@ import me.lucko.luckperms.common.cacheddata.type.MetaCache;
 import me.lucko.luckperms.common.cacheddata.type.PermissionCache;
 import me.lucko.luckperms.common.calculator.CalculatorFactory;
 import me.lucko.luckperms.common.calculator.PermissionCalculator;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.CaffeineFactory;
 
 import net.luckperms.api.cacheddata.CachedData;
@@ -57,17 +57,17 @@ import java.util.function.IntFunction;
  * Abstract implementation of {@link CachedDataManager}.
  */
 public abstract class AbstractCachedDataManager implements CachedDataManager {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final AbstractContainer<PermissionCache, CachedPermissionData> permission;
     private final AbstractContainer<MetaCache, CachedMetaData> meta;
 
-    protected AbstractCachedDataManager(LuckPermsPlugin plugin) {
+    protected AbstractCachedDataManager(RoryPermsPlugin plugin) {
         this.plugin = plugin;
         this.permission = new AbstractContainer<>(this::calculatePermissions);
         this.meta = new AbstractContainer<>(this::calculateMeta);
     }
 
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package me.lucko.luckperms.bukkit.inject.permissible;
 
 import me.lucko.luckperms.common.calculator.result.TristateResult;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.query.QueryOptionsImpl;
 import me.lucko.luckperms.common.verbose.VerboseCheckTarget;
 import me.lucko.luckperms.common.verbose.VerboseHandler;
@@ -50,7 +50,7 @@ import java.util.Set;
  * Method calls are forwarded to the delegate permissible.
  */
 public class MonitoredPermissibleBase extends PermissibleBase {
-    final LuckPermsPlugin plugin;
+    final RoryPermsPlugin plugin;
     private final PermissibleBase delegate;
     private final VerboseCheckTarget verboseCheckTarget;
 
@@ -59,7 +59,7 @@ public class MonitoredPermissibleBase extends PermissibleBase {
     @SuppressWarnings("UnusedAssignment")
     private boolean initialised = false;
 
-    public MonitoredPermissibleBase(LuckPermsPlugin plugin, PermissibleBase delegate, String name) {
+    public MonitoredPermissibleBase(RoryPermsPlugin plugin, PermissibleBase delegate, String name) {
         super(null);
         DummyPermissibleBase.copyFields(delegate, this);
 

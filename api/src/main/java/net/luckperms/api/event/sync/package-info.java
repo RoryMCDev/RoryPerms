@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -24,6 +24,6 @@
  */
 
 /**
- * Events relating to {@link net.luckperms.api.LuckPerms#runUpdateTask() sync/update task}s.
+ * Events relating to {@link net.luckperms.api.RoryPerms#runUpdateTask() sync/update task}s.
  */
 package net.luckperms.api.event.sync;

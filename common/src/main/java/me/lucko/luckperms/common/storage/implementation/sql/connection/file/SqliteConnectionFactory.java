@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.storage.implementation.sql.connection.file;
 
 import me.lucko.luckperms.common.dependencies.Dependency;
 import me.lucko.luckperms.common.dependencies.classloader.IsolatedClassLoader;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import java.lang.reflect.Constructor;
 import java.nio.file.Path;
@@ -50,7 +50,7 @@ public class SqliteConnectionFactory extends FlatfileConnectionFactory {
     }
 
     @Override
-    public void init(LuckPermsPlugin plugin) {
+    public void init(RoryPermsPlugin plugin) {
         migrateOldDatabaseFile("luckperms.sqlite");
 
         IsolatedClassLoader classLoader = plugin.getDependencyManager().obtainClassLoaderWith(EnumSet.of(Dependency.SQLITE_DRIVER));

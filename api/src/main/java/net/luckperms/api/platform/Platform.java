@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -34,14 +34,14 @@ import java.util.Set;
 import java.util.UUID;
 
 /**
- * Provides information about the platform LuckPerms is running on.
+ * Provides information about the platform RoryPerms is running on.
  */
 public interface Platform {
 
     /**
-     * Gets the type of platform LuckPerms is running on
+     * Gets the type of platform RoryPerms is running on
      *
-     * @return the type of platform LuckPerms is running on
+     * @return the type of platform RoryPerms is running on
      */
     Platform.@NonNull Type getType();
 
@@ -67,7 +67,7 @@ public interface Platform {
     @NonNull Instant getStartTime();
 
     /**
-     * Represents a type of platform which LuckPerms can run on.
+     * Represents a type of platform which RoryPerms can run on.
      */
     enum Type {
         BUKKIT("Bukkit"),

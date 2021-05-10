@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.messaging;
 
-import net.luckperms.api.LuckPerms;
+import net.luckperms.api.RoryPerms;
 import net.luckperms.api.model.user.User;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -48,7 +48,7 @@ public interface MessagingService {
      *
      * <p>The standard response by other servers will be to execute a overall
      * sync of all live data, equivalent to calling
-     * {@link LuckPerms#runUpdateTask()}.</p>
+     * {@link RoryPerms#runUpdateTask()}.</p>
      *
      * <p>This will push the update asynchronously, and this method will return
      * immediately. Note that this method will not cause an update to be

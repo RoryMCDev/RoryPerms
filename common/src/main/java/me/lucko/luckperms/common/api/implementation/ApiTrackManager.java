@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -28,7 +28,7 @@ package me.lucko.luckperms.common.api.implementation;
 import me.lucko.luckperms.common.api.ApiUtils;
 import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.manager.track.TrackManager;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.ImmutableCollectors;
 
 import net.luckperms.api.event.cause.CreationCause;
@@ -42,7 +42,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 public class ApiTrackManager extends ApiAbstractManager<Track, net.luckperms.api.track.Track, TrackManager<?>> implements net.luckperms.api.track.TrackManager {
-    public ApiTrackManager(LuckPermsPlugin plugin, TrackManager<?> handle) {
+    public ApiTrackManager(RoryPermsPlugin plugin, TrackManager<?> handle) {
         super(plugin, handle);
     }
 

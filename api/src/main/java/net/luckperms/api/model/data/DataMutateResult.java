@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -33,7 +33,7 @@ import net.luckperms.api.util.Result;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
- * Represents the result of a data mutation call on a LuckPerms object.
+ * Represents the result of a data mutation call on a RoryPerms object.
  *
  * <p>Usually as the result to a call on a {@link PermissionHolder} or {@link Track}.</p>
  */

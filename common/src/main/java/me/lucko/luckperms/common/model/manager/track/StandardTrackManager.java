@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,12 +26,12 @@
 package me.lucko.luckperms.common.model.manager.track;
 
 import me.lucko.luckperms.common.model.Track;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 public class StandardTrackManager extends AbstractTrackManager<Track> {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public StandardTrackManager(LuckPermsPlugin plugin) {
+    public StandardTrackManager(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 

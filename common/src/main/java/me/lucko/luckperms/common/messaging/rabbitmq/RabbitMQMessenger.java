@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -36,7 +36,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
 import com.rabbitmq.client.Delivery;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.messenger.IncomingMessageConsumer;
 import net.luckperms.api.messenger.Messenger;
@@ -55,7 +55,7 @@ public class RabbitMQMessenger implements Messenger {
     private static final boolean CHANNEL_PROP_EXCLUSIVE = true;
     private static final boolean CHANNEL_PROP_AUTO_DELETE = true;
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final IncomingMessageConsumer consumer;
 
     private ConnectionFactory connectionFactory;
@@ -63,7 +63,7 @@ public class RabbitMQMessenger implements Messenger {
     private Channel channel;
     private Subscription sub;
 
-    public RabbitMQMessenger(LuckPermsPlugin plugin, IncomingMessageConsumer consumer) {
+    public RabbitMQMessenger(RoryPermsPlugin plugin, IncomingMessageConsumer consumer) {
         this.plugin = plugin;
         this.consumer = consumer;
     }

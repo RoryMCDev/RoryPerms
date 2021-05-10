@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.track;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.cause.DeletionCause;
 import net.luckperms.api.event.util.Param;
 
@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * Called when a track is deleted
  */
-public interface TrackDeleteEvent extends LuckPermsEvent {
+public interface TrackDeleteEvent extends RoryPermsEvent {
 
     /**
      * Gets the name of the deleted track

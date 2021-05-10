@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -28,7 +28,7 @@ package me.lucko.luckperms.common.storage;
 import com.google.common.collect.ImmutableSet;
 
 import me.lucko.luckperms.common.config.ConfigKeys;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.implementation.StorageImplementation;
 import me.lucko.luckperms.common.storage.implementation.custom.CustomStorageProviders;
 import me.lucko.luckperms.common.storage.implementation.file.CombinedConfigurateStorage;
@@ -52,9 +52,9 @@ import java.util.Map;
 import java.util.Set;
 
 public class StorageFactory {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public StorageFactory(LuckPermsPlugin plugin) {
+    public StorageFactory(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 

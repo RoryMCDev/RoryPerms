@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,7 +32,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus.NonExtendable;
 
 /**
- * Encapsulates the LuckPerms system which accepts incoming {@link Message}s
+ * Encapsulates the RoryPerms system which accepts incoming {@link Message}s
  * from implementations of {@link Messenger}.
  */
 @NonExtendable

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,12 +25,12 @@
 
 package net.luckperms.api.event.sync;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.type.Cancellable;
 
 /**
  * Called before a sync task runs
  */
-public interface PreSyncEvent extends LuckPermsEvent, Cancellable {
+public interface PreSyncEvent extends RoryPermsEvent, Cancellable {
 
 }

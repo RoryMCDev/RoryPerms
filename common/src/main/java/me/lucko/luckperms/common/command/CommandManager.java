@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -59,8 +59,8 @@ import me.lucko.luckperms.common.commands.track.TrackParentCommand;
 import me.lucko.luckperms.common.commands.user.UserParentCommand;
 import me.lucko.luckperms.common.locale.Message;
 import me.lucko.luckperms.common.model.Group;
-import me.lucko.luckperms.common.plugin.AbstractLuckPermsPlugin;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.AbstractRoryPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.plugin.scheduler.SchedulerAdapter;
 import me.lucko.luckperms.common.plugin.scheduler.SchedulerTask;
 import me.lucko.luckperms.common.sender.Sender;
@@ -90,7 +90,7 @@ import java.util.stream.Collectors;
  */
 public class CommandManager {
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final ExecutorService executor = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder()
             .setDaemon(true)
             .setNameFormat("luckperms-command-executor")
@@ -100,7 +100,7 @@ public class CommandManager {
     private final TabCompletions tabCompletions;
     private final Map<String, Command<?>> mainCommands;
 
-    public CommandManager(LuckPermsPlugin plugin) {
+    public CommandManager(RoryPermsPlugin plugin) {
         this.plugin = plugin;
         this.tabCompletions = new TabCompletions(plugin);
         this.mainCommands = ImmutableList.<Command<?>>builder()
@@ -133,7 +133,7 @@ public class CommandManager {
                 .collect(ImmutableCollectors.toMap(c -> c.getName().toLowerCase(), Function.identity()));
     }
 
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 
@@ -214,7 +214,7 @@ public class CommandManager {
             sender.sendMessage(Message.prefixed(Component.text()
                     .color(NamedTextColor.DARK_GREEN)
                     .append(Component.text("Running "))
-                    .append(Component.text(AbstractLuckPermsPlugin.getPluginName(), NamedTextColor.AQUA))
+                    .append(Component.text(AbstractRoryPermsPlugin.getPluginName(), NamedTextColor.AQUA))
                     .append(Component.space())
                     .append(Component.text("v" + this.plugin.getBootstrap().getVersion(), NamedTextColor.AQUA))
                     .append(Message.FULL_STOP)
@@ -290,7 +290,7 @@ public class CommandManager {
         sender.sendMessage(Message.prefixed(Component.text()
                 .color(NamedTextColor.DARK_GREEN)
                 .append(Component.text("Running "))
-                .append(Component.text(AbstractLuckPermsPlugin.getPluginName(), NamedTextColor.AQUA))
+                .append(Component.text(AbstractRoryPermsPlugin.getPluginName(), NamedTextColor.AQUA))
                 .append(Component.space())
                 .append(Component.text("v" + this.plugin.getBootstrap().getVersion(), NamedTextColor.AQUA))
                 .append(Message.FULL_STOP)

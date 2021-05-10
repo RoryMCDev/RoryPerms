@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package net.luckperms.api.event.log;
 
 import net.luckperms.api.actionlog.Action;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.type.Cancellable;
 import net.luckperms.api.event.util.Param;
 
@@ -35,7 +35,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * Called when a log entry is about to be sent to notifiable players on the platform
  */
-public interface LogBroadcastEvent extends LuckPermsEvent, Cancellable {
+public interface LogBroadcastEvent extends RoryPermsEvent, Cancellable {
 
     /**
      * Gets the log entry to be broadcasted

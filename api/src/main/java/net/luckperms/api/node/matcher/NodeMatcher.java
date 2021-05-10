@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.node.matcher;
 
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPermsProvider;
 import net.luckperms.api.node.Node;
 import net.luckperms.api.node.NodeEqualityPredicate;
 import net.luckperms.api.node.NodeType;
@@ -56,7 +56,7 @@ public interface NodeMatcher<T extends Node> extends Predicate<Node> {
      * @return the matcher
      */
     static @NonNull NodeMatcher<Node> key(@NonNull String key) {
-        return LuckPermsProvider.get().getNodeMatcherFactory().key(key);
+        return RoryPermsProvider.get().getNodeMatcherFactory().key(key);
     }
 
     /**
@@ -69,7 +69,7 @@ public interface NodeMatcher<T extends Node> extends Predicate<Node> {
      * @return the matcher
      */
     static <T extends Node> @NonNull NodeMatcher<T> key(@NonNull T node) {
-        return LuckPermsProvider.get().getNodeMatcherFactory().key(node);
+        return RoryPermsProvider.get().getNodeMatcherFactory().key(node);
     }
 
     /**
@@ -80,7 +80,7 @@ public interface NodeMatcher<T extends Node> extends Predicate<Node> {
      * @return the matcher
      */
     static @NonNull NodeMatcher<Node> keyStartsWith(@NonNull String startingWith) {
-        return LuckPermsProvider.get().getNodeMatcherFactory().keyStartsWith(startingWith);
+        return RoryPermsProvider.get().getNodeMatcherFactory().keyStartsWith(startingWith);
     }
 
     /**
@@ -94,7 +94,7 @@ public interface NodeMatcher<T extends Node> extends Predicate<Node> {
      * @return the matcher
      */
     static <T extends Node> @NonNull NodeMatcher<T> equals(@NonNull T other, @NonNull NodeEqualityPredicate equalityPredicate) {
-        return LuckPermsProvider.get().getNodeMatcherFactory().equals(other, equalityPredicate);
+        return RoryPermsProvider.get().getNodeMatcherFactory().equals(other, equalityPredicate);
     }
 
     /**
@@ -107,7 +107,7 @@ public interface NodeMatcher<T extends Node> extends Predicate<Node> {
      * @return the matcher
      */
     static @NonNull NodeMatcher<MetaNode> metaKey(@NonNull String metaKey) {
-        return LuckPermsProvider.get().getNodeMatcherFactory().metaKey(metaKey);
+        return RoryPermsProvider.get().getNodeMatcherFactory().metaKey(metaKey);
     }
 
     /**
@@ -135,7 +135,7 @@ public interface NodeMatcher<T extends Node> extends Predicate<Node> {
      * @return the matcher
      */
     static <T extends Node> @NonNull NodeMatcher<T> type(@NonNull NodeType<? extends T> type) {
-        return LuckPermsProvider.get().getNodeMatcherFactory().type(type);
+        return RoryPermsProvider.get().getNodeMatcherFactory().type(type);
     }
 
     /**

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,8 +25,8 @@
 
 package me.lucko.luckperms.common.api;
 
-import net.luckperms.api.LuckPerms;
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPerms;
+import net.luckperms.api.RoryPermsProvider;
 
 import java.lang.reflect.Method;
 
@@ -35,17 +35,17 @@ public class ApiRegistrationUtil {
     private static final Method UNREGISTER;
     static {
         try {
-            REGISTER = LuckPermsProvider.class.getDeclaredMethod("register", LuckPerms.class);
+            REGISTER = RoryPermsProvider.class.getDeclaredMethod("register", RoryPerms.class);
             REGISTER.setAccessible(true);
 
-            UNREGISTER = LuckPermsProvider.class.getDeclaredMethod("unregister");
+            UNREGISTER = RoryPermsProvider.class.getDeclaredMethod("unregister");
             UNREGISTER.setAccessible(true);
         } catch (NoSuchMethodException e) {
             throw new ExceptionInInitializerError(e);
         }
     }
 
-    public static void registerProvider(LuckPerms luckPermsApi) {
+    public static void registerProvider(RoryPerms luckPermsApi) {
         try {
             REGISTER.invoke(null, luckPermsApi);
         } catch (Exception e) {

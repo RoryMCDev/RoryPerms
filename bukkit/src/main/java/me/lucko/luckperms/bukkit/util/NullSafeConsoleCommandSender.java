@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -41,7 +41,7 @@ import java.util.Set;
 
 /**
  * The {@link Server#getConsoleSender()} method returns null during onEnable
- * in older CraftBukkit builds. This prevents LuckPerms from loading correctly.
+ * in older CraftBukkit builds. This prevents RoryPerms from loading correctly.
  */
 public class NullSafeConsoleCommandSender implements ConsoleCommandSender {
     private final Server server;

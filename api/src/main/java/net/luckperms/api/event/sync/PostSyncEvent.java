@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,11 +25,11 @@
 
 package net.luckperms.api.event.sync;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 
 /**
  * Called when an sync task has been completed
  */
-public interface PostSyncEvent extends LuckPermsEvent {
+public interface PostSyncEvent extends RoryPermsEvent {
 
 }

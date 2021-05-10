@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,11 +32,11 @@ import java.util.UUID;
  */
 class ServerThreadLookupException extends RuntimeException {
     private static String msg(String reason) {
-        return "A Vault API request has been made on the main server thread that LuckPerms cannot safely respond to.\n" +
-                "This is NOT a bug - please do not report it to LuckPerms.\n" +
+        return "A Vault API request has been made on the main server thread that RoryPerms cannot safely respond to.\n" +
+                "This is NOT a bug - please do not report it to RoryPerms.\n" +
                 "Instead, please carefully read the information given below.\n" +
                 "\n" +
-                "LuckPerms cannot respond to the request because to do so:\n" +
+                "RoryPerms cannot respond to the request because to do so:\n" +
                 "- " + reason + "\n" +
                 "\n" +
                 "Performing this lookup on the main server thread would cause your server to lag.\n" +
@@ -46,7 +46,7 @@ class ServerThreadLookupException extends RuntimeException {
                 "     using the methods that accept 'Player' or 'OfflinePlayer' instead of usernames.\n" +
                 "     You should be able to identify the plugin making the request in the trace below.\n" +
                 "  b) As a server admin, you can disable this exception by setting 'vault-unsafe-lookups'\n" +
-                "     to true in the LuckPerms configuration file. However, please use this only as\n" +
+                "     to true in the RoryPerms configuration file. However, please use this only as\n" +
                 "     a last resort.";
     }
 

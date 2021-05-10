@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -34,7 +34,7 @@ import me.lucko.luckperms.common.command.utils.ArgumentList;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.http.UnsuccessfulRequestException;
 import me.lucko.luckperms.common.locale.Message;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.Predicates;
 import me.lucko.luckperms.common.verbose.InvalidFilterException;
@@ -52,7 +52,7 @@ public class VerboseCommand extends SingleCommand {
     }
 
     @Override
-    public void execute(LuckPermsPlugin plugin, Sender sender, ArgumentList args, String label) {
+    public void execute(RoryPermsPlugin plugin, Sender sender, ArgumentList args, String label) {
         if (args.isEmpty()) {
             sendUsage(sender, label);
             return;
@@ -183,7 +183,7 @@ public class VerboseCommand extends SingleCommand {
     }
 
     @Override
-    public List<String> tabComplete(LuckPermsPlugin plugin, Sender sender, ArgumentList args) {
+    public List<String> tabComplete(RoryPermsPlugin plugin, Sender sender, ArgumentList args) {
         return TabCompleter.create()
                 .at(0, CompletionSupplier.startsWith("on", "record", "off", "upload", "command"))
                 .complete(args);

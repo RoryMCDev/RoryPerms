@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,19 +25,19 @@
 
 package me.lucko.luckperms.bukkit;
 
-import me.lucko.luckperms.bukkit.brigadier.LuckPermsBrigadier;
+import me.lucko.luckperms.bukkit.brigadier.RoryPermsBrigadier;
 import me.lucko.luckperms.bukkit.calculator.BukkitCalculatorFactory;
 import me.lucko.luckperms.bukkit.context.BukkitContextManager;
 import me.lucko.luckperms.bukkit.context.BukkitPlayerCalculator;
-import me.lucko.luckperms.bukkit.inject.permissible.LuckPermsPermissible;
+import me.lucko.luckperms.bukkit.inject.permissible.RoryPermsPermissible;
 import me.lucko.luckperms.bukkit.inject.permissible.PermissibleInjector;
 import me.lucko.luckperms.bukkit.inject.permissible.PermissibleMonitoringInjector;
 import me.lucko.luckperms.bukkit.inject.server.InjectorDefaultsMap;
 import me.lucko.luckperms.bukkit.inject.server.InjectorPermissionMap;
 import me.lucko.luckperms.bukkit.inject.server.InjectorSubscriptionMap;
-import me.lucko.luckperms.bukkit.inject.server.LuckPermsDefaultsMap;
-import me.lucko.luckperms.bukkit.inject.server.LuckPermsPermissionMap;
-import me.lucko.luckperms.bukkit.inject.server.LuckPermsSubscriptionMap;
+import me.lucko.luckperms.bukkit.inject.server.RoryPermsDefaultsMap;
+import me.lucko.luckperms.bukkit.inject.server.RoryPermsPermissionMap;
+import me.lucko.luckperms.bukkit.inject.server.RoryPermsSubscriptionMap;
 import me.lucko.luckperms.bukkit.listeners.BukkitAutoOpListener;
 import me.lucko.luckperms.bukkit.listeners.BukkitCommandListUpdater;
 import me.lucko.luckperms.bukkit.listeners.BukkitConnectionListener;
@@ -45,7 +45,7 @@ import me.lucko.luckperms.bukkit.listeners.BukkitPlatformListener;
 import me.lucko.luckperms.bukkit.messaging.BukkitMessagingFactory;
 import me.lucko.luckperms.bukkit.util.PluginManagerUtil;
 import me.lucko.luckperms.bukkit.vault.VaultHookManager;
-import me.lucko.luckperms.common.api.LuckPermsApiProvider;
+import me.lucko.luckperms.common.api.RoryPermsApiProvider;
 import me.lucko.luckperms.common.calculator.CalculatorFactory;
 import me.lucko.luckperms.common.command.access.CommandPermission;
 import me.lucko.luckperms.common.config.ConfigKeys;
@@ -57,13 +57,13 @@ import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.model.manager.group.StandardGroupManager;
 import me.lucko.luckperms.common.model.manager.track.StandardTrackManager;
 import me.lucko.luckperms.common.model.manager.user.StandardUserManager;
-import me.lucko.luckperms.common.plugin.AbstractLuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.AbstractRoryPermsPlugin;
 import me.lucko.luckperms.common.plugin.util.AbstractConnectionListener;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.tasks.CacheHousekeepingTask;
 import me.lucko.luckperms.common.tasks.ExpireTemporaryTask;
 
-import net.luckperms.api.LuckPerms;
+import net.luckperms.api.RoryPerms;
 import net.luckperms.api.query.QueryOptions;
 
 import org.bukkit.OfflinePlayer;
@@ -83,9 +83,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 /**
- * LuckPerms implementation for the Bukkit API.
+ * RoryPerms implementation for the Bukkit API.
  */
-public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
+public class LPBukkitPlugin extends AbstractRoryPermsPlugin {
     private final LPBukkitBootstrap bootstrap;
 
     private BukkitSenderFactory senderFactory;
@@ -95,9 +95,9 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
     private StandardGroupManager groupManager;
     private StandardTrackManager trackManager;
     private BukkitContextManager contextManager;
-    private LuckPermsSubscriptionMap subscriptionMap;
-    private LuckPermsPermissionMap permissionMap;
-    private LuckPermsDefaultsMap defaultPermissionMap;
+    private RoryPermsSubscriptionMap subscriptionMap;
+    private RoryPermsPermissionMap permissionMap;
+    private RoryPermsDefaultsMap defaultPermissionMap;
     private VaultHookManager vaultHookManager = null;
     
     public LPBukkitPlugin(LPBukkitBootstrap bootstrap) {
@@ -166,7 +166,7 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
         // setup brigadier
         if (isBrigadierSupported() && getConfiguration().get(ConfigKeys.REGISTER_COMMAND_LIST_DATA)) {
             try {
-                LuckPermsBrigadier.register(this, command);
+                RoryPermsBrigadier.register(this, command);
             } catch (Exception e) {
                 if (!(e instanceof RuntimeException && e.getMessage().contains("not supported by the server"))) {
                     e.printStackTrace();
@@ -222,7 +222,7 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
          * Vault in their onEnable without depending on us.
          *
          * Noteworthy discussion here:
-         * - https://github.com/lucko/LuckPerms/issues/1959
+         * - https://github.com/lucko/RoryPerms/issues/1959
          * - https://hub.spigotmc.org/jira/browse/SPIGOT-5546
          * - https://github.com/PaperMC/Paper/pull/3509
          */
@@ -233,7 +233,7 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
     }
 
     @Override
-    protected AbstractEventBus<?> provideEventBus(LuckPermsApiProvider apiProvider) {
+    protected AbstractEventBus<?> provideEventBus(RoryPermsApiProvider apiProvider) {
         return new BukkitEventBus(this, apiProvider);
     }
 
@@ -255,8 +255,8 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
     }
 
     @Override
-    protected void registerApiOnPlatform(LuckPerms api) {
-        this.bootstrap.getServer().getServicesManager().register(LuckPerms.class, api, this.bootstrap.getLoader(), ServicePriority.Normal);
+    protected void registerApiOnPlatform(RoryPerms api) {
+        this.bootstrap.getServer().getServicesManager().register(RoryPerms.class, api, this.bootstrap.getLoader(), ServicePriority.Normal);
     }
 
     @Override
@@ -304,7 +304,7 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
                     if (user != null) {
                         this.bootstrap.getScheduler().executeSync(() -> {
                             try {
-                                LuckPermsPermissible lpPermissible = new LuckPermsPermissible(player, user, this);
+                                RoryPermsPermissible lpPermissible = new RoryPermsPermissible(player, user, this);
                                 PermissibleInjector.inject(player, lpPermissible, getLogger());
                             } catch (Throwable t) {
                                 getLogger().severe("Exception thrown when setting up permissions for " +
@@ -424,27 +424,27 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
         return this.contextManager;
     }
 
-    public LuckPermsSubscriptionMap getSubscriptionMap() {
+    public RoryPermsSubscriptionMap getSubscriptionMap() {
         return this.subscriptionMap;
     }
 
-    public void setSubscriptionMap(LuckPermsSubscriptionMap subscriptionMap) {
+    public void setSubscriptionMap(RoryPermsSubscriptionMap subscriptionMap) {
         this.subscriptionMap = subscriptionMap;
     }
 
-    public LuckPermsPermissionMap getPermissionMap() {
+    public RoryPermsPermissionMap getPermissionMap() {
         return this.permissionMap;
     }
 
-    public void setPermissionMap(LuckPermsPermissionMap permissionMap) {
+    public void setPermissionMap(RoryPermsPermissionMap permissionMap) {
         this.permissionMap = permissionMap;
     }
 
-    public LuckPermsDefaultsMap getDefaultPermissionMap() {
+    public RoryPermsDefaultsMap getDefaultPermissionMap() {
         return this.defaultPermissionMap;
     }
 
-    public void setDefaultPermissionMap(LuckPermsDefaultsMap defaultPermissionMap) {
+    public void setDefaultPermissionMap(RoryPermsDefaultsMap defaultPermissionMap) {
         this.defaultPermissionMap = defaultPermissionMap;
     }
 

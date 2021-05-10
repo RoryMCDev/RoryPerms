@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -41,7 +41,7 @@ import me.lucko.luckperms.common.node.types.Inheritance;
 import me.lucko.luckperms.common.node.types.Meta;
 import me.lucko.luckperms.common.node.types.Prefix;
 import me.lucko.luckperms.common.node.types.Suffix;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.implementation.StorageImplementation;
 import me.lucko.luckperms.common.storage.implementation.file.loader.ConfigurateLoader;
 import me.lucko.luckperms.common.storage.implementation.file.loader.JsonLoader;
@@ -79,7 +79,7 @@ import java.util.UUID;
  */
 public abstract class AbstractConfigurateStorage implements StorageImplementation {
     /** The plugin instance */
-    protected final LuckPermsPlugin plugin;
+    protected final RoryPermsPlugin plugin;
 
     /** The name of this implementation */
     private final String implementationName;
@@ -98,7 +98,7 @@ public abstract class AbstractConfigurateStorage implements StorageImplementatio
     /** The action logger */
     private final FileActionLogger actionLogger;
 
-    protected AbstractConfigurateStorage(LuckPermsPlugin plugin, String implementationName, ConfigurateLoader loader, String dataDirectoryName) {
+    protected AbstractConfigurateStorage(RoryPermsPlugin plugin, String implementationName, ConfigurateLoader loader, String dataDirectoryName) {
         this.plugin = plugin;
         this.implementationName = implementationName;
         this.loader = loader;
@@ -109,7 +109,7 @@ public abstract class AbstractConfigurateStorage implements StorageImplementatio
     }
 
     @Override
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 

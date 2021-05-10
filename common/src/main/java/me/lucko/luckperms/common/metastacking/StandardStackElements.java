@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package me.lucko.luckperms.common.metastacking;
 
 import me.lucko.luckperms.common.model.Track;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.ImmutableCollectors;
 
 import net.luckperms.api.metastacking.MetaStackElement;
@@ -42,12 +42,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Contains the standard {@link MetaStackElement}s provided by LuckPerms.
+ * Contains the standard {@link MetaStackElement}s provided by RoryPerms.
  */
 public final class StandardStackElements {
     private StandardStackElements() {}
 
-    public static MetaStackElement parseFromString(LuckPermsPlugin plugin, String s) {
+    public static MetaStackElement parseFromString(RoryPermsPlugin plugin, String s) {
         s = s.toLowerCase();
 
         // static
@@ -79,7 +79,7 @@ public final class StandardStackElements {
         return null;
     }
 
-    public static List<MetaStackElement> parseList(LuckPermsPlugin plugin, List<String> strings) {
+    public static List<MetaStackElement> parseList(RoryPermsPlugin plugin, List<String> strings) {
         return strings.stream()
                 .map(s -> {
                     MetaStackElement parsed = parseFromString(plugin, s);
@@ -120,7 +120,7 @@ public final class StandardStackElements {
             .with(HIGHEST_CHECK)
             .build();
 
-    public static MetaStackElement highestFromGroupOnTrack(LuckPermsPlugin plugin, String trackName) {
+    public static MetaStackElement highestFromGroupOnTrack(RoryPermsPlugin plugin, String trackName) {
         return FluentMetaStackElement.builder("HighestPriorityOnTrack")
                 .param("trackName", trackName)
                 .with(TYPE_CHECK)
@@ -129,7 +129,7 @@ public final class StandardStackElements {
                 .build();
     }
 
-    public static MetaStackElement highestNotFromGroupOnTrack(LuckPermsPlugin plugin, String trackName) {
+    public static MetaStackElement highestNotFromGroupOnTrack(RoryPermsPlugin plugin, String trackName) {
         return FluentMetaStackElement.builder("HighestPriorityNotOnTrack")
                 .param("trackName", trackName)
                 .with(TYPE_CHECK)
@@ -173,7 +173,7 @@ public final class StandardStackElements {
             .with(LOWEST_CHECK)
             .build();
 
-    public static MetaStackElement lowestFromGroupOnTrack(LuckPermsPlugin plugin, String trackName) {
+    public static MetaStackElement lowestFromGroupOnTrack(RoryPermsPlugin plugin, String trackName) {
         return FluentMetaStackElement.builder("LowestPriorityOnTrack")
                 .param("trackName", trackName)
                 .with(TYPE_CHECK)
@@ -182,7 +182,7 @@ public final class StandardStackElements {
                 .build();
     }
 
-    public static MetaStackElement lowestNotFromGroupOnTrack(LuckPermsPlugin plugin, String trackName) {
+    public static MetaStackElement lowestNotFromGroupOnTrack(RoryPermsPlugin plugin, String trackName) {
         return FluentMetaStackElement.builder("LowestPriorityNotOnTrack")
                 .param("trackName", trackName)
                 .with(TYPE_CHECK)
@@ -210,10 +210,10 @@ public final class StandardStackElements {
     }
 
     private static final class FromGroupOnTrackCheck implements MetaStackElement {
-        private final LuckPermsPlugin plugin;
+        private final RoryPermsPlugin plugin;
         private final String trackName;
 
-        FromGroupOnTrackCheck(LuckPermsPlugin plugin, String trackName) {
+        FromGroupOnTrackCheck(RoryPermsPlugin plugin, String trackName) {
             this.plugin = plugin;
             this.trackName = trackName;
         }
@@ -240,10 +240,10 @@ public final class StandardStackElements {
     }
 
     private static final class NotFromGroupOnTrackCheck implements MetaStackElement {
-        private final LuckPermsPlugin plugin;
+        private final RoryPermsPlugin plugin;
         private final String trackName;
 
-        NotFromGroupOnTrackCheck(LuckPermsPlugin plugin, String trackName) {
+        NotFromGroupOnTrackCheck(RoryPermsPlugin plugin, String trackName) {
             this.plugin = plugin;
             this.trackName = trackName;
         }

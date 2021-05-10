@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -45,12 +45,12 @@ import java.nio.file.Path;
  * A wrapper for the 'contexts.json' file.
  */
 public class ContextsFile {
-    private final LuckPermsConfiguration configuration;
+    private final RoryPermsConfiguration configuration;
 
     private ImmutableContextSet staticContexts = ImmutableContextSetImpl.EMPTY;
     private ImmutableContextSet defaultContexts = ImmutableContextSetImpl.EMPTY;
 
-    public ContextsFile(LuckPermsConfiguration configuration) {
+    public ContextsFile(RoryPermsConfiguration configuration) {
         this.configuration = configuration;
     }
 

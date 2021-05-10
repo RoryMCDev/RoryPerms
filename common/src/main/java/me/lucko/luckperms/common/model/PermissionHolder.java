@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -37,7 +37,7 @@ import me.lucko.luckperms.common.model.nodemap.NodeMapMutable;
 import me.lucko.luckperms.common.model.nodemap.RecordedNodeMap;
 import me.lucko.luckperms.common.node.NodeEquality;
 import me.lucko.luckperms.common.node.comparator.NodeWithContextComparator;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.query.DataSelector;
 
 import net.kyori.adventure.text.Component;
@@ -96,7 +96,7 @@ public abstract class PermissionHolder {
      * Reference to the main plugin instance
      * @see #getPlugin()
      */
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     /**
      * The holders identifier
@@ -134,13 +134,13 @@ public abstract class PermissionHolder {
      *
      * @param plugin the plugin instance
      */
-    protected PermissionHolder(LuckPermsPlugin plugin) {
+    protected PermissionHolder(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 
     // getters
 
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 

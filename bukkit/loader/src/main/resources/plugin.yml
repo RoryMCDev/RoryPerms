@@ -1,4 +1,4 @@
-name: LuckPerms
+name: RoryPerms
 version: ${pluginVersion}
 description: A permissions plugin
 author: Luck
@@ -11,8 +11,8 @@ load: STARTUP
 # LP is still compatible with pre-1.13 releases.
 api-version: 1.13
 
-# Load LuckPerms before Vault. This means that all plugins that (soft-)depend
-# on Vault depend on LuckPerms too.
+# Load RoryPerms before Vault. This means that all plugins that (soft-)depend
+# on Vault depend on RoryPerms too.
 #
 # This fixes issues caused by plugins obtaining the Vault service provider instance
 # only once when they initially enable. (if they haven't depended on LP, our registration

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.plugin.classpath;
 
-import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
+import me.lucko.luckperms.common.plugin.bootstrap.RoryPermsBootstrap;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -57,7 +57,7 @@ public class ReflectionClassPathAppender implements ClassPathAppender {
 
     private final URLClassLoader classLoader;
 
-    public ReflectionClassPathAppender(LuckPermsBootstrap bootstrap) throws IllegalStateException {
+    public ReflectionClassPathAppender(RoryPermsBootstrap bootstrap) throws IllegalStateException {
         ClassLoader classLoader = bootstrap.getClass().getClassLoader();
         if (classLoader instanceof URLClassLoader) {
             this.classLoader = (URLClassLoader) classLoader;

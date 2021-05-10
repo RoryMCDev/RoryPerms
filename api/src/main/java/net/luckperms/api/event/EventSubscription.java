@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,11 +30,11 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import java.util.function.Consumer;
 
 /**
- * Represents a subscription to a {@link LuckPermsEvent}.
+ * Represents a subscription to a {@link RoryPermsEvent}.
  *
  * @param <T> the event class
  */
-public interface EventSubscription<T extends LuckPermsEvent> extends AutoCloseable {
+public interface EventSubscription<T extends RoryPermsEvent> extends AutoCloseable {
 
     /**
      * Gets the class this handler is listening to

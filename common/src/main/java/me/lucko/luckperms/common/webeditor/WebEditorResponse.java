@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -42,7 +42,7 @@ import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.model.manager.group.GroupManager;
 import me.lucko.luckperms.common.model.nodemap.MutateResult;
 import me.lucko.luckperms.common.node.utils.NodeJsonSerializer;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.Uuids;
 
@@ -80,7 +80,7 @@ public class WebEditorResponse {
      * @param plugin the plugin
      * @param sender the sender who is applying the session
      */
-    public void apply(LuckPermsPlugin plugin, Sender sender) {
+    public void apply(RoryPermsPlugin plugin, Sender sender) {
         Session session = new Session(plugin, sender);
         boolean work = false;
 
@@ -126,10 +126,10 @@ public class WebEditorResponse {
      * Represents the application of a given editor session on this platform.
      */
     private static class Session {
-        private final LuckPermsPlugin plugin;
+        private final RoryPermsPlugin plugin;
         private final Sender sender;
 
-        Session(LuckPermsPlugin plugin, Sender sender) {
+        Session(RoryPermsPlugin plugin, Sender sender) {
             this.plugin = plugin;
             this.sender = sender;
         }

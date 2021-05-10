@@ -1,4 +1,4 @@
--- LuckPerms MySQL Schema
+-- RoryPerms MySQL Schema
 
 CREATE TABLE `{prefix}user_permissions` (
   `id`         INT AUTO_INCREMENT NOT NULL,

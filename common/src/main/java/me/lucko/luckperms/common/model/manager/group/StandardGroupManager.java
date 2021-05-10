@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,12 +26,12 @@
 package me.lucko.luckperms.common.model.manager.group;
 
 import me.lucko.luckperms.common.model.Group;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 public class StandardGroupManager extends AbstractGroupManager<Group> {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public StandardGroupManager(LuckPermsPlugin plugin) {
+    public StandardGroupManager(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 

@@ -1,4 +1,4 @@
--- LuckPerms SQLite Schema
+-- RoryPerms SQLite Schema
 
 CREATE TABLE `{prefix}user_permissions` (
   `id`         INTEGER PRIMARY KEY NOT NULL,

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -28,7 +28,7 @@ package me.lucko.luckperms.common.context;
 import me.lucko.luckperms.common.cache.ExpiringCache;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.context.contextset.ImmutableContextSetImpl;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.context.ContextCalculator;
 import net.luckperms.api.context.ContextConsumer;
@@ -51,7 +51,7 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class ContextManager<S, P extends S> {
 
-    protected final LuckPermsPlugin plugin;
+    protected final RoryPermsPlugin plugin;
     private final Class<S> subjectClass;
     private final Class<P> playerClass;
 
@@ -60,7 +60,7 @@ public abstract class ContextManager<S, P extends S> {
     // caches static context lookups
     private final StaticLookupCache staticLookupCache = new StaticLookupCache();
 
-    protected ContextManager(LuckPermsPlugin plugin, Class<S> subjectClass, Class<P> playerClass) {
+    protected ContextManager(RoryPermsPlugin plugin, Class<S> subjectClass, Class<P> playerClass) {
         this.plugin = plugin;
         this.subjectClass = subjectClass;
         this.playerClass = playerClass;

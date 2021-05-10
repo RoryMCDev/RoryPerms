@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,7 +30,7 @@ import com.google.common.collect.ListMultimap;
 
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.node.types.Weight;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.metastacking.MetaStackDefinition;
 import net.luckperms.api.node.ChatMetaType;
@@ -52,7 +52,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class MetaAccumulator {
 
-    public static MetaAccumulator makeFromConfig(LuckPermsPlugin plugin) {
+    public static MetaAccumulator makeFromConfig(RoryPermsPlugin plugin) {
         return new MetaAccumulator(
                 plugin.getConfiguration().get(ConfigKeys.PREFIX_FORMATTING_OPTIONS),
                 plugin.getConfiguration().get(ConfigKeys.SUFFIX_FORMATTING_OPTIONS)

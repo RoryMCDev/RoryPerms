@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -31,7 +31,7 @@ import java.net.URLClassLoader;
 /**
  * A classloader "isolated" from the rest of the Minecraft server.
  *
- * <p>Used to load specific LuckPerms dependencies without causing conflicts
+ * <p>Used to load specific RoryPerms dependencies without causing conflicts
  * with other plugins, or libraries provided by the server implementation.</p>
  */
 public class IsolatedClassLoader extends URLClassLoader {

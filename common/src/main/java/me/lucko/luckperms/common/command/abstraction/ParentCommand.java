@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,7 +30,7 @@ import me.lucko.luckperms.common.command.tabcomplete.CompletionSupplier;
 import me.lucko.luckperms.common.command.tabcomplete.TabCompleter;
 import me.lucko.luckperms.common.command.utils.ArgumentList;
 import me.lucko.luckperms.common.locale.Message;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.Predicates;
 
@@ -59,7 +59,7 @@ public abstract class ParentCommand<T, I> extends Command<Void> {
     }
 
     @Override
-    public void execute(LuckPermsPlugin plugin, Sender sender, Void ignored, ArgumentList args, String label) {
+    public void execute(RoryPermsPlugin plugin, Sender sender, Void ignored, ArgumentList args, String label) {
         // check if required argument and/or subcommand is missing
         if (args.size() < this.type.minArgs) {
             sendUsage(sender, label);
@@ -116,7 +116,7 @@ public abstract class ParentCommand<T, I> extends Command<Void> {
     }
 
     @Override
-    public List<String> tabComplete(LuckPermsPlugin plugin, Sender sender, ArgumentList args) {
+    public List<String> tabComplete(RoryPermsPlugin plugin, Sender sender, ArgumentList args) {
         switch (this.type) {
             case TAKES_ARGUMENT_FOR_TARGET:
                 return TabCompleter.create()
@@ -178,15 +178,15 @@ public abstract class ParentCommand<T, I> extends Command<Void> {
         return getChildren().stream().anyMatch(sc -> sc.isAuthorized(sender));
     }
 
-    protected abstract List<String> getTargets(LuckPermsPlugin plugin);
+    protected abstract List<String> getTargets(RoryPermsPlugin plugin);
 
-    protected abstract I parseTarget(String target, LuckPermsPlugin plugin, Sender sender);
+    protected abstract I parseTarget(String target, RoryPermsPlugin plugin, Sender sender);
 
     protected abstract ReentrantLock getLockForTarget(I target);
 
-    protected abstract T getTarget(I target, LuckPermsPlugin plugin, Sender sender);
+    protected abstract T getTarget(I target, RoryPermsPlugin plugin, Sender sender);
 
-    protected abstract void cleanup(T t, LuckPermsPlugin plugin);
+    protected abstract void cleanup(T t, RoryPermsPlugin plugin);
 
     public enum Type {
         // e.g. /lp log sub-command....

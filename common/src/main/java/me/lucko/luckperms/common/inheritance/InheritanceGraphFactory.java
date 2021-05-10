@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.inheritance;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.query.QueryOptionsImpl;
 
 import net.luckperms.api.query.QueryOptions;
@@ -34,12 +34,12 @@ import net.luckperms.api.query.QueryOptions;
  * Provides {@link InheritanceGraph}s.
  */
 public class InheritanceGraphFactory {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     private final InheritanceGraph nonContextualGraph;
     private final InheritanceGraph defaultContextualGraph;
 
-    public InheritanceGraphFactory(LuckPermsPlugin plugin) {
+    public InheritanceGraphFactory(RoryPermsPlugin plugin) {
         this.plugin = plugin;
         this.nonContextualGraph = new InheritanceGraph(plugin, QueryOptionsImpl.DEFAULT_NON_CONTEXTUAL);
         this.defaultContextualGraph = new InheritanceGraph(plugin, QueryOptionsImpl.DEFAULT_CONTEXTUAL);

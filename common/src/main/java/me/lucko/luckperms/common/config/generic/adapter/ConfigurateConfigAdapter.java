@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.config.generic.adapter;
 
 import com.google.common.base.Splitter;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import ninja.leaping.configurate.ConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
@@ -40,11 +40,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public abstract class ConfigurateConfigAdapter implements ConfigurationAdapter {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final Path path;
     private ConfigurationNode root;
 
-    public ConfigurateConfigAdapter(LuckPermsPlugin plugin, Path path) {
+    public ConfigurateConfigAdapter(RoryPermsPlugin plugin, Path path) {
         this.plugin = plugin;
         this.path = path;
         reload();
@@ -118,7 +118,7 @@ public abstract class ConfigurateConfigAdapter implements ConfigurationAdapter {
     }
 
     @Override
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 }

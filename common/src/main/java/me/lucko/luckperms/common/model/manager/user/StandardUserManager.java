@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,15 +26,15 @@
 package me.lucko.luckperms.common.model.manager.user;
 
 import me.lucko.luckperms.common.model.User;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class StandardUserManager extends AbstractUserManager<User> {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public StandardUserManager(LuckPermsPlugin plugin) {
+    public StandardUserManager(RoryPermsPlugin plugin) {
         super(plugin, UserHousekeeper.timeoutSettings(1, TimeUnit.MINUTES));
         this.plugin = plugin;
     }

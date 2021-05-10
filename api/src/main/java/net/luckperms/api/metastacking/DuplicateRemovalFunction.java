@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -35,7 +35,7 @@ import java.util.Set;
 /**
  * Functional interface which removes duplicate entries from a list.
  *
- * <p>Used by LuckPerms to remove duplicate entries from a MetaStack.</p>
+ * <p>Used by RoryPerms to remove duplicate entries from a MetaStack.</p>
  */
 public interface DuplicateRemovalFunction {
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,12 +27,12 @@ package me.lucko.luckperms.common.tasks;
 
 import me.lucko.luckperms.common.model.Group;
 import me.lucko.luckperms.common.model.User;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 public class ExpireTemporaryTask implements Runnable {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public ExpireTemporaryTask(LuckPermsPlugin plugin) {
+    public ExpireTemporaryTask(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 

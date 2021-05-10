@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package me.lucko.luckperms.bukkit.listeners;
 
 import me.lucko.luckperms.bukkit.LPBukkitPlugin;
-import me.lucko.luckperms.bukkit.inject.permissible.LuckPermsPermissible;
+import me.lucko.luckperms.bukkit.inject.permissible.RoryPermsPermissible;
 import me.lucko.luckperms.bukkit.inject.permissible.PermissibleInjector;
 import me.lucko.luckperms.bukkit.util.PlayerLocaleUtil;
 import me.lucko.luckperms.common.config.ConfigKeys;
@@ -82,7 +82,7 @@ public class BukkitConnectionListener extends AbstractConnectionListener impleme
 
     private void printCraftBukkitOfflineModeError() {
         this.plugin.getLogger().warn("It appears that your server is running CraftBukkit and configured in offline (cracked) mode.");
-        this.plugin.getLogger().warn("Due to a CraftBukkit limitation, LuckPerms cannot function correctly in this setup.");
+        this.plugin.getLogger().warn("Due to a CraftBukkit limitation, RoryPerms cannot function correctly in this setup.");
         this.plugin.getLogger().warn("To resolve this, please either a) upgrade from CraftBukkit to Spigot or Paper, or b) enable online-mode.");
         this.plugin.getLogger().warn("For more info, please see: https://luckperms.net/wiki/Installation#craftbukkit-and-offline-mode");
     }
@@ -200,7 +200,7 @@ public class BukkitConnectionListener extends AbstractConnectionListener impleme
         // Care should be taken at this stage to ensure that async tasks which manipulate bukkit data check that the player is still online.
         try {
             // Make a new permissible for the user
-            LuckPermsPermissible lpPermissible = new LuckPermsPermissible(player, user, this.plugin);
+            RoryPermsPermissible lpPermissible = new RoryPermsPermissible(player, user, this.plugin);
 
             // Inject into the player
             PermissibleInjector.inject(player, lpPermissible, this.plugin.getLogger());

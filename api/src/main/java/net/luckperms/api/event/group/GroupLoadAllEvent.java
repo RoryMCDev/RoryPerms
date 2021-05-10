@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,13 +25,13 @@
 
 package net.luckperms.api.event.group;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 
 /**
  * Called when all groups have been loaded in from storage.
  *
  * <p>Usually only called on startup and in sync tasks.</p>
  */
-public interface GroupLoadAllEvent extends LuckPermsEvent {
+public interface GroupLoadAllEvent extends RoryPermsEvent {
 
 }

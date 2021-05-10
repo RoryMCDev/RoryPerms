@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,14 +25,14 @@
 
 package me.lucko.luckperms.common.config.generic.adapter;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import java.util.List;
 import java.util.Map;
 
 public interface ConfigurationAdapter {
 
-    LuckPermsPlugin getPlugin();
+    RoryPermsPlugin getPlugin();
 
     void reload();
 

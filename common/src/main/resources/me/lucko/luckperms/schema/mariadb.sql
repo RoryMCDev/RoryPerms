@@ -1,4 +1,4 @@
--- LuckPerms MariaDB Schema
+-- RoryPerms MariaDB Schema
 
 CREATE TABLE `{prefix}user_permissions` (
   `id`         INT AUTO_INCREMENT NOT NULL,

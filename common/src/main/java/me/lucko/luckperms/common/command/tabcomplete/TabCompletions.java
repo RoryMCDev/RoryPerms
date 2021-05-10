@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.command.tabcomplete;
 
 import com.google.common.base.Splitter;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.treeview.PermissionRegistry;
 import me.lucko.luckperms.common.treeview.TreeNode;
 
@@ -51,7 +51,7 @@ public final class TabCompletions {
     private final CompletionSupplier permissions;
     private final CompletionSupplier contexts;
 
-    public TabCompletions(LuckPermsPlugin plugin) {
+    public TabCompletions(RoryPermsPlugin plugin) {
         this.groups = CompletionSupplier.startsWith(() -> plugin.getGroupManager().getAll().keySet().stream());
         this.tracks = CompletionSupplier.startsWith(() -> plugin.getTrackManager().getAll().keySet().stream());
         this.permissions = partial -> {
@@ -124,19 +124,19 @@ public final class TabCompletions {
         return BOOLEAN;
     }
 
-    public static CompletionSupplier groups(LuckPermsPlugin plugin) {
+    public static CompletionSupplier groups(RoryPermsPlugin plugin) {
         return plugin.getCommandManager().getTabCompletions().groups;
     }
 
-    public static CompletionSupplier tracks(LuckPermsPlugin plugin) {
+    public static CompletionSupplier tracks(RoryPermsPlugin plugin) {
         return plugin.getCommandManager().getTabCompletions().tracks;
     }
 
-    public static CompletionSupplier permissions(LuckPermsPlugin plugin) {
+    public static CompletionSupplier permissions(RoryPermsPlugin plugin) {
         return plugin.getCommandManager().getTabCompletions().permissions;
     }
 
-    public static CompletionSupplier contexts(LuckPermsPlugin plugin) {
+    public static CompletionSupplier contexts(RoryPermsPlugin plugin) {
         return plugin.getCommandManager().getTabCompletions().contexts;
     }
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.player.lookup;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -37,7 +37,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * @since 5.3
  */
-public interface UsernameValidityCheckEvent extends LuckPermsEvent {
+public interface UsernameValidityCheckEvent extends RoryPermsEvent {
 
     /**
      * Gets the username being tested.

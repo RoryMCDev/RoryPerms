@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.bukkit.listeners;
 
 import me.lucko.luckperms.bukkit.LPBukkitPlugin;
 import me.lucko.luckperms.common.api.implementation.ApiUser;
-import me.lucko.luckperms.common.event.LuckPermsEventListener;
+import me.lucko.luckperms.common.event.RoryPermsEventListener;
 import me.lucko.luckperms.common.model.User;
 
 import net.luckperms.api.event.EventBus;
@@ -40,9 +40,9 @@ import org.bukkit.entity.Player;
 import java.util.Map;
 
 /**
- * Implements the LuckPerms auto op feature.
+ * Implements the RoryPerms auto op feature.
  */
-public class BukkitAutoOpListener implements LuckPermsEventListener {
+public class BukkitAutoOpListener implements RoryPermsEventListener {
     private static final String NODE = "luckperms.autoop";
 
     private final LPBukkitPlugin plugin;

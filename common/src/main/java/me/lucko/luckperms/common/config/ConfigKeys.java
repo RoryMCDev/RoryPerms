@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -74,7 +74,7 @@ import static me.lucko.luckperms.common.config.generic.key.ConfigKeyFactory.notR
 import static me.lucko.luckperms.common.config.generic.key.ConfigKeyFactory.stringKey;
 
 /**
- * All of the {@link ConfigKey}s used by LuckPerms.
+ * All of the {@link ConfigKey}s used by RoryPerms.
  *
  * <p>The {@link #getKeys()} method and associated behaviour allows this class
  * to function a bit like an enum, but with generics.</p>
@@ -147,22 +147,22 @@ public final class ConfigKeys {
     }));
 
     /**
-     * # If the servers own UUID cache/lookup facility should be used when there is no record for a player in the LuckPerms cache.
+     * # If the servers own UUID cache/lookup facility should be used when there is no record for a player in the RoryPerms cache.
      */
     public static final ConfigKey<Boolean> USE_SERVER_UUID_CACHE = booleanKey("use-server-uuid-cache", false);
 
     /**
-     * If LuckPerms should allow usernames with non alphanumeric characters.
+     * If RoryPerms should allow usernames with non alphanumeric characters.
      */
     public static final ConfigKey<Boolean> ALLOW_INVALID_USERNAMES = booleanKey("allow-invalid-usernames", false);
 
     /**
-     * If LuckPerms should not require users to confirm bulkupdate operations.
+     * If RoryPerms should not require users to confirm bulkupdate operations.
      */
     public static final ConfigKey<Boolean> SKIP_BULKUPDATE_CONFIRMATION = booleanKey("skip-bulkupdate-confirmation", false);
 
     /**
-     * If LuckPerms should produce extra logging output when it handles logins.
+     * If RoryPerms should produce extra logging output when it handles logins.
      */
     public static final ConfigKey<Boolean> DEBUG_LOGINS = booleanKey("debug-logins", false);
 
@@ -172,17 +172,17 @@ public final class ConfigKeys {
     public static final ConfigKey<Boolean> CANCEL_FAILED_LOGINS = booleanKey("cancel-failed-logins", false);
 
     /**
-     * If LuckPerms should update the list of commands sent to the client when permissions are changed.
+     * If RoryPerms should update the list of commands sent to the client when permissions are changed.
      */
     public static final ConfigKey<Boolean> UPDATE_CLIENT_COMMAND_LIST = notReloadable(booleanKey("update-client-command-list", true));
 
     /**
-     * If LuckPerms should attempt to register "Brigadier" command list data for its commands.
+     * If RoryPerms should attempt to register "Brigadier" command list data for its commands.
      */
     public static final ConfigKey<Boolean> REGISTER_COMMAND_LIST_DATA = notReloadable(booleanKey("register-command-list-data", true));
 
     /**
-     * If LuckPerms should attempt to resolve Vanilla command target selectors for LP commands.
+     * If RoryPerms should attempt to resolve Vanilla command target selectors for LP commands.
      */
     public static final ConfigKey<Boolean> RESOLVE_COMMAND_SELECTORS = booleanKey("resolve-command-selectors", false);
 
@@ -314,7 +314,7 @@ public final class ConfigKeys {
     public static final ConfigKey<Boolean> APPLY_SPONGE_DEFAULT_SUBJECTS = notReloadable(booleanKey("apply-sponge-default-subjects", true));
 
     /**
-     * The algorithm LuckPerms should use when traversing the "inheritance tree"
+     * The algorithm RoryPerms should use when traversing the "inheritance tree"
      */
     public static final ConfigKey<TraversalAlgorithm> INHERITANCE_TRAVERSAL_ALGORITHM = key(c -> {
         String value = c.getString("inheritance-traversal-algorithm", "depth-first-pre-order");
@@ -443,7 +443,7 @@ public final class ConfigKeys {
     });
 
     /**
-     * If LuckPerms should automatically install translation bundles and periodically update them.
+     * If RoryPerms should automatically install translation bundles and periodically update them.
      */
     public static final ConfigKey<Boolean> AUTO_INSTALL_TRANSLATIONS = notReloadable(booleanKey("auto-install-translations", true));
 
@@ -458,7 +458,7 @@ public final class ConfigKeys {
     public static final ConfigKey<Boolean> OPS_ENABLED = notReloadable(key(c -> !AUTO_OP.get(c) && c.getBoolean("enable-ops", true)));
 
     /**
-     * If server operators should be able to use LuckPerms commands by default. Only used by the Bukkit platform.
+     * If server operators should be able to use RoryPerms commands by default. Only used by the Bukkit platform.
      */
     public static final ConfigKey<Boolean> COMMANDS_ALLOW_OP = notReloadable(booleanKey("commands-allow-op", true));
 
@@ -468,17 +468,17 @@ public final class ConfigKeys {
     public static final ConfigKey<Boolean> VAULT_UNSAFE_LOOKUPS = booleanKey("vault-unsafe-lookups", false);
 
     /**
-     * If LuckPerms should use the 'display name' of a group when returning groups in Vault API calls.
+     * If RoryPerms should use the 'display name' of a group when returning groups in Vault API calls.
      */
     public static final ConfigKey<Boolean> VAULT_GROUP_USE_DISPLAYNAMES = booleanKey("vault-group-use-displaynames", true);
 
     /**
-     * Controls which group LuckPerms should use for NPC players when handling Vault requests
+     * Controls which group RoryPerms should use for NPC players when handling Vault requests
      */
     public static final ConfigKey<String> VAULT_NPC_GROUP = stringKey("vault-npc-group", "default");
 
     /**
-     * Controls how LuckPerms should consider the OP status of NPC players when handing Vault requests
+     * Controls how RoryPerms should consider the OP status of NPC players when handing Vault requests
      */
     public static final ConfigKey<Boolean> VAULT_NPC_OP_STATUS = booleanKey("vault-npc-op-status", false);
 
@@ -612,12 +612,12 @@ public final class ConfigKeys {
     public static final ConfigKey<Boolean> AUTO_PUSH_UPDATES = notReloadable(booleanKey("auto-push-updates", true));
 
     /**
-     * If LuckPerms should push logging entries to connected servers via the messaging service
+     * If RoryPerms should push logging entries to connected servers via the messaging service
      */
     public static final ConfigKey<Boolean> PUSH_LOG_ENTRIES = notReloadable(booleanKey("push-log-entries", true));
 
     /**
-     * If LuckPerms should broadcast received logging entries to players on this platform
+     * If RoryPerms should broadcast received logging entries to players on this platform
      */
     public static final ConfigKey<Boolean> BROADCAST_RECEIVED_LOG_ENTRIES = notReloadable(booleanKey("broadcast-received-log-entries", false));
 

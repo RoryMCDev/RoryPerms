@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,25 +25,25 @@
 
 package me.lucko.luckperms.common.event.gen;
 
-import net.luckperms.api.LuckPerms;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.RoryPerms;
+import net.luckperms.api.event.RoryPermsEvent;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.lang.invoke.MethodHandles;
 
 /**
- * Abstract implementation of {@link LuckPermsEvent}.
+ * Abstract implementation of {@link RoryPermsEvent}.
  */
-public abstract class AbstractEvent implements LuckPermsEvent {
-    private final LuckPerms api;
+public abstract class AbstractEvent implements RoryPermsEvent {
+    private final RoryPerms api;
 
-    protected AbstractEvent(LuckPerms api) {
+    protected AbstractEvent(RoryPerms api) {
         this.api = api;
     }
 
     @Override
-    public @NonNull LuckPerms getLuckPerms() {
+    public @NonNull RoryPerms getRoryPerms() {
         return this.api;
     }
 

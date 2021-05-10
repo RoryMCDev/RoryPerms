@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.node.types;
 
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPermsProvider;
 import net.luckperms.api.node.Node;
 import net.luckperms.api.node.NodeBuilder;
 import net.luckperms.api.node.NodeType;
@@ -56,7 +56,7 @@ public interface DisplayNameNode extends ScopedNode<DisplayNameNode, DisplayName
      * @return the builder
      */
     static @NonNull Builder builder() {
-        return LuckPermsProvider.get().getNodeBuilderRegistry().forDisplayName();
+        return RoryPermsProvider.get().getNodeBuilderRegistry().forDisplayName();
     }
 
     /**

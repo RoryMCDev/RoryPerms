@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -43,7 +43,7 @@ import java.util.WeakHashMap;
 /**
  * A replacement map for the 'permSubs' instance in Bukkit's SimplePluginManager.
  *
- * This instance allows LuckPerms to intercept calls to
+ * This instance allows RoryPerms to intercept calls to
  * {@link PluginManager#subscribeToPermission(String, Permissible)},
  * {@link PluginManager#unsubscribeFromPermission(String, Permissible)} and
  * {@link PluginManager#getPermissionSubscriptions(String)}.
@@ -56,20 +56,20 @@ import java.util.WeakHashMap;
  *
  * In order to implement predicable Bukkit behaviour, LP has two options:
  * 1) register subscriptions for all players as normal, or
- * 2) inject it's own map instance to proxy calls to {@link PluginManager#getPermissionSubscriptions(String)} back to LuckPerms.
+ * 2) inject it's own map instance to proxy calls to {@link PluginManager#getPermissionSubscriptions(String)} back to RoryPerms.
  *
  * This class implements option 2 above. It is preferred because it is faster & uses less memory
  *
  * Injected by {@link InjectorSubscriptionMap}.
  */
-public final class LuckPermsSubscriptionMap implements Map<String, Map<Permissible, Boolean>> {
+public final class RoryPermsSubscriptionMap implements Map<String, Map<Permissible, Boolean>> {
 
     // the plugin instance
     final LPBukkitPlugin plugin;
 
     private final Map<Permissible, Set<String>> subscriptions = Collections.synchronizedMap(new WeakHashMap<>());
 
-    public LuckPermsSubscriptionMap(LPBukkitPlugin plugin, Map<String, Map<Permissible, Boolean>> existingData) {
+    public RoryPermsSubscriptionMap(LPBukkitPlugin plugin, Map<String, Map<Permissible, Boolean>> existingData) {
         this.plugin = plugin;
         for (Entry<String, Map<Permissible, Boolean>> entry : existingData.entrySet()) {
             entry.getValue().keySet().forEach(permissible -> subscribe(permissible, entry.getKey()));

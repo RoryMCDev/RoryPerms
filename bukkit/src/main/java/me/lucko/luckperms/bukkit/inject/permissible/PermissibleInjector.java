@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -36,9 +36,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 /**
- * Injects a {@link LuckPermsPermissible} into a {@link Player}.
+ * Injects a {@link RoryPermsPermissible} into a {@link Player}.
  *
- * This allows LuckPerms to directly intercept permission checks and take over all handling of
+ * This allows RoryPerms to directly intercept permission checks and take over all handling of
  * checks made by plugins.
  */
 public final class PermissibleInjector {
@@ -81,20 +81,20 @@ public final class PermissibleInjector {
     }
 
     /**
-     * Injects a {@link LuckPermsPermissible} into a {@link Player}.
+     * Injects a {@link RoryPermsPermissible} into a {@link Player}.
      *
      * @param player the player to inject into
      * @param newPermissible the permissible to inject
      * @param logger the plugin logger
      * @throws Exception propagates any exceptions which were thrown during injection
      */
-    public static void inject(Player player, LuckPermsPermissible newPermissible, PluginLogger logger) throws Exception {
+    public static void inject(Player player, RoryPermsPermissible newPermissible, PluginLogger logger) throws Exception {
 
         // get the existing PermissibleBase held by the player
         PermissibleBase oldPermissible = (PermissibleBase) HUMAN_ENTITY_PERMISSIBLE_FIELD.get(player);
 
         // seems we have already injected into this player.
-        if (oldPermissible instanceof LuckPermsPermissible) {
+        if (oldPermissible instanceof RoryPermsPermissible) {
             throw new IllegalStateException("LPPermissible already injected into player " + player.toString());
         }
 
@@ -102,7 +102,7 @@ public final class PermissibleInjector {
         if (!PermissibleBase.class.equals(oldClass)) {
             logger.warn("Player " + player.getName() + " already has a custom permissible (" + oldClass.getName() + ")!\n" +
                     "This is probably because you have multiple permission plugins installed.\n" +
-                    "Please make sure that LuckPerms is the only permission plugin installed on your server!\n" +
+                    "Please make sure that RoryPerms is the only permission plugin installed on your server!\n" +
                     "(unless you're performing a migration, in which case, just remember to remove your old " +
                     "permission plugin once you're done!)");
         }
@@ -125,7 +125,7 @@ public final class PermissibleInjector {
     }
 
     /**
-     * Uninjects a {@link LuckPermsPermissible} from a {@link Player}.
+     * Uninjects a {@link RoryPermsPermissible} from a {@link Player}.
      *
      * @param player the player to uninject from
      * @param dummy if the replacement permissible should be a dummy.
@@ -137,8 +137,8 @@ public final class PermissibleInjector {
         PermissibleBase permissible = (PermissibleBase) HUMAN_ENTITY_PERMISSIBLE_FIELD.get(player);
 
         // only uninject if the permissible was a luckperms one.
-        if (permissible instanceof LuckPermsPermissible) {
-            LuckPermsPermissible lpPermissible = (LuckPermsPermissible) permissible;
+        if (permissible instanceof RoryPermsPermissible) {
+            RoryPermsPermissible lpPermissible = (RoryPermsPermissible) permissible;
 
             // clear all permissions
             lpPermissible.clearPermissions();
@@ -170,14 +170,14 @@ public final class PermissibleInjector {
             return; // ignore
         }
 
-        if (permissibleBase instanceof LuckPermsPermissible) {
+        if (permissibleBase instanceof RoryPermsPermissible) {
             return; // all gucci
         }
 
         Class<? extends PermissibleBase> clazz = permissibleBase.getClass();
-        logger.warn("Player " + player.getName() + " has a non-LuckPerms permissible (" + clazz.getName() + ")!\n" +
+        logger.warn("Player " + player.getName() + " has a non-RoryPerms permissible (" + clazz.getName() + ")!\n" +
                 "This is probably because you have multiple permission plugins installed.\n" +
-                "Please make sure that LuckPerms is the only permission plugin installed on your server!\n" +
+                "Please make sure that RoryPerms is the only permission plugin installed on your server!\n" +
                 "(unless you're performing a migration, in which case, just remember to remove your old " +
                 "permission plugin once you're done!)");
     }

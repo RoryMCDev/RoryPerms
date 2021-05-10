@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -40,7 +40,7 @@ import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.node.matcher.ConstraintNodeMatcher;
 import me.lucko.luckperms.common.node.utils.NodeJsonSerializer;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.storage.misc.NodeEntry;
 import me.lucko.luckperms.common.util.gson.GsonProvider;
@@ -81,11 +81,11 @@ public class WebEditorRequest {
      * @param holders the holders to edit
      * @param tracks the tracks to edit
      * @param sender the sender who is creating the session
-     * @param cmdLabel the command label used by LuckPerms
+     * @param cmdLabel the command label used by RoryPerms
      * @param plugin the plugin
      * @return a payload
      */
-    public static WebEditorRequest generate(List<PermissionHolder> holders, List<Track> tracks, Sender sender, String cmdLabel, LuckPermsPlugin plugin) {
+    public static WebEditorRequest generate(List<PermissionHolder> holders, List<Track> tracks, Sender sender, String cmdLabel, RoryPermsPlugin plugin) {
         Preconditions.checkArgument(!holders.isEmpty(), "holders is empty");
 
         ImmutableContextSet.Builder potentialContexts = new ImmutableContextSetImpl.BuilderImpl();
@@ -103,7 +103,7 @@ public class WebEditorRequest {
      */
     private final JsonObject payload;
 
-    private WebEditorRequest(List<PermissionHolder> holders, List<Track> tracks, Sender sender, String cmdLabel, ImmutableContextSet potentialContexts, LuckPermsPlugin plugin) {
+    private WebEditorRequest(List<PermissionHolder> holders, List<Track> tracks, Sender sender, String cmdLabel, ImmutableContextSet potentialContexts, RoryPermsPlugin plugin) {
         this.payload = new JObject()
                 .add("metadata", formMetadata(sender, cmdLabel, plugin.getBootstrap().getVersion()))
                 .add("permissionHolders", new JArray()
@@ -168,7 +168,7 @@ public class WebEditorRequest {
      * @param sender the sender creating the session
      * @return the command result
      */
-    public void createSession(LuckPermsPlugin plugin, Sender sender) {
+    public void createSession(RoryPermsPlugin plugin, Sender sender) {
         String pasteId;
         try {
             pasteId = plugin.getBytebin().postContent(encode(), AbstractHttpClient.JSON_TYPE).key();
@@ -186,7 +186,7 @@ public class WebEditorRequest {
         Message.EDITOR_URL.send(sender, url);
     }
 
-    public static void includeMatchingGroups(List<? super Group> holders, Predicate<? super Group> filter, LuckPermsPlugin plugin) {
+    public static void includeMatchingGroups(List<? super Group> holders, Predicate<? super Group> filter, RoryPermsPlugin plugin) {
         plugin.getGroupManager().getAll().values().stream()
                 .filter(filter)
                 .sorted(Comparator
@@ -196,11 +196,11 @@ public class WebEditorRequest {
                 .forEach(holders::add);
     }
 
-    public static void includeMatchingUsers(List<? super User> holders, ConstraintNodeMatcher<Node> matcher, boolean includeOffline, LuckPermsPlugin plugin) {
+    public static void includeMatchingUsers(List<? super User> holders, ConstraintNodeMatcher<Node> matcher, boolean includeOffline, RoryPermsPlugin plugin) {
         includeMatchingUsers(holders, matcher == null ? Collections.emptyList() : Collections.singleton(matcher), includeOffline, plugin);
     }
 
-    public static void includeMatchingUsers(List<? super User> holders, Collection<ConstraintNodeMatcher<Node>> matchers, boolean includeOffline, LuckPermsPlugin plugin) {
+    public static void includeMatchingUsers(List<? super User> holders, Collection<ConstraintNodeMatcher<Node>> matchers, boolean includeOffline, RoryPermsPlugin plugin) {
         Map<UUID, User> users = new LinkedHashMap<>(plugin.getUserManager().getAll());
 
         if (!matchers.isEmpty()) {
@@ -240,7 +240,7 @@ public class WebEditorRequest {
                 .forEach(holders::add);
     }
 
-    private static void findMatchingOfflineUsers(Map<UUID, User> users, ConstraintNodeMatcher<Node> matcher, LuckPermsPlugin plugin) {
+    private static void findMatchingOfflineUsers(Map<UUID, User> users, ConstraintNodeMatcher<Node> matcher, RoryPermsPlugin plugin) {
         Stream<UUID> stream;
         if (matcher == null) {
             stream = plugin.getStorage().getUniqueUsers().join().stream();

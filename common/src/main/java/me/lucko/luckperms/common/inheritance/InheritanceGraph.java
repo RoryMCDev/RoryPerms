@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,7 +30,7 @@ import me.lucko.luckperms.common.graph.Graph;
 import me.lucko.luckperms.common.graph.TraversalAlgorithm;
 import me.lucko.luckperms.common.model.Group;
 import me.lucko.luckperms.common.model.PermissionHolder;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.node.types.InheritanceNode;
 import net.luckperms.api.query.QueryOptions;
@@ -44,14 +44,14 @@ import java.util.Set;
  * A {@link Graph} which represents an "inheritance tree".
  */
 public class InheritanceGraph implements Graph<PermissionHolder> {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     /**
      * The contexts to resolve inheritance in.
      */
     private final QueryOptions queryOptions;
 
-    public InheritanceGraph(LuckPermsPlugin plugin, QueryOptions queryOptions) {
+    public InheritanceGraph(RoryPermsPlugin plugin, QueryOptions queryOptions) {
         this.plugin = plugin;
         this.queryOptions = queryOptions;
     }

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -40,7 +40,7 @@ import me.lucko.luckperms.common.commands.generic.parent.CommandParent;
 import me.lucko.luckperms.common.commands.generic.permission.CommandPermission;
 import me.lucko.luckperms.common.model.Group;
 import me.lucko.luckperms.common.model.HolderType;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.CaffeineFactory;
 
@@ -78,7 +78,7 @@ public class GroupParentCommand extends ParentCommand<Group, String> {
     }
 
     @Override
-    protected String parseTarget(String target, LuckPermsPlugin plugin, Sender sender) {
+    protected String parseTarget(String target, RoryPermsPlugin plugin, Sender sender) {
         Group group = plugin.getGroupManager().getByDisplayName(target);
         if (group != null) {
             return group.getName();
@@ -88,7 +88,7 @@ public class GroupParentCommand extends ParentCommand<Group, String> {
     }
 
     @Override
-    protected Group getTarget(String target, LuckPermsPlugin plugin, Sender sender) {
+    protected Group getTarget(String target, RoryPermsPlugin plugin, Sender sender) {
         return StorageAssistant.loadGroup(target, sender, plugin, true);
     }
 
@@ -98,12 +98,12 @@ public class GroupParentCommand extends ParentCommand<Group, String> {
     }
 
     @Override
-    protected void cleanup(Group group, LuckPermsPlugin plugin) {
+    protected void cleanup(Group group, RoryPermsPlugin plugin) {
 
     }
 
     @Override
-    protected List<String> getTargets(LuckPermsPlugin plugin) {
+    protected List<String> getTargets(RoryPermsPlugin plugin) {
         return new ArrayList<>(plugin.getGroupManager().getAll().keySet());
     }
 }

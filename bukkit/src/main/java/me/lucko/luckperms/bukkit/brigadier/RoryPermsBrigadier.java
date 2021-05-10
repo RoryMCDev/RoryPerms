@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -38,10 +38,10 @@ import org.bukkit.command.Command;
 import java.io.InputStream;
 
 /**
- * Registers LuckPerms command data to brigadier using {@link Commodore}.
+ * Registers RoryPerms command data to brigadier using {@link Commodore}.
  */
-public final class LuckPermsBrigadier {
-    private LuckPermsBrigadier() {}
+public final class RoryPermsBrigadier {
+    private RoryPermsBrigadier() {}
 
     public static void register(LPBukkitPlugin plugin, Command pluginCommand) throws Exception {
         Commodore commodore = CommodoreProvider.getCommodore(plugin.getLoader());

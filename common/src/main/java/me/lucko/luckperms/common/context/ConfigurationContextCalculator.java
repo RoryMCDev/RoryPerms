@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package me.lucko.luckperms.common.context;
 
 import me.lucko.luckperms.common.config.ConfigKeys;
-import me.lucko.luckperms.common.config.LuckPermsConfiguration;
+import me.lucko.luckperms.common.config.RoryPermsConfiguration;
 import me.lucko.luckperms.common.context.contextset.ImmutableContextSetImpl;
 
 import net.luckperms.api.context.ContextConsumer;
@@ -38,9 +38,9 @@ import net.luckperms.api.context.StaticContextCalculator;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class ConfigurationContextCalculator implements StaticContextCalculator {
-    private final LuckPermsConfiguration config;
+    private final RoryPermsConfiguration config;
 
-    public ConfigurationContextCalculator(LuckPermsConfiguration config) {
+    public ConfigurationContextCalculator(RoryPermsConfiguration config) {
         this.config = config;
     }
 

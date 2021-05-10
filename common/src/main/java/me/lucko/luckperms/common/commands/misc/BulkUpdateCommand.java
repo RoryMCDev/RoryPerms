@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -46,7 +46,7 @@ import me.lucko.luckperms.common.command.utils.ArgumentException;
 import me.lucko.luckperms.common.command.utils.ArgumentList;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.locale.Message;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.CaffeineFactory;
 import me.lucko.luckperms.common.util.Predicates;
@@ -62,7 +62,7 @@ public class BulkUpdateCommand extends SingleCommand {
     }
 
     @Override
-    public void execute(LuckPermsPlugin plugin, Sender sender, ArgumentList args, String label) throws CommandException {
+    public void execute(RoryPermsPlugin plugin, Sender sender, ArgumentList args, String label) throws CommandException {
         if (!sender.isConsole()) {
             Message.BULK_UPDATE_MUST_USE_CONSOLE.send(sender);
             return;
@@ -155,7 +155,7 @@ public class BulkUpdateCommand extends SingleCommand {
         }
     }
 
-    private static void runOperation(BulkUpdate operation, LuckPermsPlugin plugin, Sender sender) {
+    private static void runOperation(BulkUpdate operation, RoryPermsPlugin plugin, Sender sender) {
         Message.BULK_UPDATE_STARTING.send(sender);
         plugin.getStorage().applyBulkUpdate(operation).whenCompleteAsync((v, ex) -> {
             if (ex == null) {

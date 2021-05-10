@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -28,7 +28,7 @@ package me.lucko.luckperms.common.api;
 import com.google.common.base.Preconditions;
 
 import me.lucko.luckperms.common.config.ConfigKeys;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.misc.DataConstraints;
 
 import java.util.function.Predicate;
@@ -36,7 +36,7 @@ import java.util.function.Predicate;
 public final class ApiUtils {
     private ApiUtils() {}
 
-    public static String checkUsername(String s, LuckPermsPlugin plugin) {
+    public static String checkUsername(String s, RoryPermsPlugin plugin) {
         if (s == null) {
             return null;
         }

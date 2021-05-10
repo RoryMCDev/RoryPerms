@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -31,7 +31,7 @@ import me.lucko.luckperms.common.command.abstraction.CommandException;
 import me.lucko.luckperms.common.commands.user.UserParentCommand;
 import me.lucko.luckperms.common.context.contextset.ImmutableContextSetImpl;
 import me.lucko.luckperms.common.context.contextset.MutableContextSetImpl;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.DurationParser;
 
@@ -128,7 +128,7 @@ public class ArgumentList extends ForwardingList<String> {
         }
     }
 
-    public UUID getUserTarget(int index, LuckPermsPlugin plugin, Sender sender) {
+    public UUID getUserTarget(int index, RoryPermsPlugin plugin, Sender sender) {
         String arg = get(index);
         return UserParentCommand.parseTargetUniqueId(arg, plugin, sender);
     }
@@ -201,7 +201,7 @@ public class ArgumentList extends ForwardingList<String> {
         }
     }
 
-    public MutableContextSet getContextOrDefault(int fromIndex, LuckPermsPlugin plugin) throws CommandException {
+    public MutableContextSet getContextOrDefault(int fromIndex, RoryPermsPlugin plugin) throws CommandException {
         if (size() <= fromIndex) {
             return plugin.getConfiguration().getContextsFile().getDefaultContexts().mutableCopy();
         }

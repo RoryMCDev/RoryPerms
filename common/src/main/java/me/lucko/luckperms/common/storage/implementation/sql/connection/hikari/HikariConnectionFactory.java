@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,7 +30,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import me.lucko.luckperms.common.locale.Message;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.plugin.logging.PluginLogger;
 import me.lucko.luckperms.common.storage.implementation.sql.connection.ConnectionFactory;
 import me.lucko.luckperms.common.storage.misc.StorageCredentials;
@@ -109,7 +109,7 @@ public abstract class HikariConnectionFactory implements ConnectionFactory {
     }
 
     @Override
-    public void init(LuckPermsPlugin plugin) {
+    public void init(RoryPermsPlugin plugin) {
         HikariConfig config;
         try {
             config = new HikariConfig();
@@ -210,7 +210,7 @@ public abstract class HikariConnectionFactory implements ConnectionFactory {
 
     // dumb plugins seem to keep doing stupid stuff with shading of SLF4J and Log4J.
     // detect this and print a more useful error message.
-    private static void handleClassloadingError(Throwable throwable, LuckPermsPlugin plugin) {
+    private static void handleClassloadingError(Throwable throwable, RoryPermsPlugin plugin) {
         List<String> noteworthyClasses = ImmutableList.of(
                 "org.slf4j.LoggerFactory",
                 "org.slf4j.ILoggerFactory",
@@ -223,7 +223,7 @@ public abstract class HikariConnectionFactory implements ConnectionFactory {
 
         PluginLogger logger = plugin.getLogger();
         logger.warn("A " + throwable.getClass().getSimpleName() + " has occurred whilst initialising Hikari. This is likely due to classloading conflicts between other plugins.");
-        logger.warn("Please check for other plugins below (and try loading LuckPerms without them installed) before reporting the issue.");
+        logger.warn("Please check for other plugins below (and try loading RoryPerms without them installed) before reporting the issue.");
 
         for (String className : noteworthyClasses) {
             Class<?> clazz;

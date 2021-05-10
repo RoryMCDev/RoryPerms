@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package net.luckperms.api.event.log;
 
 import net.luckperms.api.actionlog.Action;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.type.Cancellable;
 import net.luckperms.api.event.util.Param;
 
@@ -37,7 +37,7 @@ import java.util.UUID;
 /**
  * Called when a log is about to be published to the network via the MessagingService
  */
-public interface LogNetworkPublishEvent extends LuckPermsEvent, Cancellable {
+public interface LogNetworkPublishEvent extends RoryPermsEvent, Cancellable {
 
     /**
      * Gets the ID of the log entry being published

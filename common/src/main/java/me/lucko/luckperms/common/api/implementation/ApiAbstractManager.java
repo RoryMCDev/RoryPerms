@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,13 +25,13 @@
 
 package me.lucko.luckperms.common.api.implementation;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 public abstract class ApiAbstractManager<I, E, H> {
-    protected final LuckPermsPlugin plugin;
+    protected final RoryPermsPlugin plugin;
     protected final H handle;
 
-    protected ApiAbstractManager(LuckPermsPlugin plugin, H handle) {
+    protected ApiAbstractManager(RoryPermsPlugin plugin, H handle) {
         this.plugin = plugin;
         this.handle = handle;
     }

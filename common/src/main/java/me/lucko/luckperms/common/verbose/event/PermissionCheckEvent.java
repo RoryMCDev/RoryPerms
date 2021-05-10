@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -116,12 +116,12 @@ public class PermissionCheckEvent extends VerboseEvent {
         THIRD_PARTY_API,
 
         /**
-         * Indicates the check was caused by an LuckPerms API call
+         * Indicates the check was caused by an RoryPerms API call
          */
         LUCKPERMS_API,
 
         /**
-         * Indicates the check was caused by a LuckPerms internal
+         * Indicates the check was caused by a RoryPerms internal
          */
         INTERNAL
 

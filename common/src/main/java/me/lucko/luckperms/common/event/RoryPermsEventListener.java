@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,12 +26,12 @@
 package me.lucko.luckperms.common.event;
 
 import net.luckperms.api.event.EventBus;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 
 /**
- * Defines a class which listens to {@link LuckPermsEvent}s.
+ * Defines a class which listens to {@link RoryPermsEvent}s.
  */
-public interface LuckPermsEventListener {
+public interface RoryPermsEventListener {
 
     void bind(EventBus bus);
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,7 +32,7 @@ import com.google.gson.JsonElement;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.dependencies.relocation.Relocation;
 import me.lucko.luckperms.common.dependencies.relocation.RelocationHandler;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.StorageType;
 
 import net.luckperms.api.platform.Platform;
@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Applies LuckPerms specific behaviour for {@link Dependency}s.
+ * Applies RoryPerms specific behaviour for {@link Dependency}s.
  */
 public class DependencyRegistry {
 
@@ -63,9 +63,9 @@ public class DependencyRegistry {
             .putAll(StorageType.H2, Dependency.H2_DRIVER)
             .build();
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public DependencyRegistry(LuckPermsPlugin plugin) {
+    public DependencyRegistry(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -98,7 +98,7 @@ public class DependencyRegistry {
     public void applyRelocationSettings(Dependency dependency, List<Relocation> relocations) {
         Platform.Type type = this.plugin.getBootstrap().getType();
 
-        // support for LuckPerms legacy (bukkit 1.7.10)
+        // support for RoryPerms legacy (bukkit 1.7.10)
         if (!RelocationHandler.DEPENDENCIES.contains(dependency) && JsonElement.class.getName().startsWith("me.lucko")) {
             relocations.add(Relocation.of("guava", "com{}google{}common"));
             relocations.add(Relocation.of("gson", "com{}google{}gson"));

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -29,7 +29,7 @@ import com.google.common.collect.ImmutableList;
 
 import me.lucko.luckperms.common.metastacking.SimpleMetaStackDefinition;
 import me.lucko.luckperms.common.metastacking.StandardStackElements;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.metastacking.DuplicateRemovalFunction;
 import net.luckperms.api.metastacking.MetaStackDefinition;
@@ -43,9 +43,9 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class ApiMetaStackFactory implements MetaStackFactory {
-    public final LuckPermsPlugin plugin;
+    public final RoryPermsPlugin plugin;
 
-    public ApiMetaStackFactory(LuckPermsPlugin plugin) {
+    public ApiMetaStackFactory(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,7 +32,7 @@ import java.util.SortedSet;
 import java.util.UUID;
 
 /**
- * Represents the internal LuckPerms log.
+ * Represents the internal RoryPerms log.
  *
  * <p>The returned instance provides a copy of the data at the time of retrieval.</p>
  *

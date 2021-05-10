@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -32,7 +32,7 @@ import me.lucko.luckperms.common.model.HolderType;
 import me.lucko.luckperms.common.model.PermissionHolder;
 import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.DurationFormatter;
 
@@ -54,7 +54,7 @@ import java.util.UUID;
 /**
  * An implementation of {@link Action} and {@link Action.Builder},
  * with helper methods for populating and using the entry using internal
- * LuckPerms classes.
+ * RoryPerms classes.
  */
 public class LoggedAction implements Action {
 
@@ -132,7 +132,7 @@ public class LoggedAction implements Action {
                 this.description.toLowerCase().contains(query);
     }
 
-    public void submit(LuckPermsPlugin plugin, Sender sender) {
+    public void submit(RoryPermsPlugin plugin, Sender sender) {
         plugin.getLogDispatcher().dispatch(this, sender);
     }
 

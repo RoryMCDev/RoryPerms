@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package net.luckperms.api.event.context;
 
 import net.luckperms.api.context.ContextManager;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -45,13 +45,13 @@ import java.util.Optional;
  * <p>The {@link #getSubject() subject} is always an instance of the platform's subject type. See
  * {@link ContextManager} for details.</p>
  *
- * <p>Unlike most other LuckPerms events, this event is not fired asynchronously. Care should be
+ * <p>Unlike most other RoryPerms events, this event is not fired asynchronously. Care should be
  * taken to ensure listeners are lightweight. Additionally, listeners should ensure they do not
  * cause further updates to player context, thus possibly causing a stack overflow.</p>
  *
  * @since 5.2
  */
-public interface ContextUpdateEvent extends LuckPermsEvent {
+public interface ContextUpdateEvent extends RoryPermsEvent {
 
     /**
      * Gets the subject whose contexts were updated.

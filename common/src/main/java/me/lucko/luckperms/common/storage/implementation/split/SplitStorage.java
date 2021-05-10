@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -34,7 +34,7 @@ import me.lucko.luckperms.common.model.Group;
 import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.node.matcher.ConstraintNodeMatcher;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.StorageType;
 import me.lucko.luckperms.common.storage.implementation.StorageImplementation;
 import me.lucko.luckperms.common.storage.misc.NodeEntry;
@@ -53,11 +53,11 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class SplitStorage implements StorageImplementation {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final Map<StorageType, StorageImplementation> implementations;
     private final Map<SplitStorageType, StorageType> types;
     
-    public SplitStorage(LuckPermsPlugin plugin, Map<StorageType, StorageImplementation> implementations, Map<SplitStorageType, StorageType> types) {
+    public SplitStorage(RoryPermsPlugin plugin, Map<StorageType, StorageImplementation> implementations, Map<SplitStorageType, StorageType> types) {
         this.plugin = plugin;
         this.implementations = ImmutableMap.copyOf(implementations);
         this.types = ImmutableMap.copyOf(types);
@@ -72,7 +72,7 @@ public class SplitStorage implements StorageImplementation {
     }
 
     @Override
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 

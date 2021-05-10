@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,10 +27,10 @@ package me.lucko.luckperms.common.extension;
 
 import com.google.gson.JsonObject;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.gson.GsonProvider;
 
-import net.luckperms.api.LuckPerms;
+import net.luckperms.api.RoryPerms;
 import net.luckperms.api.extension.Extension;
 import net.luckperms.api.extension.ExtensionManager;
 
@@ -58,10 +58,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SimpleExtensionManager implements ExtensionManager, AutoCloseable {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final Set<LoadedExtension> extensions = new HashSet<>();
 
-    public SimpleExtensionManager(LuckPermsPlugin plugin) {
+    public SimpleExtensionManager(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -165,7 +165,7 @@ public class SimpleExtensionManager implements ExtensionManager, AutoCloseable {
         Extension extension = null;
 
         try {
-            Constructor<? extends Extension> constructor = extensionClass.getConstructor(LuckPerms.class);
+            Constructor<? extends Extension> constructor = extensionClass.getConstructor(RoryPerms.class);
             extension = constructor.newInstance(this.plugin.getApiProvider());
         } catch (NoSuchMethodException e) {
             // ignore

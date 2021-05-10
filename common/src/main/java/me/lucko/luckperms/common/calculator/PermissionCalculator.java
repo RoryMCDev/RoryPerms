@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -29,7 +29,7 @@ import me.lucko.luckperms.common.cache.LoadingMap;
 import me.lucko.luckperms.common.cacheddata.CacheMetadata;
 import me.lucko.luckperms.common.calculator.processor.PermissionProcessor;
 import me.lucko.luckperms.common.calculator.result.TristateResult;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.verbose.event.PermissionCheckEvent;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -44,7 +44,7 @@ import java.util.function.Function;
 public class PermissionCalculator implements Function<String, TristateResult> {
 
     /** The plugin instance */
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     /** Info about the nature of this calculator. */
     private final CacheMetadata metadata;
@@ -55,7 +55,7 @@ public class PermissionCalculator implements Function<String, TristateResult> {
     /** Loading cache for permission checks */
     private final LoadingMap<String, TristateResult> lookupCache = LoadingMap.of(this);
 
-    public PermissionCalculator(LuckPermsPlugin plugin, CacheMetadata metadata, Collection<PermissionProcessor> processors) {
+    public PermissionCalculator(RoryPermsPlugin plugin, CacheMetadata metadata, Collection<PermissionProcessor> processors) {
         this.plugin = plugin;
         this.metadata = metadata;
         this.processors = processors.toArray(new PermissionProcessor[0]);

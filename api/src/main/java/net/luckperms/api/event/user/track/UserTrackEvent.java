@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.user.track;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.type.Sourced;
 import net.luckperms.api.event.util.Param;
 import net.luckperms.api.model.user.User;
@@ -38,7 +38,7 @@ import java.util.Optional;
 /**
  * Called when a user interacts with a track through a promotion or demotion
  */
-public interface UserTrackEvent extends LuckPermsEvent, Sourced {
+public interface UserTrackEvent extends RoryPermsEvent, Sourced {
 
     /**
      * Gets the track involved in the event

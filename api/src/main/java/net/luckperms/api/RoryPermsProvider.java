@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,25 +30,25 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import static org.jetbrains.annotations.ApiStatus.Internal;
 
 /**
- * Provides static access to the {@link LuckPerms} API.
+ * Provides static access to the {@link RoryPerms} API.
  *
  * <p>Ideally, the ServiceManager for the platform should be used to obtain an
  * instance, however, this provider can be used if this is not viable.</p>
  */
-public final class LuckPermsProvider {
-    private static LuckPerms instance = null;
+public final class RoryPermsProvider {
+    private static RoryPerms instance = null;
 
     /**
-     * Gets an instance of the {@link LuckPerms} API,
+     * Gets an instance of the {@link RoryPerms} API,
      * throwing {@link IllegalStateException} if the API is not loaded yet.
      *
      * <p>This method will never return null.</p>
      *
-     * @return an instance of the LuckPerms API
+     * @return an instance of the RoryPerms API
      * @throws IllegalStateException if the API is not loaded yet
      */
-    public static @NonNull LuckPerms get() {
-        LuckPerms instance = LuckPermsProvider.instance;
+    public static @NonNull RoryPerms get() {
+        RoryPerms instance = RoryPermsProvider.instance;
         if (instance == null) {
             throw new NotLoadedException();
         }
@@ -56,17 +56,17 @@ public final class LuckPermsProvider {
     }
 
     @Internal
-    static void register(LuckPerms instance) {
-        LuckPermsProvider.instance = instance;
+    static void register(RoryPerms instance) {
+        RoryPermsProvider.instance = instance;
     }
 
     @Internal
     static void unregister() {
-        LuckPermsProvider.instance = null;
+        RoryPermsProvider.instance = null;
     }
 
     @Internal
-    private LuckPermsProvider() {
+    private RoryPermsProvider() {
         throw new UnsupportedOperationException("This class cannot be instantiated.");
     }
 
@@ -74,10 +74,10 @@ public final class LuckPermsProvider {
      * Exception thrown when the API is requested before it has been loaded.
      */
     private static final class NotLoadedException extends IllegalStateException {
-        private static final String MESSAGE = "The LuckPerms API isn't loaded yet!\n" +
+        private static final String MESSAGE = "The RoryPerms API isn't loaded yet!\n" +
                 "This could be because:\n" +
-                "  a) the LuckPerms plugin is not installed or it failed to enable\n" +
-                "  b) the plugin in the stacktrace does not declare a dependency on LuckPerms\n" +
+                "  a) the RoryPerms plugin is not installed or it failed to enable\n" +
+                "  b) the plugin in the stacktrace does not declare a dependency on RoryPerms\n" +
                 "  c) the plugin in the stacktrace is retrieving the API before the plugin 'enable' phase\n" +
                 "     (call the #get method in onEnable, not the constructor!)\n";
 

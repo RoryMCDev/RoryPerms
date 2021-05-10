@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.sender;
 
 import me.lucko.luckperms.common.command.access.CommandPermission;
 import me.lucko.luckperms.common.context.ContextManager;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.kyori.adventure.text.Component;
 import net.luckperms.api.context.DefaultContextKeys;
@@ -53,7 +53,7 @@ public interface Sender {
      *
      * @return the plugin
      */
-    LuckPermsPlugin getPlugin();
+    RoryPermsPlugin getPlugin();
 
     /**
      * Gets the sender's username

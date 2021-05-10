@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.model.manager.user;
 
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.model.User;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.ExpiringSet;
 
 import java.util.UUID;
@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
  * The instance responsible for unloading users which are no longer needed.
  */
 public class UserHousekeeper implements Runnable {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final UserManager<?> userManager;
 
     // contains the uuids of users who have recently logged in / out
@@ -46,7 +46,7 @@ public class UserHousekeeper implements Runnable {
     // contains the uuids of users who have recently been retrieved from the API
     private final ExpiringSet<UUID> recentlyUsedApi;
 
-    public UserHousekeeper(LuckPermsPlugin plugin, UserManager<?> userManager, TimeoutSettings timeoutSettings) {
+    public UserHousekeeper(RoryPermsPlugin plugin, UserManager<?> userManager, TimeoutSettings timeoutSettings) {
         this.plugin = plugin;
         this.userManager = userManager;
         this.recentlyUsed = new ExpiringSet<>(timeoutSettings.duration, timeoutSettings.unit);

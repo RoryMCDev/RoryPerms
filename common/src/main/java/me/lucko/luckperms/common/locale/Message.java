@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -33,9 +33,9 @@ import me.lucko.luckperms.common.model.HolderType;
 import me.lucko.luckperms.common.model.PermissionHolder;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.node.factory.NodeCommandFactory;
-import me.lucko.luckperms.common.plugin.AbstractLuckPermsPlugin;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
-import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
+import me.lucko.luckperms.common.plugin.AbstractRoryPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
+import me.lucko.luckperms.common.plugin.bootstrap.RoryPermsBootstrap;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.DurationFormatter;
 
@@ -113,9 +113,9 @@ public interface Message {
                 .build();
     }
 
-    Args1<LuckPermsBootstrap> STARTUP_BANNER = bootstrap -> {
+    Args1<RoryPermsBootstrap> STARTUP_BANNER = bootstrap -> {
         Component infoLine1 = text()
-                .append(text(AbstractLuckPermsPlugin.getPluginName(), DARK_GREEN))
+                .append(text(AbstractRoryPermsPlugin.getPluginName(), DARK_GREEN))
                 .append(space())
                 .append(text("v" + bootstrap.getVersion(), AQUA))
                 .build();
@@ -174,7 +174,7 @@ public interface Message {
 
     Args2<String, String> FIRST_TIME_SETUP = (label, username) -> join(newline(),
             // "&3It seems that no permissions have been setup yet!"
-            // "&3Before you can use any of the LuckPerms commands in-game, you need to use the console to give yourself access."
+            // "&3Before you can use any of the RoryPerms commands in-game, you need to use the console to give yourself access."
             // "&3Open your console and run:"
             // " &3&l> &a{} user {} permission set luckperms.* true"
             // "&3After you've done this, you can begin to define your permission assignments and groups."
@@ -743,7 +743,7 @@ public interface Message {
             )
     );
 
-    Args6<Boolean, Node, String, HolderType, String, LuckPermsPlugin> SEARCH_NODE_ENTRY = (showNode, node, holder, holderType, label, plugin) -> text()
+    Args6<Boolean, Node, String, HolderType, String, RoryPermsPlugin> SEARCH_NODE_ENTRY = (showNode, node, holder, holderType, label, plugin) -> text()
             .append(text('>', DARK_AQUA))
             .append(space())
             .append(text(holder, AQUA))
@@ -800,7 +800,7 @@ public interface Message {
             })
             .build();
 
-    Args5<InheritanceNode, String, HolderType, String, LuckPermsPlugin> SEARCH_INHERITS_NODE_ENTRY = (node, holder, holderType, label, plugin) -> text()
+    Args5<InheritanceNode, String, HolderType, String, RoryPermsPlugin> SEARCH_INHERITS_NODE_ENTRY = (node, holder, holderType, label, plugin) -> text()
             .append(text('>', DARK_AQUA))
             .append(space())
             .append(text(holder, AQUA))
@@ -1301,8 +1301,8 @@ public interface Message {
             )
     );
 
-    Args2<LuckPermsPlugin, Map<Component, Component>> INFO = (plugin, storageMeta) -> join(newline(),
-            // "&2Running &bLuckPerms v{}&2 by &bLuck&2."
+    Args2<RoryPermsPlugin, Map<Component, Component>> INFO = (plugin, storageMeta) -> join(newline(),
+            // "&2Running &bRoryPerms v{}&2 by &bLuck&2."
             // "&f-  &3Platform: &f{}"
             // "&f-  &3Server Brand: &f{}"
             // "&f-  &3Server Version:"
@@ -1322,7 +1322,7 @@ public interface Message {
                     .key("luckperms.command.info.running-plugin")
                     .color(DARK_GREEN)
                     .append(space())
-                    .append(text(AbstractLuckPermsPlugin.getPluginName(), AQUA))
+                    .append(text(AbstractRoryPermsPlugin.getPluginName(), AQUA))
                     .append(space())
                     .append(text("v" + plugin.getBootstrap().getVersion(), AQUA))
                     .append(text(" by "))

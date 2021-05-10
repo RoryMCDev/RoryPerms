@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -41,7 +41,7 @@ import me.lucko.luckperms.common.locale.Message;
 import me.lucko.luckperms.common.model.HolderType;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.model.UserIdentifier;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.CaffeineFactory;
 import me.lucko.luckperms.common.util.Uuids;
@@ -78,7 +78,7 @@ public class UserParentCommand extends ParentCommand<User, UserIdentifier> {
         );
     }
 
-    public static UUID parseTargetUniqueId(String target, LuckPermsPlugin plugin, Sender sender) {
+    public static UUID parseTargetUniqueId(String target, RoryPermsPlugin plugin, Sender sender) {
         UUID parsed = Uuids.parse(target);
         if (parsed != null) {
             return parsed;
@@ -99,7 +99,7 @@ public class UserParentCommand extends ParentCommand<User, UserIdentifier> {
     }
 
     @Override
-    protected UserIdentifier parseTarget(String target, LuckPermsPlugin plugin, Sender sender) {
+    protected UserIdentifier parseTarget(String target, RoryPermsPlugin plugin, Sender sender) {
         UUID uniqueId = parseTargetUniqueId(target, plugin, sender);
         if (uniqueId == null) {
             return null;
@@ -110,7 +110,7 @@ public class UserParentCommand extends ParentCommand<User, UserIdentifier> {
     }
 
     @Override
-    protected User getTarget(UserIdentifier target, LuckPermsPlugin plugin, Sender sender) {
+    protected User getTarget(UserIdentifier target, RoryPermsPlugin plugin, Sender sender) {
         User user = plugin.getStorage().loadUser(target.getUniqueId(), target.getUsername().orElse(null)).join();
         user.auditTemporaryNodes();
         return user;
@@ -122,12 +122,12 @@ public class UserParentCommand extends ParentCommand<User, UserIdentifier> {
     }
 
     @Override
-    protected void cleanup(User user, LuckPermsPlugin plugin) {
+    protected void cleanup(User user, RoryPermsPlugin plugin) {
         plugin.getUserManager().getHouseKeeper().cleanup(user.getUniqueId());
     }
 
     @Override
-    protected List<String> getTargets(LuckPermsPlugin plugin) {
+    protected List<String> getTargets(RoryPermsPlugin plugin) {
         return new ArrayList<>(plugin.getBootstrap().getPlayerList());
     }
 }

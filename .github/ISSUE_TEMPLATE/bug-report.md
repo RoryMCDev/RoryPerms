@@ -1,6 +1,6 @@
 ---
 name: 🐛 ​ Bug report
-about: Report an issue or problem with the way LuckPerms is functioning.
+about: Report an issue or problem with the way RoryPerms is functioning.
 title: ''
 labels: 'type: issue'
 assignees: ''
@@ -30,7 +30,7 @@ assignees: ''
 <!-- Please provide details of your server environment in the space below. -->
 
 * Server type/version: `ExampleSpigot` running version `1.12.2` build `???`
-* LuckPerms version: `v???`
+* RoryPerms version: `v???`
 
 <!-- If you think it would be helpful, please also include a "pastebin" of any relevant config files or log output. You should use https://gist.github.com/ to upload, then include the link below. -->
 

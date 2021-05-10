@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -39,25 +39,25 @@ import org.bukkit.plugin.ServicesManager;
 public class VaultHookManager {
     private final LPBukkitPlugin plugin;
 
-    private LuckPermsVaultChat chat = null;
-    private LuckPermsVaultPermission permission = null;
+    private RoryPermsVaultChat chat = null;
+    private RoryPermsVaultPermission permission = null;
 
     public VaultHookManager(LPBukkitPlugin plugin) {
         this.plugin = plugin;
     }
 
     /**
-     * Registers the LuckPerms implementation of {@link Permission} and {@link Chat} with
+     * Registers the RoryPerms implementation of {@link Permission} and {@link Chat} with
      * the service manager.
      */
     public void hook() {
         try {
             if (this.permission == null) {
-                this.permission = new LuckPermsVaultPermission(this.plugin);
+                this.permission = new RoryPermsVaultPermission(this.plugin);
             }
 
             if (this.chat == null) {
-                this.chat = new LuckPermsVaultChat(this.plugin, this.permission);
+                this.chat = new RoryPermsVaultChat(this.plugin, this.permission);
             }
 
             ServicesManager servicesManager = this.plugin.getBootstrap().getServer().getServicesManager();
@@ -70,7 +70,7 @@ public class VaultHookManager {
     }
 
     /**
-     * Unregisters the LuckPerms Vault hooks, if present.
+     * Unregisters the RoryPerms Vault hooks, if present.
      */
     public void unhook() {
         ServicesManager servicesManager = this.plugin.getBootstrap().getServer().getServicesManager();

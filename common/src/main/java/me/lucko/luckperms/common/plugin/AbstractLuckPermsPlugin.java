@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,10 +27,10 @@ package me.lucko.luckperms.common.plugin;
 
 import me.lucko.luckperms.common.actionlog.LogDispatcher;
 import me.lucko.luckperms.common.api.ApiRegistrationUtil;
-import me.lucko.luckperms.common.api.LuckPermsApiProvider;
+import me.lucko.luckperms.common.api.RoryPermsApiProvider;
 import me.lucko.luckperms.common.calculator.CalculatorFactory;
 import me.lucko.luckperms.common.config.ConfigKeys;
-import me.lucko.luckperms.common.config.LuckPermsConfiguration;
+import me.lucko.luckperms.common.config.RoryPermsConfiguration;
 import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
 import me.lucko.luckperms.common.context.ConfigurationContextCalculator;
 import me.lucko.luckperms.common.dependencies.Dependency;
@@ -56,7 +56,7 @@ import me.lucko.luckperms.common.tasks.SyncTask;
 import me.lucko.luckperms.common.treeview.PermissionRegistry;
 import me.lucko.luckperms.common.verbose.VerboseHandler;
 
-import net.luckperms.api.LuckPerms;
+import net.luckperms.api.RoryPerms;
 
 import okhttp3.OkHttpClient;
 
@@ -74,7 +74,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
+public abstract class AbstractRoryPermsPlugin implements RoryPermsPlugin {
 
     // init during load
     private DependencyManager dependencyManager;
@@ -84,7 +84,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
     private VerboseHandler verboseHandler;
     private PermissionRegistry permissionRegistry;
     private LogDispatcher logDispatcher;
-    private LuckPermsConfiguration configuration;
+    private RoryPermsConfiguration configuration;
     private BytebinClient bytebin;
     private TranslationRepository translationRepository;
     private FileWatcher fileWatcher = null;
@@ -93,7 +93,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
     private SyncTask.Buffer syncTaskBuffer;
     private InheritanceGraphFactory inheritanceGraphFactory;
     private CalculatorFactory calculatorFactory;
-    private LuckPermsApiProvider apiProvider;
+    private RoryPermsApiProvider apiProvider;
     private EventDispatcher eventDispatcher;
     private SimpleExtensionManager extensionManager;
 
@@ -123,7 +123,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
 
         // load configuration
         getLogger().info("Loading configuration...");
-        this.configuration = new LuckPermsConfiguration(this, provideConfigurationAdapter());
+        this.configuration = new RoryPermsConfiguration(this, provideConfigurationAdapter());
 
         // setup a bytebin instance
         OkHttpClient httpClient = new OkHttpClient.Builder()
@@ -151,7 +151,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
                 this.fileWatcher = new FileWatcher(this, getBootstrap().getDataDirectory());
             } catch (Throwable e) {
                 // catch throwable here, seems some JVMs throw UnsatisfiedLinkError when trying
-                // to create a watch service. see: https://github.com/lucko/LuckPerms/issues/2066
+                // to create a watch service. see: https://github.com/lucko/RoryPerms/issues/2066
                 getLogger().warn("Error occurred whilst trying to create a file watcher:", e);
             }
         }
@@ -184,7 +184,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
         setupPlatformHooks();
 
         // register with the LP API
-        this.apiProvider = new LuckPermsApiProvider(this);
+        this.apiProvider = new RoryPermsApiProvider(this);
         this.eventDispatcher = new EventDispatcher(provideEventBus(this.apiProvider));
         getBootstrap().getScheduler().executeAsync(GeneratedEventClass::preGenerate);
         ApiRegistrationUtil.registerProvider(this.apiProvider);
@@ -296,8 +296,8 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
     protected abstract CalculatorFactory provideCalculatorFactory();
     protected abstract void setupContextManager();
     protected abstract void setupPlatformHooks();
-    protected abstract AbstractEventBus<?> provideEventBus(LuckPermsApiProvider apiProvider);
-    protected abstract void registerApiOnPlatform(LuckPerms api);
+    protected abstract AbstractEventBus<?> provideEventBus(RoryPermsApiProvider apiProvider);
+    protected abstract void registerApiOnPlatform(RoryPerms api);
     protected abstract void registerHousekeepingTasks();
     protected abstract void performFinalSetup();
 
@@ -388,7 +388,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
     }
 
     @Override
-    public LuckPermsConfiguration getConfiguration() {
+    public RoryPermsConfiguration getConfiguration() {
         return this.configuration;
     }
 
@@ -433,7 +433,7 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
     }
 
     @Override
-    public LuckPermsApiProvider getApiProvider() {
+    public RoryPermsApiProvider getApiProvider() {
         return this.apiProvider;
     }
 
@@ -452,6 +452,6 @@ public abstract class AbstractLuckPermsPlugin implements LuckPermsPlugin {
         if (date.getMonth() == Month.APRIL && date.getDayOfMonth() == 1) {
             return "LuckyPerms";
         }
-        return "LuckPerms";
+        return "RoryPerms";
     }
 }

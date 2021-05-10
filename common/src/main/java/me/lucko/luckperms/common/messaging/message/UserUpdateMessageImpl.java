@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.messaging.message;
 
 import com.google.gson.JsonElement;
 
-import me.lucko.luckperms.common.messaging.LuckPermsMessagingService;
+import me.lucko.luckperms.common.messaging.RoryPermsMessagingService;
 import me.lucko.luckperms.common.util.gson.JObject;
 
 import net.luckperms.api.messenger.message.type.UserUpdateMessage;
@@ -69,7 +69,7 @@ public class UserUpdateMessageImpl extends AbstractMessage implements UserUpdate
 
     @Override
     public @NonNull String asEncodedString() {
-        return LuckPermsMessagingService.encodeMessageAsString(
+        return RoryPermsMessagingService.encodeMessageAsString(
                 TYPE, getId(), new JObject().add("userUuid", this.userUuid.toString()).toJson()
         );
     }

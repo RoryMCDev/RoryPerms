@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.event;
 
 import net.kyori.event.EventSubscriber;
 import net.luckperms.api.event.EventSubscription;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -40,7 +40,7 @@ import java.util.function.Consumer;
  *
  * @param <T> the event type
  */
-public class LuckPermsEventSubscription<T extends LuckPermsEvent> implements EventSubscription<T>, EventSubscriber<T> {
+public class RoryPermsEventSubscription<T extends RoryPermsEvent> implements EventSubscription<T>, EventSubscriber<T> {
 
     /**
      * The event bus which created this handler
@@ -67,7 +67,7 @@ public class LuckPermsEventSubscription<T extends LuckPermsEvent> implements Eve
      */
     private final AtomicBoolean active = new AtomicBoolean(true);
 
-    public LuckPermsEventSubscription(AbstractEventBus<?> eventBus, Class<T> eventClass, Consumer<? super T> consumer, @Nullable Object plugin) {
+    public RoryPermsEventSubscription(AbstractEventBus<?> eventBus, Class<T> eventClass, Consumer<? super T> consumer, @Nullable Object plugin) {
         this.eventBus = eventBus;
         this.eventClass = eventClass;
         this.consumer = consumer;

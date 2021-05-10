@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,7 +30,7 @@ import com.google.common.collect.ImmutableList;
 import me.lucko.luckperms.common.api.implementation.ApiTrack;
 import me.lucko.luckperms.common.model.manager.group.GroupManager;
 import me.lucko.luckperms.common.node.types.Inheritance;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 
 import net.luckperms.api.context.ContextSet;
@@ -57,7 +57,7 @@ public final class Track {
      */
     private final String name;
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     /**
      * The groups within this track
@@ -66,7 +66,7 @@ public final class Track {
 
     private final ApiTrack apiProxy = new ApiTrack(this);
 
-    public Track(String name, LuckPermsPlugin plugin) {
+    public Track(String name, RoryPermsPlugin plugin) {
         this.name = name;
         this.plugin = plugin;
     }

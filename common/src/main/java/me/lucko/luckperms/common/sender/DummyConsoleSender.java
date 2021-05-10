@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,16 +25,16 @@
 
 package me.lucko.luckperms.common.sender;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.util.Tristate;
 
 import java.util.UUID;
 
 public abstract class DummyConsoleSender implements Sender {
-    private final LuckPermsPlugin platform;
+    private final RoryPermsPlugin platform;
 
-    public DummyConsoleSender(LuckPermsPlugin plugin) {
+    public DummyConsoleSender(RoryPermsPlugin plugin) {
         this.platform = plugin;
     }
 
@@ -59,7 +59,7 @@ public abstract class DummyConsoleSender implements Sender {
     }
 
     @Override
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.platform;
     }
 

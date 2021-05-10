@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.player;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.util.Result;
@@ -36,10 +36,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.util.UUID;
 
 /**
- * Called when LuckPerms has finished processing a Player's initial connection.
+ * Called when RoryPerms has finished processing a Player's initial connection.
  *
  * <p>This event will always execute during the platforms async connection
- * event. The LuckPerms platform listener processing the connection will block
+ * event. The RoryPerms platform listener processing the connection will block
  * while this event is posted.</p>
  *
  * <p>This, among other things, allows you to wait until permission data is
@@ -48,10 +48,10 @@ import java.util.UUID;
  *
  * <p>The implementation will make an attempt to ensure this event is called
  * for all connections, even if the operation to load User data was not
- * successful. Note that LuckPerms will usually cancel the platform connection
+ * successful. Note that RoryPerms will usually cancel the platform connection
  * event if data could not be loaded.</p>
  */
-public interface PlayerLoginProcessEvent extends LuckPermsEvent, Result {
+public interface PlayerLoginProcessEvent extends RoryPermsEvent, Result {
 
     /**
      * Gets the UUID of the connection which was processed

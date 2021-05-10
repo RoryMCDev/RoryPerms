@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -39,7 +39,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import java.util.UUID;
 
 /**
- * A utility class for adapting platform Player instances to LuckPerms {@link User}s.
+ * A utility class for adapting platform Player instances to RoryPerms {@link User}s.
  *
  * <p>Note: this class will only work for online players.</p>
  *

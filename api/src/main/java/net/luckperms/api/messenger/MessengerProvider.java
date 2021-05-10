@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.messenger;
 
-import net.luckperms.api.LuckPerms;
+import net.luckperms.api.RoryPerms;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.ApiStatus.OverrideOnly;
@@ -36,7 +36,7 @@ import org.jetbrains.annotations.ApiStatus.OverrideOnly;
  * <p>Users wishing to provide their own implementation for the plugins
  * "Messaging Service" should implement and register this interface.</p>
  *
- * @see LuckPerms#registerMessengerProvider(MessengerProvider)
+ * @see RoryPerms#registerMessengerProvider(MessengerProvider)
  */
 @OverrideOnly
 public interface MessengerProvider {

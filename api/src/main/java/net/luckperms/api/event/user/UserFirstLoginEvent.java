@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.user;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -43,7 +43,7 @@ import java.util.UUID;
  *
  * <p>The users data will not be loaded when this event is called.</p>
  */
-public interface UserFirstLoginEvent extends LuckPermsEvent {
+public interface UserFirstLoginEvent extends RoryPermsEvent {
 
     /**
      * Gets the UUID of the user

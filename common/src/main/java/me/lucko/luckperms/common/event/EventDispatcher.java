@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -44,7 +44,7 @@ import me.lucko.luckperms.common.model.nodemap.MutateResult;
 import me.lucko.luckperms.common.sender.Sender;
 
 import net.luckperms.api.actionlog.Action;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.cause.CreationCause;
 import net.luckperms.api.event.cause.DeletionCause;
 import net.luckperms.api.event.context.ContextUpdateEvent;
@@ -115,7 +115,7 @@ public final class EventDispatcher {
         return this.eventBus;
     }
 
-    private <T extends LuckPermsEvent> void postAsync(Class<T> eventClass, Object... params) {
+    private <T extends RoryPermsEvent> void postAsync(Class<T> eventClass, Object... params) {
         // check against common mistakes - events with any sort of result shouldn't be posted async
         if (Cancellable.class.isAssignableFrom(eventClass)) {
             throw new RuntimeException("Cancellable event cannot be posted async (" + eventClass + ")");
@@ -136,7 +136,7 @@ public final class EventDispatcher {
         });
     }
 
-    private <T extends LuckPermsEvent> void postSync(Class<T> eventClass, Object... params) {
+    private <T extends RoryPermsEvent> void postSync(Class<T> eventClass, Object... params) {
         // if there aren't any handlers registered for our event, don't bother trying to post it
         if (!this.eventBus.shouldPost(eventClass)) {
             return;
@@ -147,7 +147,7 @@ public final class EventDispatcher {
         this.eventBus.post(event);
     }
 
-    private <T extends LuckPermsEvent & Cancellable> boolean postCancellable(Class<T> eventClass, Object... params) {
+    private <T extends RoryPermsEvent & Cancellable> boolean postCancellable(Class<T> eventClass, Object... params) {
         // extract the initial state from the first parameter
         boolean initialState = (boolean) params[0];
 
@@ -169,7 +169,7 @@ public final class EventDispatcher {
     }
     
     @SuppressWarnings("unchecked")
-    private <T extends LuckPermsEvent> T generate(Class<T> eventClass, Object... params) {
+    private <T extends RoryPermsEvent> T generate(Class<T> eventClass, Object... params) {
         try {
             return (T) GeneratedEventClass.generate(eventClass).newInstance(this.eventBus.getApiProvider(), params);
         } catch (Throwable e) {
@@ -390,7 +390,7 @@ public final class EventDispatcher {
         }
     }
 
-    public static List<Class<? extends LuckPermsEvent>> getKnownEventTypes() {
+    public static List<Class<? extends RoryPermsEvent>> getKnownEventTypes() {
         return ImmutableList.of(
                 ContextUpdateEvent.class,
                 ExtensionLoadEvent.class,

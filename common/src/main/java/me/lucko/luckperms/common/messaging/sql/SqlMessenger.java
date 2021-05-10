@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.messaging.sql;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.plugin.scheduler.SchedulerAdapter;
 import me.lucko.luckperms.common.plugin.scheduler.SchedulerTask;
 import me.lucko.luckperms.common.storage.implementation.sql.SqlStorage;
@@ -37,13 +37,13 @@ import java.sql.SQLException;
 import java.util.concurrent.TimeUnit;
 
 public class SqlMessenger extends AbstractSqlMessenger {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final SqlStorage sqlStorage;
 
     private SchedulerTask pollTask;
     private SchedulerTask housekeepingTask;
 
-    public SqlMessenger(LuckPermsPlugin plugin, SqlStorage sqlStorage, IncomingMessageConsumer consumer) {
+    public SqlMessenger(RoryPermsPlugin plugin, SqlStorage sqlStorage, IncomingMessageConsumer consumer) {
         super(consumer);
         this.plugin = plugin;
         this.sqlStorage = sqlStorage;

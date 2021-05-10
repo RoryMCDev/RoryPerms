@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,11 +26,11 @@
 package me.lucko.luckperms.common.plugin;
 
 import me.lucko.luckperms.common.actionlog.LogDispatcher;
-import me.lucko.luckperms.common.api.LuckPermsApiProvider;
+import me.lucko.luckperms.common.api.RoryPermsApiProvider;
 import me.lucko.luckperms.common.calculator.CalculatorFactory;
 import me.lucko.luckperms.common.command.CommandManager;
 import me.lucko.luckperms.common.command.abstraction.Command;
-import me.lucko.luckperms.common.config.LuckPermsConfiguration;
+import me.lucko.luckperms.common.config.RoryPermsConfiguration;
 import me.lucko.luckperms.common.context.ContextManager;
 import me.lucko.luckperms.common.dependencies.DependencyManager;
 import me.lucko.luckperms.common.event.EventDispatcher;
@@ -46,7 +46,7 @@ import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.model.manager.group.GroupManager;
 import me.lucko.luckperms.common.model.manager.track.TrackManager;
 import me.lucko.luckperms.common.model.manager.user.UserManager;
-import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
+import me.lucko.luckperms.common.plugin.bootstrap.RoryPermsBootstrap;
 import me.lucko.luckperms.common.plugin.logging.PluginLogger;
 import me.lucko.luckperms.common.plugin.util.AbstractConnectionListener;
 import me.lucko.luckperms.common.sender.Sender;
@@ -65,19 +65,19 @@ import java.util.UUID;
 import java.util.stream.Stream;
 
 /**
- * Main internal interface for LuckPerms plugins, providing the base for
+ * Main internal interface for RoryPerms plugins, providing the base for
  * abstraction throughout the project.
  *
  * All plugin platforms implement this interface.
  */
-public interface LuckPermsPlugin {
+public interface RoryPermsPlugin {
 
     /**
      * Gets the bootstrap plugin instance
      *
      * @return the bootstrap plugin
      */
-    LuckPermsBootstrap getBootstrap();
+    RoryPermsBootstrap getBootstrap();
 
     /**
      * Gets the user manager instance for the platform
@@ -105,7 +105,7 @@ public interface LuckPermsPlugin {
      *
      * @return the plugin config
      */
-    LuckPermsConfiguration getConfiguration();
+    RoryPermsConfiguration getConfiguration();
 
     /**
      * Gets the primary data storage instance. This is likely to be wrapped with extra layers for caching, etc.
@@ -143,11 +143,11 @@ public interface LuckPermsPlugin {
     EventDispatcher getEventDispatcher();
 
     /**
-     * Returns the class implementing the LuckPermsAPI on this platform.
+     * Returns the class implementing the RoryPermsAPI on this platform.
      *
      * @return the api
      */
-    LuckPermsApiProvider getApiProvider();
+    RoryPermsApiProvider getApiProvider();
 
     /**
      * Gets the extension manager.

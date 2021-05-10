@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.bukkit;
 
 import me.lucko.luckperms.bukkit.util.NullSafeConsoleCommandSender;
 import me.lucko.luckperms.common.loader.LoaderBootstrap;
-import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
+import me.lucko.luckperms.common.plugin.bootstrap.RoryPermsBootstrap;
 import me.lucko.luckperms.common.plugin.classpath.ClassPathAppender;
 import me.lucko.luckperms.common.plugin.classpath.JarInJarClassPathAppender;
 import me.lucko.luckperms.common.plugin.logging.JavaPluginLogger;
@@ -54,9 +54,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.logging.Logger;
 
 /**
- * Bootstrap plugin for LuckPerms running on Bukkit.
+ * Bootstrap plugin for RoryPerms running on Bukkit.
  */
-public class LPBukkitBootstrap implements LuckPermsBootstrap, LoaderBootstrap {
+public class LPBukkitBootstrap implements RoryPermsBootstrap, LoaderBootstrap {
     private final JavaPlugin loader;
 
     /**
@@ -158,10 +158,10 @@ public class LPBukkitBootstrap implements LuckPermsBootstrap, LoaderBootstrap {
         if (this.incompatibleVersion) {
             Logger logger = this.loader.getLogger();
             logger.severe("----------------------------------------------------------------------");
-            logger.severe("Your server version is not compatible with this build of LuckPerms. :(");
+            logger.severe("Your server version is not compatible with this build of RoryPerms. :(");
             logger.severe("");
             logger.severe("If your server is running 1.8, please update to 1.8.8 or higher.");
-            logger.severe("If your server is running 1.7.10, please download the Bukkit-Legacy version of LuckPerms from here:");
+            logger.severe("If your server is running 1.7.10, please download the Bukkit-Legacy version of RoryPerms from here:");
             logger.severe("==> https://luckperms.net/download");
             logger.severe("----------------------------------------------------------------------");
             getServer().getPluginManager().disablePlugin(this.loader);

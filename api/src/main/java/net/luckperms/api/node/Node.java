@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.node;
 
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPermsProvider;
 import net.luckperms.api.context.ImmutableContextSet;
 import net.luckperms.api.node.metadata.NodeMetadataKey;
 import net.luckperms.api.node.types.DisplayNameNode;
@@ -49,7 +49,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * Represents a LuckPerms "node".
+ * Represents a RoryPerms "node".
  *
  * <p>The {@link Node} class encapsulates more than just permission assignments.
  * Nodes are used to store data about inherited groups, as well as assigned
@@ -109,7 +109,7 @@ public interface Node {
      * @return the node builder
      */
     static @NonNull NodeBuilder<?, ?> builder(@NonNull String key) {
-        return LuckPermsProvider.get().getNodeBuilderRegistry().forKey(key);
+        return RoryPermsProvider.get().getNodeBuilderRegistry().forKey(key);
     }
 
     /**

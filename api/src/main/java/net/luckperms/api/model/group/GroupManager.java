@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -89,7 +89,7 @@ public interface GroupManager {
      * @param group the group to save
      * @return a future to encapsulate the operation.
      * @throws NullPointerException  if group is null
-     * @throws IllegalStateException if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the group instance was not obtained from RoryPerms.
      */
     @NonNull CompletableFuture<Void> saveGroup(@NonNull Group group);
 
@@ -99,7 +99,7 @@ public interface GroupManager {
      * @param group the group to delete
      * @return a future to encapsulate the operation.
      * @throws NullPointerException  if group is null
-     * @throws IllegalStateException if the group instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the group instance was not obtained from RoryPerms.
      */
     @NonNull CompletableFuture<Void> deleteGroup(@NonNull Group group);
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -46,7 +46,7 @@ public enum CreationCause {
     API,
 
     /**
-     * The creation was caused by a LuckPerms internal
+     * The creation was caused by a RoryPerms internal
      */
     INTERNAL
 

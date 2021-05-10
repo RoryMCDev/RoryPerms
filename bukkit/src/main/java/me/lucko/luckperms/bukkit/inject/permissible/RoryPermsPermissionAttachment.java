@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -51,13 +51,13 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * PermissionAttachment for LuckPerms.
+ * PermissionAttachment for RoryPerms.
  *
  * Applies all permissions directly to the backing user instance via transient nodes.
  */
-public class LuckPermsPermissionAttachment extends PermissionAttachment {
+public class RoryPermsPermissionAttachment extends PermissionAttachment {
 
-    public static final NodeMetadataKey<LuckPermsPermissionAttachment> TRANSIENT_SOURCE_KEY = NodeMetadataKey.of("transientsource", LuckPermsPermissionAttachment.class);
+    public static final NodeMetadataKey<RoryPermsPermissionAttachment> TRANSIENT_SOURCE_KEY = NodeMetadataKey.of("transientsource", RoryPermsPermissionAttachment.class);
 
     /**
      * The field in PermissionAttachment where the attachments applied permissions
@@ -77,7 +77,7 @@ public class LuckPermsPermissionAttachment extends PermissionAttachment {
     /**
      * The parent LPPermissible
      */
-    private final LuckPermsPermissible permissible;
+    private final RoryPermsPermissible permissible;
 
     /**
      * The plugin which "owns" this attachment, may be null
@@ -104,7 +104,7 @@ public class LuckPermsPermissionAttachment extends PermissionAttachment {
      */
     private PermissionAttachment source;
 
-    public LuckPermsPermissionAttachment(LuckPermsPermissible permissible, Plugin owner) {
+    public RoryPermsPermissionAttachment(RoryPermsPermissible permissible, Plugin owner) {
         super(owner, null);
         this.permissible = permissible;
         this.owner = owner;
@@ -112,7 +112,7 @@ public class LuckPermsPermissionAttachment extends PermissionAttachment {
         injectFakeMap();
     }
 
-    public LuckPermsPermissionAttachment(LuckPermsPermissible permissible, PermissionAttachment source) {
+    public RoryPermsPermissionAttachment(RoryPermsPermissible permissible, PermissionAttachment source) {
         super(source.getPlugin(), null);
         this.permissible = permissible;
         this.owner = source.getPlugin();
@@ -145,7 +145,7 @@ public class LuckPermsPermissionAttachment extends PermissionAttachment {
     }
 
     @Override
-    public @NonNull LuckPermsPermissible getPermissible() {
+    public @NonNull RoryPermsPermissible getPermissible() {
         return this.permissible;
     }
 
@@ -308,14 +308,14 @@ public class LuckPermsPermissionAttachment extends PermissionAttachment {
      * to get around the slow bukkit behaviour in the base PermissionAttachment implementation.
      *
      * An instance of this map is injected into the super instance so these plugins continue
-     * to work with LuckPerms.
+     * to work with RoryPerms.
      */
     private final class FakeBackingMap implements Map<String, Boolean> {
 
         @Override
         public Boolean put(String key, Boolean value) {
             // grab the previous result, so we can still satisfy the method signature of Map
-            Boolean previous = LuckPermsPermissionAttachment.this.perms.get(key);
+            Boolean previous = RoryPermsPermissionAttachment.this.perms.get(key);
 
             // proxy the call back through the PermissionAttachment instance
             setPermission(key, value);
@@ -334,7 +334,7 @@ public class LuckPermsPermissionAttachment extends PermissionAttachment {
             String permission = (String) key;
 
             // grab the previous result, so we can still satisfy the method signature of Map
-            Boolean previous = LuckPermsPermissionAttachment.this.perms.get(permission);
+            Boolean previous = RoryPermsPermissionAttachment.this.perms.get(permission);
 
             // proxy the call back through the PermissionAttachment instance
             unsetPermission(permission);
@@ -353,71 +353,71 @@ public class LuckPermsPermissionAttachment extends PermissionAttachment {
         @Override
         public void clear() {
             // remove the permissions which have already been applied
-            if (LuckPermsPermissionAttachment.this.hooked) {
+            if (RoryPermsPermissionAttachment.this.hooked) {
                 clearInternal();
             }
 
             // clear the backing map
-            LuckPermsPermissionAttachment.this.perms.clear();
+            RoryPermsPermissionAttachment.this.perms.clear();
         }
 
         @Override
         public int size() {
             // return the size of the permissions map - probably the most accurate value we have
-            return LuckPermsPermissionAttachment.this.perms.size();
+            return RoryPermsPermissionAttachment.this.perms.size();
         }
 
         @Override
         public boolean isEmpty() {
             // return if the permissions map is empty - again probably the most accurate thing
             // we can return
-            return LuckPermsPermissionAttachment.this.perms.isEmpty();
+            return RoryPermsPermissionAttachment.this.perms.isEmpty();
         }
 
         @Override
         public boolean containsKey(Object key) {
             // just proxy
-            return LuckPermsPermissionAttachment.this.perms.containsKey(key);
+            return RoryPermsPermissionAttachment.this.perms.containsKey(key);
         }
 
         @Override
         public boolean containsValue(Object value) {
             // just proxy
-            return LuckPermsPermissionAttachment.this.perms.containsValue(value);
+            return RoryPermsPermissionAttachment.this.perms.containsValue(value);
         }
 
         @Override
         public Boolean get(Object key) {
             // just proxy
-            return LuckPermsPermissionAttachment.this.perms.get(key);
+            return RoryPermsPermissionAttachment.this.perms.get(key);
         }
 
         @Override
         public Set<String> keySet() {
             // just proxy
-            return Collections.unmodifiableSet(LuckPermsPermissionAttachment.this.perms.keySet());
+            return Collections.unmodifiableSet(RoryPermsPermissionAttachment.this.perms.keySet());
         }
 
         @Override
         public Collection<Boolean> values() {
             // just proxy
-            return Collections.unmodifiableCollection(LuckPermsPermissionAttachment.this.perms.values());
+            return Collections.unmodifiableCollection(RoryPermsPermissionAttachment.this.perms.values());
         }
 
         @Override
         public Set<Entry<String, Boolean>> entrySet() {
             // just proxy
-            return Collections.unmodifiableSet(LuckPermsPermissionAttachment.this.perms.entrySet());
+            return Collections.unmodifiableSet(RoryPermsPermissionAttachment.this.perms.entrySet());
         }
 
         @Override
         public boolean equals(Object obj) {
-            return obj instanceof Map<?, ?> && LuckPermsPermissionAttachment.this.perms.equals(obj);
+            return obj instanceof Map<?, ?> && RoryPermsPermissionAttachment.this.perms.equals(obj);
         }
 
         @Override
         public int hashCode() {
-            return LuckPermsPermissionAttachment.this.perms.hashCode();
+            return RoryPermsPermissionAttachment.this.perms.hashCode();
         }
     }
 }

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Injects a {@link LuckPermsSubscriptionMap} into the {@link PluginManager}.
+ * Injects a {@link RoryPermsSubscriptionMap} into the {@link PluginManager}.
  */
 public class InjectorSubscriptionMap {
     private static final Field PERM_SUBS_FIELD;
@@ -60,39 +60,39 @@ public class InjectorSubscriptionMap {
 
     public void inject() {
         try {
-            LuckPermsSubscriptionMap subscriptionMap = tryInject();
+            RoryPermsSubscriptionMap subscriptionMap = tryInject();
             if (subscriptionMap != null) {
                 this.plugin.setSubscriptionMap(subscriptionMap);
             }
         } catch (Exception e) {
-            this.plugin.getLogger().severe("Exception occurred whilst injecting LuckPerms Permission Subscription map.", e);
+            this.plugin.getLogger().severe("Exception occurred whilst injecting RoryPerms Permission Subscription map.", e);
         }
     }
 
-    private LuckPermsSubscriptionMap tryInject() throws Exception {
+    private RoryPermsSubscriptionMap tryInject() throws Exception {
         Objects.requireNonNull(PERM_SUBS_FIELD, "PERM_SUBS_FIELD");
         PluginManager pluginManager = this.plugin.getBootstrap().getServer().getPluginManager();
 
         if (!(pluginManager instanceof SimplePluginManager)) {
             this.plugin.getLogger().severe("PluginManager instance is not a 'SimplePluginManager', instead: " + pluginManager.getClass());
-            this.plugin.getLogger().severe("Unable to inject LuckPerms Permission Subscription map.");
+            this.plugin.getLogger().severe("Unable to inject RoryPerms Permission Subscription map.");
             return null;
         }
 
         Object map = PERM_SUBS_FIELD.get(pluginManager);
-        if (map instanceof LuckPermsSubscriptionMap) {
-            if (((LuckPermsSubscriptionMap) map).plugin == this.plugin) {
+        if (map instanceof RoryPermsSubscriptionMap) {
+            if (((RoryPermsSubscriptionMap) map).plugin == this.plugin) {
                 return null;
             }
 
-            map = ((LuckPermsSubscriptionMap) map).detach();
+            map = ((RoryPermsSubscriptionMap) map).detach();
         }
 
         //noinspection unchecked
         Map<String, Map<Permissible, Boolean>> castedMap = (Map<String, Map<Permissible, Boolean>>) map;
 
         // make a new subscription map & inject it
-        LuckPermsSubscriptionMap newMap = new LuckPermsSubscriptionMap(this.plugin, castedMap);
+        RoryPermsSubscriptionMap newMap = new RoryPermsSubscriptionMap(this.plugin, castedMap);
         PERM_SUBS_FIELD.set(pluginManager, newMap);
         return newMap;
     }
@@ -107,12 +107,12 @@ public class InjectorSubscriptionMap {
             }
 
             Object map = PERM_SUBS_FIELD.get(pluginManager);
-            if (map instanceof LuckPermsSubscriptionMap) {
-                LuckPermsSubscriptionMap lpMap = (LuckPermsSubscriptionMap) map;
+            if (map instanceof RoryPermsSubscriptionMap) {
+                RoryPermsSubscriptionMap lpMap = (RoryPermsSubscriptionMap) map;
                 PERM_SUBS_FIELD.set(pluginManager, lpMap.detach());
             }
         } catch (Exception e) {
-            this.plugin.getLogger().severe("Exception occurred whilst uninjecting LuckPerms Permission Subscription map.", e);
+            this.plugin.getLogger().severe("Exception occurred whilst uninjecting RoryPerms Permission Subscription map.", e);
         }
     }
 

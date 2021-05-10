@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -29,7 +29,7 @@ import me.lucko.luckperms.common.command.access.CommandPermission;
 import me.lucko.luckperms.common.command.spec.Argument;
 import me.lucko.luckperms.common.command.spec.CommandSpec;
 import me.lucko.luckperms.common.command.utils.ArgumentList;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 
 import net.kyori.adventure.text.Component;
@@ -147,10 +147,10 @@ public abstract class Command<T> {
     }
 
     // Main execution method for the command.
-    public abstract void execute(LuckPermsPlugin plugin, Sender sender, T target, ArgumentList args, String label) throws CommandException;
+    public abstract void execute(RoryPermsPlugin plugin, Sender sender, T target, ArgumentList args, String label) throws CommandException;
 
     // Tab completion method - default implementation is provided as some commands do not provide tab completions.
-    public List<String> tabComplete(LuckPermsPlugin plugin, Sender sender, ArgumentList args) {
+    public List<String> tabComplete(RoryPermsPlugin plugin, Sender sender, ArgumentList args) {
         return Collections.emptyList();
     }
 

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.bukkit;
 
-import me.lucko.luckperms.common.api.LuckPermsApiProvider;
+import me.lucko.luckperms.common.api.RoryPermsApiProvider;
 import me.lucko.luckperms.common.event.AbstractEventBus;
 
 import org.bukkit.event.EventHandler;
@@ -34,7 +34,7 @@ import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.plugin.Plugin;
 
 public class BukkitEventBus extends AbstractEventBus<Plugin> implements Listener {
-    public BukkitEventBus(LPBukkitPlugin plugin, LuckPermsApiProvider apiProvider) {
+    public BukkitEventBus(LPBukkitPlugin plugin, RoryPermsApiProvider apiProvider) {
         super(plugin, apiProvider);
 
         // register listener

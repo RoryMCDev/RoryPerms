@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -31,7 +31,7 @@ import com.google.gson.JsonPrimitive;
 
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.http.UnsuccessfulRequestException;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.MoreFiles;
 import me.lucko.luckperms.common.util.gson.GsonProvider;
@@ -66,9 +66,9 @@ public class TranslationRepository {
     private static final long MAX_BUNDLE_SIZE = 1048576L; // 1mb
     private static final long CACHE_MAX_AGE = TimeUnit.HOURS.toMillis(23);
 
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public TranslationRepository(LuckPermsPlugin plugin) {
+    public TranslationRepository(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 

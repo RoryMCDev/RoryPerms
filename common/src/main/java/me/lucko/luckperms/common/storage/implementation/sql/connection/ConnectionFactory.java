@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.storage.implementation.sql.connection;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.kyori.adventure.text.Component;
 
@@ -39,7 +39,7 @@ public interface ConnectionFactory {
 
     String getImplementationName();
 
-    void init(LuckPermsPlugin plugin);
+    void init(RoryPermsPlugin plugin);
 
     void shutdown() throws Exception;
 

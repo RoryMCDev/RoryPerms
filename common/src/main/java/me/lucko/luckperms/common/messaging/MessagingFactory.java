@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,11 +26,11 @@
 package me.lucko.luckperms.common.messaging;
 
 import me.lucko.luckperms.common.config.ConfigKeys;
-import me.lucko.luckperms.common.config.LuckPermsConfiguration;
+import me.lucko.luckperms.common.config.RoryPermsConfiguration;
 import me.lucko.luckperms.common.messaging.rabbitmq.RabbitMQMessenger;
 import me.lucko.luckperms.common.messaging.redis.RedisMessenger;
 import me.lucko.luckperms.common.messaging.sql.SqlMessenger;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.implementation.StorageImplementation;
 import me.lucko.luckperms.common.storage.implementation.sql.SqlStorage;
 import me.lucko.luckperms.common.storage.implementation.sql.connection.hikari.MariaDbConnectionFactory;
@@ -42,7 +42,7 @@ import net.luckperms.api.messenger.MessengerProvider;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
-public class MessagingFactory<P extends LuckPermsPlugin> {
+public class MessagingFactory<P extends RoryPermsPlugin> {
     private final P plugin;
 
     public MessagingFactory(P plugin) {
@@ -97,7 +97,7 @@ public class MessagingFactory<P extends LuckPermsPlugin> {
         if (messagingType.equals("redis")) {
             if (this.plugin.getConfiguration().get(ConfigKeys.REDIS_ENABLED)) {
                 try {
-                    return new LuckPermsMessagingService(this.plugin, new RedisMessengerProvider());
+                    return new RoryPermsMessagingService(this.plugin, new RedisMessengerProvider());
                 } catch (Exception e) {
                     getPlugin().getLogger().severe("Exception occurred whilst enabling Redis messaging service", e);
                 }
@@ -107,7 +107,7 @@ public class MessagingFactory<P extends LuckPermsPlugin> {
         } else if (messagingType.equals("rabbitmq")) {
             if (this.plugin.getConfiguration().get(ConfigKeys.RABBITMQ_ENABLED)) {
                 try {
-                    return new LuckPermsMessagingService(this.plugin, new RabbitMQMessengerProvider());
+                    return new RoryPermsMessagingService(this.plugin, new RabbitMQMessengerProvider());
                 } catch (Exception e) {
                     getPlugin().getLogger().severe("Exception occurred whilst enabling RabbitMQ messaging service", e);
                 }
@@ -116,7 +116,7 @@ public class MessagingFactory<P extends LuckPermsPlugin> {
             }
         } else if (messagingType.equals("sql")) {
             try {
-                return new LuckPermsMessagingService(this.plugin, new SqlMessengerProvider());
+                return new RoryPermsMessagingService(this.plugin, new SqlMessengerProvider());
             } catch (Exception e) {
                 getPlugin().getLogger().severe("Exception occurred whilst enabling SQL messaging service", e);
             }
@@ -136,7 +136,7 @@ public class MessagingFactory<P extends LuckPermsPlugin> {
         public @NonNull Messenger obtain(@NonNull IncomingMessageConsumer incomingMessageConsumer) {
             RedisMessenger redis = new RedisMessenger(getPlugin(), incomingMessageConsumer);
 
-            LuckPermsConfiguration config = getPlugin().getConfiguration();
+            RoryPermsConfiguration config = getPlugin().getConfiguration();
             String address = config.get(ConfigKeys.REDIS_ADDRESS);
             String password = config.get(ConfigKeys.REDIS_PASSWORD);
             if (password.isEmpty()) {
@@ -160,7 +160,7 @@ public class MessagingFactory<P extends LuckPermsPlugin> {
         public @NonNull Messenger obtain(@NonNull IncomingMessageConsumer incomingMessageConsumer) {
             RabbitMQMessenger rabbitmq = new RabbitMQMessenger(getPlugin(), incomingMessageConsumer);
 
-            LuckPermsConfiguration config = getPlugin().getConfiguration();
+            RoryPermsConfiguration config = getPlugin().getConfiguration();
             String address = config.get(ConfigKeys.RABBITMQ_ADDRESS);
             String virtualHost = config.get(ConfigKeys.RABBITMQ_VIRTUAL_HOST);
             String username = config.get(ConfigKeys.RABBITMQ_USERNAME);

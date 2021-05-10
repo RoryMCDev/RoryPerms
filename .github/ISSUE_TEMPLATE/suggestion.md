@@ -1,6 +1,6 @@
 ---
 name: 💡 ​ Suggestion
-about: Suggest an idea for an improvement or change to LuckPerms.
+about: Suggest an idea for an improvement or change to RoryPerms.
 title: ''
 labels: 'type: suggestion'
 assignees: ''

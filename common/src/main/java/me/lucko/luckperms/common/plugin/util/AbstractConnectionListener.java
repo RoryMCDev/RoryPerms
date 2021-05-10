@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package me.lucko.luckperms.common.plugin.util;
 
 import me.lucko.luckperms.common.model.User;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.luckperms.api.model.PlayerSaveResult;
 import net.luckperms.api.model.data.DataType;
@@ -40,10 +40,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * Abstract listener utility for handling new player connections
  */
 public abstract class AbstractConnectionListener {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final Set<UUID> uniqueConnections = ConcurrentHashMap.newKeySet();
 
-    protected AbstractConnectionListener(LuckPermsPlugin plugin) {
+    protected AbstractConnectionListener(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -79,7 +79,7 @@ public abstract class AbstractConnectionListener {
         if (saveResult.includes(PlayerSaveResult.Outcome.OTHER_UNIQUE_IDS_PRESENT_FOR_USERNAME)) {
             Set<UUID> otherUuids = saveResult.getOtherUniqueIds();
 
-            this.plugin.getLogger().warn("LuckPerms already has data for player '" + username + "' - but this data is stored under a different UUID.");
+            this.plugin.getLogger().warn("RoryPerms already has data for player '" + username + "' - but this data is stored under a different UUID.");
             this.plugin.getLogger().warn("'" + username + "' has previously used the unique ids " + otherUuids + " but is now connecting with '" + uniqueId + "'");
 
             if (uniqueId.version() == 4) {

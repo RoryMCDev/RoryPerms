@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -35,7 +35,7 @@ import me.lucko.luckperms.common.messaging.message.ActionLogMessageImpl;
 import me.lucko.luckperms.common.messaging.message.UpdateMessageImpl;
 import me.lucko.luckperms.common.messaging.message.UserUpdateMessageImpl;
 import me.lucko.luckperms.common.model.User;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.ExpiringSet;
 import me.lucko.luckperms.common.util.gson.GsonProvider;
 import me.lucko.luckperms.common.util.gson.JObject;
@@ -57,15 +57,15 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class LuckPermsMessagingService implements InternalMessagingService, IncomingMessageConsumer {
-    private final LuckPermsPlugin plugin;
+public class RoryPermsMessagingService implements InternalMessagingService, IncomingMessageConsumer {
+    private final RoryPermsPlugin plugin;
     private final Set<UUID> receivedMessages;
     private final PushUpdateBuffer updateBuffer;
 
     private final MessengerProvider messengerProvider;
     private final Messenger messenger;
 
-    public LuckPermsMessagingService(LuckPermsPlugin plugin, MessengerProvider messengerProvider) {
+    public RoryPermsMessagingService(RoryPermsPlugin plugin, MessengerProvider messengerProvider) {
         this.plugin = plugin;
 
         this.messengerProvider = messengerProvider;
@@ -263,7 +263,7 @@ public class LuckPermsMessagingService implements InternalMessagingService, Inco
     }
 
     private final class PushUpdateBuffer extends BufferedRequest<Void> {
-        PushUpdateBuffer(LuckPermsPlugin plugin) {
+        PushUpdateBuffer(RoryPermsPlugin plugin) {
             super(2, TimeUnit.SECONDS, plugin.getBootstrap().getScheduler());
         }
 

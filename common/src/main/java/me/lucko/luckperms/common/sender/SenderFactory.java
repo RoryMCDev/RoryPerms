@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.sender;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.kyori.adventure.text.Component;
 import net.luckperms.api.util.Tristate;
@@ -39,7 +39,7 @@ import java.util.UUID;
  * @param <P> the plugin type
  * @param <T> the command sender type
  */
-public abstract class SenderFactory<P extends LuckPermsPlugin, T> implements AutoCloseable {
+public abstract class SenderFactory<P extends RoryPermsPlugin, T> implements AutoCloseable {
     private final P plugin;
 
     public SenderFactory(P plugin) {

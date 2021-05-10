@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -49,7 +49,7 @@ import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.model.manager.group.GroupManager;
 import me.lucko.luckperms.common.node.factory.NodeBuilders;
 import me.lucko.luckperms.common.node.matcher.ConstraintNodeMatcher;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.implementation.StorageImplementation;
 import me.lucko.luckperms.common.storage.misc.NodeEntry;
 import me.lucko.luckperms.common.storage.misc.PlayerSaveResultImpl;
@@ -82,7 +82,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class MongoStorage implements StorageImplementation {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
     private final StorageCredentials configuration;
     private MongoClient mongoClient;
@@ -90,7 +90,7 @@ public class MongoStorage implements StorageImplementation {
     private final String prefix;
     private final String connectionUri;
 
-    public MongoStorage(LuckPermsPlugin plugin, StorageCredentials configuration, String prefix, String connectionUri) {
+    public MongoStorage(RoryPermsPlugin plugin, StorageCredentials configuration, String prefix, String connectionUri) {
         this.plugin = plugin;
         this.configuration = configuration;
         this.prefix = prefix;
@@ -98,7 +98,7 @@ public class MongoStorage implements StorageImplementation {
     }
 
     @Override
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 

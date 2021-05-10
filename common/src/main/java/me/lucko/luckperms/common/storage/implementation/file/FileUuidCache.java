@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -137,7 +137,7 @@ public class FileUuidCache {
 
     public void save(Path file) {
         try (BufferedWriter writer = Files.newBufferedWriter(file, StandardCharsets.UTF_8)) {
-            writer.write("# LuckPerms UUID lookup cache");
+            writer.write("# RoryPerms UUID lookup cache");
             writer.newLine();
             for (Map.Entry<UUID, String> ent : this.lookupMap.entrySet()) {
                 String out = ent.getKey() + ":" + ent.getValue();

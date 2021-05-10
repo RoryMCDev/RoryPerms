@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -82,7 +82,7 @@ public interface TrackManager {
      * @param track the track to save
      * @return a future to encapsulate the operation.
      * @throws NullPointerException  if track is null
-     * @throws IllegalStateException if the track instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the track instance was not obtained from RoryPerms.
      */
     @NonNull CompletableFuture<Void> saveTrack(@NonNull Track track);
 
@@ -92,7 +92,7 @@ public interface TrackManager {
      * @param track the track to delete
      * @return a future to encapsulate the operation.
      * @throws NullPointerException  if track is null
-     * @throws IllegalStateException if the track instance was not obtained from LuckPerms.
+     * @throws IllegalStateException if the track instance was not obtained from RoryPerms.
      */
     @NonNull CompletableFuture<Void> deleteTrack(@NonNull Track track);
 

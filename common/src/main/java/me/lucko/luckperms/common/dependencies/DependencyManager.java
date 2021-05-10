@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -30,7 +30,7 @@ import com.google.common.collect.ImmutableSet;
 import me.lucko.luckperms.common.dependencies.classloader.IsolatedClassLoader;
 import me.lucko.luckperms.common.dependencies.relocation.Relocation;
 import me.lucko.luckperms.common.dependencies.relocation.RelocationHandler;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.StorageType;
 import me.lucko.luckperms.common.util.MoreFiles;
 
@@ -56,7 +56,7 @@ import java.util.concurrent.CountDownLatch;
 public class DependencyManager {
 
     /** The plugin instance */
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     /** A registry containing plugin specific behaviour for dependencies. */
     private final DependencyRegistry registry;
     /** The path where library jars are cached. */
@@ -69,7 +69,7 @@ public class DependencyManager {
     /** Cached relocation handler instance. */
     private @MonotonicNonNull RelocationHandler relocationHandler = null;
 
-    public DependencyManager(LuckPermsPlugin plugin) {
+    public DependencyManager(RoryPermsPlugin plugin) {
         this.plugin = plugin;
         this.registry = new DependencyRegistry(plugin);
         this.cacheDirectory = setupCacheDirectory(plugin);
@@ -196,7 +196,7 @@ public class DependencyManager {
         return remappedFile;
     }
 
-    private static Path setupCacheDirectory(LuckPermsPlugin plugin) {
+    private static Path setupCacheDirectory(RoryPermsPlugin plugin) {
         Path cacheDirectory = plugin.getBootstrap().getDataDirectory().resolve("libs");
         try {
             MoreFiles.createDirectoriesIfNotExists(cacheDirectory);

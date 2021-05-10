@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package net.luckperms.api.event.user;
 
 import net.luckperms.api.cacheddata.CachedDataManager;
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 import net.luckperms.api.model.user.User;
 
@@ -35,7 +35,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * Called when a users {@link CachedDataManager} is loaded.
  */
-public interface UserCacheLoadEvent extends LuckPermsEvent {
+public interface UserCacheLoadEvent extends RoryPermsEvent {
 
     /**
      * Gets the user whose data was loaded

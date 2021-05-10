@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.node;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 import net.luckperms.api.model.PermissionHolder;
 import net.luckperms.api.model.data.DataType;
@@ -41,7 +41,7 @@ import java.util.Set;
 /**
  * Called when a node is added to/removed from a user/group
  */
-public interface NodeMutateEvent extends LuckPermsEvent {
+public interface NodeMutateEvent extends RoryPermsEvent {
 
     /**
      * Gets the target of the event

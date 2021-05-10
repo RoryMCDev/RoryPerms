@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -29,7 +29,7 @@ import me.lucko.luckperms.common.command.access.CommandPermission;
 import me.lucko.luckperms.common.commands.log.LogNotify;
 import me.lucko.luckperms.common.config.ConfigKeys;
 import me.lucko.luckperms.common.locale.Message;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 
 import net.luckperms.api.event.log.LogBroadcastEvent;
@@ -39,9 +39,9 @@ import java.util.Collection;
 import java.util.regex.Pattern;
 
 public class LogDispatcher {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
 
-    public LogDispatcher(LuckPermsPlugin plugin) {
+    public LogDispatcher(RoryPermsPlugin plugin) {
         this.plugin = plugin;
     }
 

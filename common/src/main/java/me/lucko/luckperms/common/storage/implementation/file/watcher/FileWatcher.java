@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package me.lucko.luckperms.common.storage.implementation.file.watcher;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.util.ExpiringSet;
 import me.lucko.luckperms.common.util.Iterators;
 
@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 /**
- * Simple implementation of {@link AbstractFileWatcher} for LuckPerms data files.
+ * Simple implementation of {@link AbstractFileWatcher} for RoryPerms data files.
  */
 public class FileWatcher extends AbstractFileWatcher {
 
@@ -52,7 +52,7 @@ public class FileWatcher extends AbstractFileWatcher {
     /** A map of watched locations with corresponding listeners */
     private final Map<Path, WatchedLocation> watchedLocations;
 
-    public FileWatcher(LuckPermsPlugin plugin, Path basePath) throws IOException {
+    public FileWatcher(RoryPermsPlugin plugin, Path basePath) throws IOException {
         super(basePath.getFileSystem(), true);
         this.watchedLocations = Collections.synchronizedMap(new HashMap<>());
         this.basePath = basePath;

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -28,7 +28,7 @@ package me.lucko.luckperms.common.command.access;
 import me.lucko.luckperms.common.sender.Sender;
 
 /**
- * An enumeration of the permissions required to execute built in LuckPerms commands.
+ * An enumeration of the permissions required to execute built in RoryPerms commands.
  */
 public enum CommandPermission {
 

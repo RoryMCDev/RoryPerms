@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.common.sender;
 
 import com.google.common.collect.Iterables;
 
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
@@ -46,7 +46,7 @@ import java.util.UUID;
  * @param <T> the command sender type
  */
 public final class AbstractSender<T> implements Sender {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final SenderFactory<?, T> factory;
     private final T sender;
 
@@ -54,7 +54,7 @@ public final class AbstractSender<T> implements Sender {
     private final String name;
     private final boolean isConsole;
 
-    AbstractSender(LuckPermsPlugin plugin, SenderFactory<?, T> factory, T sender) {
+    AbstractSender(RoryPermsPlugin plugin, SenderFactory<?, T> factory, T sender) {
         this.plugin = plugin;
         this.factory = factory;
         this.sender = sender;
@@ -64,7 +64,7 @@ public final class AbstractSender<T> implements Sender {
     }
 
     @Override
-    public LuckPermsPlugin getPlugin() {
+    public RoryPermsPlugin getPlugin() {
         return this.plugin;
     }
 

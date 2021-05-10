@@ -1,4 +1,4 @@
--- LuckPerms PostgreSQL Schema
+-- RoryPerms PostgreSQL Schema
 
 CREATE TABLE "{prefix}user_permissions" (
   "id"         SERIAL PRIMARY KEY      NOT NULL,

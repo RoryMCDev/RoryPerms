@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -50,13 +50,13 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * A replacement map for the 'defaultPerms' instance in Bukkit's SimplePluginManager.
  *
- * This instance allows LuckPerms to intercept calls to
+ * This instance allows RoryPerms to intercept calls to
  * {@link PluginManager#addPermission(Permission)}, specifically regarding
  * the default nature of the permission.
  *
  * Injected by {@link InjectorDefaultsMap}.
  */
-public final class LuckPermsDefaultsMap implements Map<Boolean, Set<Permission>> {
+public final class RoryPermsDefaultsMap implements Map<Boolean, Set<Permission>> {
     // keyset for all instances
     private static final Set<Boolean> KEY_SET = ImmutableSet.of(Boolean.TRUE, Boolean.FALSE);
 
@@ -78,7 +78,7 @@ public final class LuckPermsDefaultsMap implements Map<Boolean, Set<Permission>>
             Maps.immutableEntry(Boolean.FALSE, this.nonOpSet)
     );
 
-    public LuckPermsDefaultsMap(LPBukkitPlugin plugin, Map<Boolean, Set<Permission>> existingData) {
+    public RoryPermsDefaultsMap(LPBukkitPlugin plugin, Map<Boolean, Set<Permission>> existingData) {
         this.plugin = plugin;
         this.opSet.addAll(existingData.getOrDefault(Boolean.TRUE, Collections.emptySet()));
         this.nonOpSet.addAll(existingData.getOrDefault(Boolean.FALSE, Collections.emptySet()));
@@ -139,10 +139,10 @@ public final class LuckPermsDefaultsMap implements Map<Boolean, Set<Permission>>
         @Override
         protected @NonNull Map<String, Boolean> supply() {
             Map<String, Boolean> builder = new HashMap<>();
-            for (Permission perm : LuckPermsDefaultsMap.this.get(this.op)) {
+            for (Permission perm : RoryPermsDefaultsMap.this.get(this.op)) {
                 String name = perm.getName().toLowerCase();
                 builder.put(name, true);
-                for (Map.Entry<String, Boolean> child : LuckPermsDefaultsMap.this.plugin.getPermissionMap().getChildPermissions(name, true).entrySet()) {
+                for (Map.Entry<String, Boolean> child : RoryPermsDefaultsMap.this.plugin.getPermissionMap().getChildPermissions(name, true).entrySet()) {
                     builder.putIfAbsent(child.getKey(), child.getValue());
                 }
             }

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -60,20 +60,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * PermissibleBase for LuckPerms.
+ * PermissibleBase for RoryPerms.
  *
  * This class overrides all methods defined in PermissibleBase, and provides custom handling
- * from LuckPerms.
+ * from RoryPerms.
  *
  * This means that all permission checks made for a player are handled directly by the plugin.
  * Method behaviour is retained, but alternate implementation is used.
  *
  * "Hot" method calls, (namely #hasPermission) are significantly faster than the base implementation.
  *
- * This class is **thread safe**. This means that when LuckPerms is installed on the server,
+ * This class is **thread safe**. This means that when RoryPerms is installed on the server,
  * is is safe to call Player#hasPermission asynchronously.
  */
-public class LuckPermsPermissible extends PermissibleBase {
+public class RoryPermsPermissible extends PermissibleBase {
 
     private static final Field ATTACHMENTS_FIELD;
 
@@ -86,7 +86,7 @@ public class LuckPermsPermissible extends PermissibleBase {
         }
     }
 
-    // the LuckPerms user this permissible references.
+    // the RoryPerms user this permissible references.
     private final User user;
 
     // the player this permissible is injected into.
@@ -106,9 +106,9 @@ public class LuckPermsPermissible extends PermissibleBase {
 
     // the attachments hooked onto the permissible.
     // this collection is only modified by the attachments themselves
-    final Set<LuckPermsPermissionAttachment> hookedAttachments = ConcurrentHashMap.newKeySet();
+    final Set<RoryPermsPermissionAttachment> hookedAttachments = ConcurrentHashMap.newKeySet();
 
-    public LuckPermsPermissible(Player player, User user, LPBukkitPlugin plugin) {
+    public RoryPermsPermissible(Player player, User user, LPBukkitPlugin plugin) {
         super(player);
         this.user = Objects.requireNonNull(user, "user");
         this.player = Objects.requireNonNull(player, "player");
@@ -201,7 +201,7 @@ public class LuckPermsPermissible extends PermissibleBase {
      */
     void convertAndAddAttachments(Collection<PermissionAttachment> attachments) {
         for (PermissionAttachment attachment : attachments) {
-            new LuckPermsPermissionAttachment(this, attachment).hook();
+            new RoryPermsPermissionAttachment(this, attachment).hook();
         }
     }
 
@@ -220,10 +220,10 @@ public class LuckPermsPermissible extends PermissibleBase {
     }
 
     @Override
-    public @NonNull LuckPermsPermissionAttachment addAttachment(@NonNull Plugin plugin) {
+    public @NonNull RoryPermsPermissionAttachment addAttachment(@NonNull Plugin plugin) {
         Objects.requireNonNull(plugin, "plugin");
 
-        LuckPermsPermissionAttachment attachment = new LuckPermsPermissionAttachment(this, plugin);
+        RoryPermsPermissionAttachment attachment = new RoryPermsPermissionAttachment(this, plugin);
         attachment.hook();
         return attachment;
     }
@@ -239,14 +239,14 @@ public class LuckPermsPermissible extends PermissibleBase {
     }
 
     @Override
-    public LuckPermsPermissionAttachment addAttachment(@NonNull Plugin plugin, int ticks) {
+    public RoryPermsPermissionAttachment addAttachment(@NonNull Plugin plugin, int ticks) {
         Objects.requireNonNull(plugin, "plugin");
 
         if (!plugin.isEnabled()) {
             throw new IllegalArgumentException("Plugin " + plugin.getDescription().getFullName() + " is not enabled");
         }
 
-        LuckPermsPermissionAttachment attachment = addAttachment(plugin);
+        RoryPermsPermissionAttachment attachment = addAttachment(plugin);
         if (getPlugin().getBootstrap().getServer().getScheduler().scheduleSyncDelayedTask(plugin, attachment::remove, ticks) == -1) {
             attachment.remove();
             throw new RuntimeException("Could not add PermissionAttachment to " + this.player + " for plugin " + plugin.getDescription().getFullName() + ": Scheduler returned -1");
@@ -255,11 +255,11 @@ public class LuckPermsPermissible extends PermissibleBase {
     }
 
     @Override
-    public LuckPermsPermissionAttachment addAttachment(@NonNull Plugin plugin, @NonNull String permission, boolean value, int ticks) {
+    public RoryPermsPermissionAttachment addAttachment(@NonNull Plugin plugin, @NonNull String permission, boolean value, int ticks) {
         Objects.requireNonNull(plugin, "plugin");
         Objects.requireNonNull(permission, "permission");
 
-        LuckPermsPermissionAttachment attachment = addAttachment(plugin, ticks);
+        RoryPermsPermissionAttachment attachment = addAttachment(plugin, ticks);
         attachment.setPermission(permission, value);
         return attachment;
     }
@@ -268,18 +268,18 @@ public class LuckPermsPermissible extends PermissibleBase {
     public void removeAttachment(@NonNull PermissionAttachment attachment) {
         Objects.requireNonNull(attachment, "attachment");
 
-        LuckPermsPermissionAttachment luckPermsAttachment;
+        RoryPermsPermissionAttachment luckPermsAttachment;
 
-        if (!(attachment instanceof LuckPermsPermissionAttachment)) {
+        if (!(attachment instanceof RoryPermsPermissionAttachment)) {
             // try to find a match
-            LuckPermsPermissionAttachment match = this.hookedAttachments.stream().filter(at -> at.getSource() == attachment).findFirst().orElse(null);
+            RoryPermsPermissionAttachment match = this.hookedAttachments.stream().filter(at -> at.getSource() == attachment).findFirst().orElse(null);
             if (match != null) {
                 luckPermsAttachment = match;
             } else {
                 throw new IllegalArgumentException("Given attachment is not a LPPermissionAttachment.");
             }
         } else {
-            luckPermsAttachment = (LuckPermsPermissionAttachment) attachment;
+            luckPermsAttachment = (RoryPermsPermissionAttachment) attachment;
         }
 
         if (luckPermsAttachment.getPermissible() != this) {
@@ -304,7 +304,7 @@ public class LuckPermsPermissible extends PermissibleBase {
 
     @Override
     public void clearPermissions() {
-        this.hookedAttachments.forEach(LuckPermsPermissionAttachment::remove);
+        this.hookedAttachments.forEach(RoryPermsPermissionAttachment::remove);
     }
 
     public User getUser() {
@@ -338,17 +338,17 @@ public class LuckPermsPermissible extends PermissibleBase {
      * Some (clever/dumb??) plugins attempt to add/remove/query attachments using reflection.
      *
      * An instance of this map is injected into the super instance so these plugins continue
-     * to work with LuckPerms.
+     * to work with RoryPerms.
      */
     private final class FakeAttachmentList implements List<PermissionAttachment> {
 
         @Override
         public boolean add(PermissionAttachment attachment) {
-            if (LuckPermsPermissible.this.hookedAttachments.stream().anyMatch(at -> at.getSource() == attachment)) {
+            if (RoryPermsPermissible.this.hookedAttachments.stream().anyMatch(at -> at.getSource() == attachment)) {
                 return false;
             }
 
-            new LuckPermsPermissionAttachment(LuckPermsPermissible.this, attachment).hook();
+            new RoryPermsPermissionAttachment(RoryPermsPermissible.this, attachment).hook();
             return true;
         }
 
@@ -377,27 +377,27 @@ public class LuckPermsPermissible extends PermissibleBase {
         @Override
         public boolean contains(Object o) {
             PermissionAttachment attachment = (PermissionAttachment) o;
-            return LuckPermsPermissible.this.hookedAttachments.stream().anyMatch(at -> at.getSource() == attachment);
+            return RoryPermsPermissible.this.hookedAttachments.stream().anyMatch(at -> at.getSource() == attachment);
         }
 
         @Override
         public Iterator<PermissionAttachment> iterator() {
-            return ImmutableList.<PermissionAttachment>copyOf(LuckPermsPermissible.this.hookedAttachments).iterator();
+            return ImmutableList.<PermissionAttachment>copyOf(RoryPermsPermissible.this.hookedAttachments).iterator();
         }
 
         @Override
         public ListIterator<PermissionAttachment> listIterator() {
-            return ImmutableList.<PermissionAttachment>copyOf(LuckPermsPermissible.this.hookedAttachments).listIterator();
+            return ImmutableList.<PermissionAttachment>copyOf(RoryPermsPermissible.this.hookedAttachments).listIterator();
         }
 
         @Override
         public @NonNull Object[] toArray() {
-            return ImmutableList.<PermissionAttachment>copyOf(LuckPermsPermissible.this.hookedAttachments).toArray();
+            return ImmutableList.<PermissionAttachment>copyOf(RoryPermsPermissible.this.hookedAttachments).toArray();
         }
 
         @Override
         public <T> @NonNull T[] toArray(@NonNull T[] a) {
-            return ImmutableList.<PermissionAttachment>copyOf(LuckPermsPermissible.this.hookedAttachments).toArray(a);
+            return ImmutableList.<PermissionAttachment>copyOf(RoryPermsPermissible.this.hookedAttachments).toArray(a);
         }
 
         @Override public int size() { throw new UnsupportedOperationException(); }

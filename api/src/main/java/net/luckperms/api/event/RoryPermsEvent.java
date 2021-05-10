@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -23,41 +23,29 @@
  *  SOFTWARE.
  */
 
-package me.lucko.luckperms.common.config;
+package net.luckperms.api.event;
 
-import me.lucko.luckperms.common.config.generic.KeyedConfiguration;
-import me.lucko.luckperms.common.config.generic.adapter.ConfigurationAdapter;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import net.luckperms.api.RoryPerms;
 
-public class LuckPermsConfiguration extends KeyedConfiguration {
-    private final LuckPermsPlugin plugin;
-    private final ContextsFile contextsFile;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
-    public LuckPermsConfiguration(LuckPermsPlugin plugin, ConfigurationAdapter adapter) {
-        super(adapter, ConfigKeys.getKeys());
-        this.plugin = plugin;
-        this.contextsFile = new ContextsFile(this);
+/**
+ * A superinterface for all RoryPerms events.
+ */
+public interface RoryPermsEvent {
 
-        init();
-    }
+    /**
+     * Get the API instance this event was dispatched from
+     *
+     * @return the api instance
+     */
+    @NonNull RoryPerms getRoryPerms();
 
-    @Override
-    protected void load(boolean initial) {
-        super.load(initial);
-        this.contextsFile.load();
-    }
+    /**
+     * Gets the type of the event.
+     *
+     * @return the type of the event
+     */
+    @NonNull Class<? extends RoryPermsEvent> getEventType();
 
-    @Override
-    public void reload() {
-        super.reload();
-        getPlugin().getEventDispatcher().dispatchConfigReload();
-    }
-
-    public ContextsFile getContextsFile() {
-        return this.contextsFile;
-    }
-
-    public LuckPermsPlugin getPlugin() {
-        return this.plugin;
-    }
 }

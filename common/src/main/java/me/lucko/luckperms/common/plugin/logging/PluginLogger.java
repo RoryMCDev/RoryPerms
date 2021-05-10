@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,9 +26,9 @@
 package me.lucko.luckperms.common.plugin.logging;
 
 /**
- * Represents the logger instance being used by LuckPerms on the platform.
+ * Represents the logger instance being used by RoryPerms on the platform.
  *
- * <p>Messages sent using the logger are sent prefixed with the LuckPerms tag,
+ * <p>Messages sent using the logger are sent prefixed with the RoryPerms tag,
  * and on some implementations will be colored depending on the message type.</p>
  */
 public interface PluginLogger {

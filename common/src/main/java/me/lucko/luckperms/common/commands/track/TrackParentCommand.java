@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -33,7 +33,7 @@ import me.lucko.luckperms.common.command.abstraction.ParentCommand;
 import me.lucko.luckperms.common.command.spec.CommandSpec;
 import me.lucko.luckperms.common.command.utils.StorageAssistant;
 import me.lucko.luckperms.common.model.Track;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.util.CaffeineFactory;
 
@@ -67,12 +67,12 @@ public class TrackParentCommand extends ParentCommand<Track, String> {
     }
 
     @Override
-    protected String parseTarget(String target, LuckPermsPlugin plugin, Sender sender) {
+    protected String parseTarget(String target, RoryPermsPlugin plugin, Sender sender) {
         return target.toLowerCase();
     }
 
     @Override
-    protected Track getTarget(String target, LuckPermsPlugin plugin, Sender sender) {
+    protected Track getTarget(String target, RoryPermsPlugin plugin, Sender sender) {
         return StorageAssistant.loadTrack(target, sender, plugin);
     }
 
@@ -82,12 +82,12 @@ public class TrackParentCommand extends ParentCommand<Track, String> {
     }
 
     @Override
-    protected void cleanup(Track track, LuckPermsPlugin plugin) {
+    protected void cleanup(Track track, RoryPermsPlugin plugin) {
 
     }
 
     @Override
-    protected List<String> getTargets(LuckPermsPlugin plugin) {
+    protected List<String> getTargets(RoryPermsPlugin plugin) {
         return new ArrayList<>(plugin.getTrackManager().getAll().keySet());
     }
 }

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -26,7 +26,7 @@
 package me.lucko.luckperms.common.api.implementation;
 
 import me.lucko.luckperms.common.context.ContextManager;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.query.QueryOptionsBuilderImpl;
 
 import net.luckperms.api.context.ContextCalculator;
@@ -43,10 +43,10 @@ import java.util.Optional;
 
 @SuppressWarnings({"unchecked", "rawtypes"})
 public class ApiContextManager implements net.luckperms.api.context.ContextManager {
-    private final LuckPermsPlugin plugin;
+    private final RoryPermsPlugin plugin;
     private final ContextManager handle;
 
-    public ApiContextManager(LuckPermsPlugin plugin, ContextManager<?, ?> handle) {
+    public ApiContextManager(RoryPermsPlugin plugin, ContextManager<?, ?> handle) {
         this.plugin = plugin;
         this.handle = handle;
     }

@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.event.extension;
 
-import net.luckperms.api.event.LuckPermsEvent;
+import net.luckperms.api.event.RoryPermsEvent;
 import net.luckperms.api.event.util.Param;
 import net.luckperms.api.extension.Extension;
 
@@ -34,7 +34,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 /**
  * Called when an {@link Extension} is loaded.
  */
-public interface ExtensionLoadEvent extends LuckPermsEvent {
+public interface ExtensionLoadEvent extends RoryPermsEvent {
 
     /**
      * Gets the extension that was loaded.

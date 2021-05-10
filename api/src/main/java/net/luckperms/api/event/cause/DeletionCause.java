@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -47,7 +47,7 @@ public enum DeletionCause {
     API,
 
     /**
-     * The deletion was caused by a LuckPerms internal
+     * The deletion was caused by a RoryPerms internal
      */
     INTERNAL
 

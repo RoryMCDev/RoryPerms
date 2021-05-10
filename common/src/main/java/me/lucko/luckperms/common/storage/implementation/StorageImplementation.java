@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -31,7 +31,7 @@ import me.lucko.luckperms.common.model.Group;
 import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.node.matcher.ConstraintNodeMatcher;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.storage.misc.NodeEntry;
 
 import net.kyori.adventure.text.Component;
@@ -49,7 +49,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public interface StorageImplementation {
-    LuckPermsPlugin getPlugin();
+    RoryPermsPlugin getPlugin();
 
     String getImplementationName();
 

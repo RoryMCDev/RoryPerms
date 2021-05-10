@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -35,7 +35,7 @@ import me.lucko.luckperms.common.model.PermissionHolder;
 import me.lucko.luckperms.common.model.Track;
 import me.lucko.luckperms.common.model.User;
 import me.lucko.luckperms.common.node.types.Inheritance;
-import me.lucko.luckperms.common.plugin.LuckPermsPlugin;
+import me.lucko.luckperms.common.plugin.RoryPermsPlugin;
 import me.lucko.luckperms.common.query.QueryOptionsImpl;
 import me.lucko.luckperms.common.sender.Sender;
 import me.lucko.luckperms.common.verbose.event.PermissionCheckEvent;
@@ -75,7 +75,7 @@ public final class ArgumentPermissions {
      * @param args the arguments the sender is trying to use
      * @return true if the sender should NOT be allowed to use the arguments, true if they should
      */
-    public static boolean checkArguments(LuckPermsPlugin plugin, Sender sender, CommandPermission base, String... args) {
+    public static boolean checkArguments(RoryPermsPlugin plugin, Sender sender, CommandPermission base, String... args) {
         if (!plugin.getConfiguration().get(ConfigKeys.USE_ARGUMENT_BASED_COMMAND_PERMISSIONS)) {
             return false;
         }
@@ -101,7 +101,7 @@ public final class ArgumentPermissions {
      * @param target the object the sender is truing to modify
      * @return true if the sender should NOT be allowed to modify the target, true if they should
      */
-    public static boolean checkModifyPerms(LuckPermsPlugin plugin, Sender sender, CommandPermission base, Object target) {
+    public static boolean checkModifyPerms(RoryPermsPlugin plugin, Sender sender, CommandPermission base, Object target) {
         if (!plugin.getConfiguration().get(ConfigKeys.USE_ARGUMENT_BASED_COMMAND_PERMISSIONS)) {
             return false;
         }
@@ -166,7 +166,7 @@ public final class ArgumentPermissions {
      * @param target the object the sender is truing to view
      * @return true if the sender should NOT be allowed to view the target, true if they should
      */
-    public static boolean checkViewPerms(LuckPermsPlugin plugin, Sender sender, CommandPermission base, Object target) {
+    public static boolean checkViewPerms(RoryPermsPlugin plugin, Sender sender, CommandPermission base, Object target) {
         if (!plugin.getConfiguration().get(ConfigKeys.USE_ARGUMENT_BASED_COMMAND_PERMISSIONS)) {
             return false;
         }
@@ -231,7 +231,7 @@ public final class ArgumentPermissions {
      * @param contextSet the contexts the sender is trying to act within
      * @return true if the sender should NOT be allowed to act, true if they should
      */
-    public static boolean checkContext(LuckPermsPlugin plugin, Sender sender, CommandPermission base, ContextSet contextSet) {
+    public static boolean checkContext(RoryPermsPlugin plugin, Sender sender, CommandPermission base, ContextSet contextSet) {
         if (!plugin.getConfiguration().get(ConfigKeys.USE_ARGUMENT_BASED_COMMAND_PERMISSIONS)) {
             return false;
         }
@@ -274,7 +274,7 @@ public final class ArgumentPermissions {
      * @param contextSet the contexts the sender is trying to act within
      * @return true if the sender should NOT be allowed to act, true if they should
      */
-    public static boolean checkGroup(LuckPermsPlugin plugin, Sender sender, PermissionHolder holder, ContextSet contextSet) {
+    public static boolean checkGroup(RoryPermsPlugin plugin, Sender sender, PermissionHolder holder, ContextSet contextSet) {
         if (holder.getType() == HolderType.GROUP) {
             return checkGroup(plugin, sender, ((Group) holder).getName(), contextSet);
         }
@@ -290,7 +290,7 @@ public final class ArgumentPermissions {
      * @param contextSet the contexts the sender is trying to act within
      * @return true if the sender should NOT be allowed to act, true if they should
      */
-    public static boolean checkGroup(LuckPermsPlugin plugin, Sender sender, String targetGroupName, ContextSet contextSet) {
+    public static boolean checkGroup(RoryPermsPlugin plugin, Sender sender, String targetGroupName, ContextSet contextSet) {
         if (!plugin.getConfiguration().get(ConfigKeys.REQUIRE_SENDER_GROUP_MEMBERSHIP_TO_MODIFY)) {
             return false;
         }

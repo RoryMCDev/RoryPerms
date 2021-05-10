@@ -12,7 +12,7 @@ if (project.hasProperty('sonatypeUsername') && project.hasProperty('sonatypePass
     apply plugin: 'signing'
 
     javadoc {
-        title = 'LuckPerms API (v' + project.ext.apiVersion + ')'
+        title = 'RoryPerms API (v' + project.ext.apiVersion + ')'
         options.overview = 'javadoc/overview.html'
         options.encoding = 'UTF-8'
         options.charSet = 'UTF-8'
@@ -65,7 +65,7 @@ if (project.hasProperty('sonatypeUsername') && project.hasProperty('sonatypePass
 
                 pom {
                     project {
-                        name 'LuckPerms API'
+                        name 'RoryPerms API'
                         description 'A permissions plugin for Minecraft servers.'
                         url 'https://luckperms.net'
 
@@ -86,19 +86,19 @@ if (project.hasProperty('sonatypeUsername') && project.hasProperty('sonatypePass
                         }
 
                         scm {
-                            connection 'scm:git:https://github.com/lucko/LuckPerms.git'
-                            developerConnection 'scm:git:git@github.com:lucko/LuckPerms.git'
-                            url 'https://github.com/lucko/LuckPerms'
+                            connection 'scm:git:https://github.com/lucko/RoryPerms.git'
+                            developerConnection 'scm:git:git@github.com:lucko/RoryPerms.git'
+                            url 'https://github.com/lucko/RoryPerms'
                         }
 
                         ciManagement {
                             system 'Jenkins'
-                            url 'https://ci.lucko.me/job/LuckPerms'
+                            url 'https://ci.lucko.me/job/RoryPerms'
                         }
 
                         issueManagement {
                             system 'GitHub'
-                            url 'https://github.com/lucko/LuckPerms/issues'
+                            url 'https://github.com/lucko/RoryPerms/issues'
                         }
                     }
                 }

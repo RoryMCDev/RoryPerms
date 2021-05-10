@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -25,7 +25,7 @@
 
 package net.luckperms.api.query;
 
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.RoryPermsProvider;
 import net.luckperms.api.context.ContextSatisfyMode;
 import net.luckperms.api.context.ContextSet;
 import net.luckperms.api.context.ImmutableContextSet;
@@ -51,7 +51,7 @@ public interface QueryOptions {
      * @return a new builder
      */
     static @NonNull Builder builder(@NonNull QueryMode mode) {
-        return LuckPermsProvider.get().getContextManager().queryOptionsBuilder(mode);
+        return RoryPermsProvider.get().getContextManager().queryOptionsBuilder(mode);
     }
 
     /**
@@ -97,7 +97,7 @@ public interface QueryOptions {
      * @return the default non contextual query options
      */
     static @NonNull QueryOptions nonContextual() {
-        return LuckPermsProvider.get().getQueryOptionsRegistry().defaultNonContextualOptions();
+        return RoryPermsProvider.get().getQueryOptionsRegistry().defaultNonContextualOptions();
     }
 
     /**
@@ -110,7 +110,7 @@ public interface QueryOptions {
      * @return the default contextual query options
      */
     static @NonNull QueryOptions defaultContextualOptions() {
-        return LuckPermsProvider.get().getQueryOptionsRegistry().defaultContextualOptions();
+        return RoryPermsProvider.get().getQueryOptionsRegistry().defaultContextualOptions();
     }
 
     /**

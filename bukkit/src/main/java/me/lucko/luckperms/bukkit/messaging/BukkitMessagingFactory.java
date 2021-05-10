@@ -1,5 +1,5 @@
 /*
- * This file is part of LuckPerms, licensed under the MIT License.
+ * This file is part of RoryPerms, licensed under the MIT License.
  *
  *  Copyright (c) lucko (Luck) <luck@lucko.me>
  *  Copyright (c) contributors
@@ -27,7 +27,7 @@ package me.lucko.luckperms.bukkit.messaging;
 
 import me.lucko.luckperms.bukkit.LPBukkitPlugin;
 import me.lucko.luckperms.common.messaging.InternalMessagingService;
-import me.lucko.luckperms.common.messaging.LuckPermsMessagingService;
+import me.lucko.luckperms.common.messaging.RoryPermsMessagingService;
 import me.lucko.luckperms.common.messaging.MessagingFactory;
 
 import net.luckperms.api.messenger.IncomingMessageConsumer;
@@ -45,7 +45,7 @@ public class BukkitMessagingFactory extends MessagingFactory<LPBukkitPlugin> {
     protected InternalMessagingService getServiceFor(String messagingType) {
         if (messagingType.equals("pluginmsg") || messagingType.equals("bungee") || messagingType.equals("velocity")) {
             try {
-                return new LuckPermsMessagingService(getPlugin(), new PluginMessageMessengerProvider());
+                return new RoryPermsMessagingService(getPlugin(), new PluginMessageMessengerProvider());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -54,7 +54,7 @@ public class BukkitMessagingFactory extends MessagingFactory<LPBukkitPlugin> {
                 getPlugin().getLogger().warn("LilyPad-Connect plugin not present.");
             } else {
                 try {
-                    return new LuckPermsMessagingService(getPlugin(), new LilyPadMessengerProvider());
+                    return new RoryPermsMessagingService(getPlugin(), new LilyPadMessengerProvider());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
